@@ -38,7 +38,7 @@ const base = injectGlobal`
     background-color: ${theme.colors.white};
     color: ${theme.colors.black};
     font-family: ${theme.fonts.Josefin};
-    font-size: ${theme.fontSizes.base};
+    font-size: ${theme.fontSizes.xlarge};
 
     &.loading {
       overflow: hidden;
@@ -55,7 +55,7 @@ const base = injectGlobal`
   h4,
   h5 {
     font-weight: 600;
-    color: ${theme.colors.white};
+    color: ${theme.colors.dark};
   }
 
   p {
