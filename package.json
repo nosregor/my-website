@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Andrew Rogerson <werdnanosregor@gmail.com>",
   "dependencies": {
+    "animejs": "^3.0.1",
     "babel-plugin-styled-components": "^1.10.0",
     "gatsby": "^2.9.0",
     "gatsby-image": "^2.1.3",
