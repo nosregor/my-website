@@ -20,7 +20,7 @@ const EmailContainer = styled.div`
   }
 `;
 const EmailLink = A.extend`
-  font-family: ${theme.fonts.SFMono};
+  font-family: ${theme.fonts.Josefin};
   font-size: ${theme.fontSizes.xsmall};
   color: ${theme.colors.lightSlate};
   letter-spacing: 0.5px;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import IconLogo from './icons/logo';
+import IconLogo from './icons/logoa';
 
 import styled from 'styled-components';
 import { theme, mixins, Nav, Ul, A } from '../style';
@@ -28,7 +28,7 @@ const HeaderContainer = styled.header`
 `;
 const Navbar = Nav.extend`
   ${mixins.flexBetween};
-  font-family: ${theme.fonts.SFMono};
+  font-family: ${theme.fonts.Josefin};
   width: 100%;
   color: ${theme.colors.black};
   counter-reset: item 0;
@@ -39,16 +39,16 @@ const Logo = styled.div`
 `;
 const LogoLink = A.extend`
   color: ${theme.colors.green};
-  width: 40px;
-  height: 40px;
+  width: 200px;
+  // height: 40px;
 
-  &:hover {
-    opacity: 0.8;
-  }
+  // &:hover {
+  //   opacity: 0.8;
+  // }
 
-  svg {
-    fill: none;
-  }
+  // svg {
+  //   fill: none;
+  // }
 `;
 const NavLinks = styled.div`
   display: flex;
@@ -92,6 +92,7 @@ const Header = () => (
       <Logo>
         <LogoLink to="/" target="_blank" rel="noopener">
           <IconLogo />
+          {/* andrew<span className="lite">rogerson</span> */}
         </LogoLink>
       </Logo>
       <NavLinks>

@@ -1,7 +1,19 @@
 import { injectGlobal } from 'styled-components';
 import theme from './theme';
+import { BrandonWOFF2 } from './fonts';
 
 const base = injectGlobal`
+
+  @font-face {
+    font-family: 'Brandon';
+    src:  url(${BrandonWOFF2}) format('woff2');
+    // font-weight: normal;
+    // font-style: normal;
+  }
+
+  @import url("https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap");
+
+
   html {
     box-sizing: border-box;
   }
@@ -25,7 +37,7 @@ const base = injectGlobal`
     -webkit-font-smoothing: antialiased;
     background-color: ${theme.colors.white};
     color: ${theme.colors.black};
-    font-family: ${theme.fonts.Calibre};
+    font-family: ${theme.fonts.Josefin};
     font-size: ${theme.fontSizes.base};
 
     &.loading {

@@ -27,6 +27,8 @@ const theme = {
   },
 
   fonts: {
+    Josefin: 'Josefin Sans, sans-serif',
+    Brtandon: 'Brandon',
     Calibre:
       'Calibre, system, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Segoe UI, Arial, sans-serif',
     SFMono: 'SF Mono, monospace',

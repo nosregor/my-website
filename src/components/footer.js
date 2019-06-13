@@ -16,7 +16,7 @@ const FooterContainer = styled.footer`
 const GithubLink = A.extend`
   ${mixins.inlineLink};
   color: ${theme.colors.lightGrey};
-  font-family: ${theme.fonts.SFMono};
+  font-family: ${theme.fonts.Josefin};
   font-size: ${theme.fontSizes.xsmall};
   &:after {
     display: none;
