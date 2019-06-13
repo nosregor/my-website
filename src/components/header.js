@@ -40,15 +40,18 @@ const Logo = styled.div`
 const LogoLink = A.extend`
   color: ${theme.colors.green};
   width: 200px;
-  // height: 40px;
+  height: 40px;
 
-  // &:hover {
-  //   opacity: 0.8;
-  // }
+  &:hover {
+    opacity: 0.8;
+    svg {
+      fill: ${theme.colors.transGreen};
+    }
+  }
+  svg {
+    fill: none;
+    transition: ${theme.transition};
 
-  // svg {
-  //   fill: none;
-  // }
 `;
 const NavLinks = styled.div`
   display: flex;
@@ -92,7 +95,6 @@ const Header = () => (
       <Logo>
         <LogoLink to="/" target="_blank" rel="noopener">
           <IconLogo />
-          {/* andrew<span className="lite">rogerson</span> */}
         </LogoLink>
       </Logo>
       <NavLinks>

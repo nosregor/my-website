@@ -53,6 +53,7 @@ const theme = {
   navbarHeight: '100px',
   navbarScrollHeight: '70px',
   margin: '20px',
+  padding: '15px',
   tabHeight: '40px',
 };
 
