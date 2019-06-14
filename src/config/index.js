@@ -1,4 +1,4 @@
-const config = {
+module.exports = {
   // Site information
   siteTitle: 'Andrew Rogerson',
   siteTitleAlt: 'Andrew Rogerson | Software Engineer',
@@ -38,5 +38,3 @@ const config = {
   userTwitter: '@rogerson_andrew', // Twitter Username
   googleAnalyticsID: 'UA-12345689-1',
 };
-
-export default config;

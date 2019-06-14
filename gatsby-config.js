@@ -1,11 +1,10 @@
-// import config from './src/config';
-// // eslint-disable-next-line no-console
-// console.log(config);
+const config = require('./src/config');
+
 module.exports = {
   siteMetadata: {
-    title: 'Andrew Rogerson',
-    siteUrl: 'https://andrewrogerson.me',
-    description: 'Software Engineer',
+    title: config.siteTitle,
+    siteUrl: config.siteUrl,
+    description: config.siteDescription,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

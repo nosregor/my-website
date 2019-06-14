@@ -138,7 +138,7 @@ class Header extends Component {
           </Logo>
           <NavLinks>
             <NavList>
-              <NavListItem>
+              <NavListItem onClick={this.handleNavClick}>
                 <NavLink to="#">About</NavLink>
               </NavListItem>
               <NavListItem>

@@ -61,6 +61,7 @@ const base = injectGlobal`
 
   body {
     margin: 0;
+    min-height: 100%;
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
