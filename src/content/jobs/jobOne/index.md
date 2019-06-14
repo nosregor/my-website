@@ -2,6 +2,7 @@
 date: '2017-04-01'
 title: 'Job One'
 company: 'car2go'
+location: 'Berlin'
 range: '2013 - 2018'
 url: 'asdfg'
 ---

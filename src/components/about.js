@@ -20,13 +20,16 @@ const SkillsContainer = Ul.extend`
 `;
 const Skill = styled.li`
   position: relative;
-  font-family: ${theme.fonts.Open};
+  font-family: ${theme.fonts.Avenir};
   font-size: ${theme.fontSizes.smallish};
   margin-bottom: 10px;
+  padding-left: 20px;
   &:before {
-    content: '>';
-    margin-right: 10px;
+    content: '▹';
     color: ${theme.colors.green};
+    position: absolute;
+    top: -2px;
+    left: 0;
   }
 `;
 const ProfPic = Img.extend`
