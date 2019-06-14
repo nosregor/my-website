@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { theme, Section, H3, A, P } from '../style';
 
+const TAB_HEIGHT = theme.tabHeight;
+
 const JobsContainer = Section.extend`
   position: relative;
   max-width: 700px;
@@ -20,7 +22,7 @@ const Tabs = styled.div`
 const Tab = A.extend`
   display: block;
   width: 100px;
-  height: ${theme.tabHeight};
+  height: ${TAB_HEIGHT}px;
   padding: 10px 0;
   text-align: center;
   transition: ${theme.transition};
@@ -29,24 +31,16 @@ const Tab = A.extend`
   font-family: ${theme.fonts.SFMono};
   font-size: ${theme.fontSizes.small};
   color: ${props => (props.isActive ? theme.colors.green : theme.colors.grey)};
-  &:hover {
-    color: ${theme.colors.green};
-  }
   &:focus {
-    background-color: ${theme.colors.lightNavy};
-  }
-  a:first-of-type {
-    border-top-left-radius: ${theme.borderRadius};
-  }
-  a:last-of-type {
-    border-top-right-radius: ${theme.borderRadius};
+    background-color: ${theme.colors.lightGrey};
   }
 `;
 const Highlighter = styled.span`
   display: block;
   background: ${theme.colors.green};
   width: 2px;
-  height: ${theme.tabHeight};
+  height: ${theme.tabHeight}px;
+  border-radius: ${theme.borderRadius};
   position: absolute;
   top: 0;
   left: 0;
@@ -54,7 +48,7 @@ const Highlighter = styled.span`
   transition-delay: 0.1s;
   z-index: 10;
   transform: translateY(
-    ${props => (props.selectedTabId > 1 ? props.selectedTabId * 40 - 40 : 0)}px
+    ${props => (props.activeTabId > 1 ? props.activeTabId * TAB_HEIGHT - TAB_HEIGHT : 0)}px
   );
 `;
 const ContentContainer = styled.div`
@@ -82,18 +76,18 @@ const tabData = [
 
 class Jobs extends Component {
   state = {
-    selectedTabId: 1,
+    activeTabId: 1,
   };
 
-  isActive = id => this.state.selectedTabId === id;
+  isActive = id => this.state.activeTabId === id;
 
-  setActiveTab = (selectedTabId, e) => {
+  setActiveTab = (activeTabId, e) => {
     e.preventDefault();
-    this.setState({ selectedTabId });
+    this.setState({ activeTabId });
   };
 
   render() {
-    const { selectedTabId } = this.state;
+    const { activeTabId } = this.state;
 
     return (
       <JobsContainer>
@@ -111,7 +105,7 @@ class Jobs extends Component {
                   <span>{tab.name}</span>
                 </Tab>
               ))}
-            <Highlighter selectedTabId={selectedTabId} />
+            <Highlighter activeTabId={activeTabId} />
           </Tabs>
           <ContentContainer>
             {tabData &&
