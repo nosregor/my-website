@@ -31,7 +31,7 @@ const IndexPage = ({ data }) => (
     <MainContainer>
       <Hero />
       <About />
-      <Jobs />
+      <Jobs jobs={data.jobs.edges} />
       <Featured featured={data.featured.edges} />
       <Projects projects={data.projects.edges} />
       <Contact />
@@ -46,6 +46,23 @@ IndexPage.propTypes = {
 /* eslint no-undef: off */
 export const query = graphql`
   query IndexQuery {
+    jobs: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/jobs/" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            date(formatString: "MM.DD.YYYY")
+            title
+            company
+            range
+            url
+          }
+          html
+        }
+      }
+    }
     featured: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/featured/" } }
       sort: { fields: [frontmatter___date], order: DESC }

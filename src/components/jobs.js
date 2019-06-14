@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import styled from 'styled-components';
 import { theme, Section, H3, A, P } from '../style';
@@ -23,7 +24,7 @@ const Tab = A.extend`
   display: block;
   width: 100px;
   height: ${TAB_HEIGHT}px;
-  padding: 10px 0;
+  padding: 10px 10px 10px 20px;
   text-align: center;
   transition: ${theme.transition};
   border-left: 2px solid ${theme.colors.darkGrey};
@@ -67,14 +68,11 @@ const TabContent = styled.div`
   transition: opacity ${props => (props.isActive ? '0.5s' : '0s')} ease-in-out;
 `;
 
-const tabData = [
-  { id: 1, name: 'Tab 1', text: 'text' },
-  { id: 2, name: 'Tab 2', text: 'text-2' },
-  { id: 3, name: 'Tab 3', text: 'text-3' },
-  { id: 4, name: 'Tab 4', text: 'text-4' },
-];
-
 class Jobs extends Component {
+  static propTypes = {
+    jobs: PropTypes.array.isRequired,
+  };
+
   state = {
     activeTabId: 1,
   };
@@ -88,30 +86,31 @@ class Jobs extends Component {
 
   render() {
     const { activeTabId } = this.state;
+    const { jobs } = this.props;
 
     return (
       <JobsContainer>
         <H3>Where I&apos;ve Worked</H3>
         <TabsContainer>
           <Tabs>
-            {tabData &&
-              tabData.map(tab => (
+            {jobs &&
+              jobs.map((tab, i) => (
                 <Tab
                   href="#"
-                  key={tab.id}
+                  key={i}
                   content={tab.text}
-                  isActive={this.isActive(tab.id)}
-                  onClick={e => this.setActiveTab(tab.id, e)}>
-                  <span>{tab.name}</span>
+                  isActive={this.isActive(i)}
+                  onClick={e => this.setActiveTab(i, e)}>
+                  <span>{tab.node.frontmatter.company}</span>
                 </Tab>
               ))}
             <Highlighter activeTabId={activeTabId} />
           </Tabs>
           <ContentContainer>
-            {tabData &&
-              tabData.map(tab => (
-                <TabContent key={tab.id} isActive={this.isActive(tab.id)}>
-                  <P>{tab.text}</P>
+            {jobs &&
+              jobs.map((job, i) => (
+                <TabContent key={i} isActive={this.isActive(i)}>
+                  <P dangerouslySetInnerHTML={{ __html: job.node.html }} />
                 </TabContent>
               ))}
           </ContentContainer>
