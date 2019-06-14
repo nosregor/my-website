@@ -7,6 +7,7 @@ import IconInstagram from './instagram';
 import IconTwitter from './twitter';
 import IconExternal from './external';
 import IconFolder from './folder';
+import IconLocation from './location';
 
 export {
   IconLogo,
@@ -18,4 +19,5 @@ export {
   IconTwitter,
   IconExternal,
   IconFolder,
+  IconLocation,
 };
