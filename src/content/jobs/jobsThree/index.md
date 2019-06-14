@@ -2,6 +2,7 @@
 date: '2017-04-01'
 title: 'Job Three'
 company: 'moovel'
+location: 'Berlin'
 range: '2019 - Present'
 url: 'asdfg'
 ---

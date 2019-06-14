@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
+
+import config from '../config';
 import { throttle } from '../utils';
 // import { IconLogo } from './icons';
 import { IconLogoSmall } from './icons';
@@ -152,7 +154,8 @@ class Header extends Component {
                 <NavLink href="#contact">Contact</NavLink>
               </NavListItem>
             </NavList>
-            <ResumeLink href="#" target="_blank" rel="noopener">
+            <ResumeLink href={config.resume} target="_blank" rel="noopener">
+              {' '}
               Resume
             </ResumeLink>
           </NavLinks>

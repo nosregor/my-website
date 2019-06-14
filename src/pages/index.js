@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
-import config from '../config';
 import Layout from '../components/layout';
 // import Image from '../components/image';
 import SEO from '../components/seo';
@@ -24,12 +23,12 @@ const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
     <MainContainer>
-      <Hero hero={data.hero.edges} email={config.email} />
+      <Hero hero={data.hero.edges} />
       <About about={data.about.edges} />
       <Jobs jobs={data.jobs.edges} />
       <Featured featured={data.featured.edges} />
       <Projects projects={data.projects.edges} />
-      <Contact contact={data.contact.edges} email={config.email} />
+      <Contact contact={data.contact.edges} />
     </MainContainer>
   </Layout>
 );
@@ -76,6 +75,7 @@ export const query = graphql`
             date(formatString: "MM.DD.YYYY")
             title
             company
+            location
             range
             url
           }

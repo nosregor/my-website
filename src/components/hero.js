@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import config from '../config';
+
 import styled from 'styled-components';
 import { theme, mixins, Section, A, P } from '../style';
 
@@ -72,7 +74,7 @@ class Hero extends Component {
   };
 
   render() {
-    const { hero, email } = this.props;
+    const { hero } = this.props;
     const { node } = hero[0];
 
     return (
@@ -85,7 +87,7 @@ class Hero extends Component {
         <Blurb>
           <P dangerouslySetInnerHTML={{ __html: node.html }} />
         </Blurb>
-        <EmailLink href={`mailto:${email}`} className="git">
+        <EmailLink href={`mailto:${config.email}`} className="git">
           Get In Touch
         </EmailLink>
       </HeroContainer>

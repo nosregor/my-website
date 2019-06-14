@@ -2,6 +2,7 @@
 date: '2017-04-01'
 title: 'Job Two'
 company: 'IronHack'
+location: 'Berlin'
 range: '2018 - 2019'
 url: 'asdfg'
 ---
