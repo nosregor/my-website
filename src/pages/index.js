@@ -23,7 +23,7 @@ const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
     <MainContainer>
-      <Hero />
+      <Hero hero={data.hero.edges} email={data.site.siteMetadata.email} />
       <About about={data.about.edges} />
       <Jobs jobs={data.jobs.edges} />
       <Featured featured={data.featured.edges} />
@@ -43,6 +43,19 @@ export const query = graphql`
     site {
       siteMetadata {
         email
+      }
+    }
+    hero: allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/hero/" } }) {
+      edges {
+        node {
+          frontmatter {
+            title
+            name
+            subtitle
+            contactText
+          }
+          html
+        }
       }
     }
     about: allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/about/" } }) {

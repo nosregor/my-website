@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import styled from 'styled-components';
 import { theme, mixins, Section, A, P } from '../style';
@@ -36,11 +37,26 @@ const Subtitle = styled.h2`
 const Blurb = styled.div`
   max-width: 50%;
   max-width: 480px;
-`;
-const MoovelLink = A.extend`
-  ${mixins.inlineLink};
-  &:after {
-    top: -5px;
+  a {
+    ${mixins.inlineLink};
+    display: inline-block;
+    text-decoration: none;
+    text-decoration-skip-ink: auto;
+    color: ${theme.colors.green};
+    position: relative;
+    transition: ${theme.transition};
+    cursor: pointer;
+    &:focus {
+      outline-color: ${theme.colors.blue};
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      color: ${theme.colors.green};
+    }
+    &:after {
+      top: -5px;
+    }
   }
 `;
 const EmailLink = A.extend`
@@ -48,30 +64,32 @@ const EmailLink = A.extend`
   margin-top: 50px;
 `;
 
-const Hero = () => (
-  <HeroContainer>
-    {/* <Hi>Hi, my name is</Hi> */}
-    {/* <Name>Hi, I&apos;m Andrew.</Name> */}
-    <Hi>Hi, my name is</Hi>
-    <Name>Andrew Rogerson.</Name>
-    <Subtitle>I build things for the web.</Subtitle>
-    <Blurb>
-      <P>
-        I&apos;m a software engineer based in Berlin, Germany specializing in developing (and
-        occasionally designing) exceptional, high-quality websites and applications.
-      </P>
-      <P>
-        Currently, I&apos;m an Software Engineer at
-        <MoovelLink href="#" target="_blank" rel="noopener">
-          &nbsp;Moovel&nbsp;
-        </MoovelLink>
-        working on some exciting projects with some amazing people.
-      </P>
-    </Blurb>
-    <EmailLink href="#" className="git">
-      Get In Touch
-    </EmailLink>
-  </HeroContainer>
-);
+class Hero extends Component {
+  static propTypes = {
+    hero: PropTypes.array.isRequired,
+    email: PropTypes.string.isRequired,
+  };
+
+  render() {
+    const { hero, email } = this.props;
+    const { node } = hero[0];
+
+    return (
+      <HeroContainer>
+        {/* <Hi>Hi, my name is</Hi> */}
+        {/* <Name>Hi, I&apos;m Andrew.</Name> */}
+        <Hi>{node.frontmatter.title}</Hi>
+        <Name>{node.frontmatter.name}.</Name>
+        <Subtitle>{node.frontmatter.subtitle}</Subtitle>
+        <Blurb>
+          <P dangerouslySetInnerHTML={{ __html: node.html }} />
+        </Blurb>
+        <EmailLink href={`mailto:${email}`} className="git">
+          Get In Touch
+        </EmailLink>
+      </HeroContainer>
+    );
+  }
+}
 
 export default Hero;
