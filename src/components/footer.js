@@ -6,7 +6,7 @@ import { theme, mixins, A, P } from '../style';
 const FooterContainer = styled.footer`
   ${mixins.flexCenter};
   flex-direction: column;
-  background-color: ${theme.colors.white};
+  background-color: ${theme.colors.navy};
   padding: 25px 150px 20px;
   font-size: ${theme.fontSizes.medium};
   color: ${theme.colors.slate};
@@ -21,7 +21,7 @@ const Copy = P.extend`
 const GithubLink = A.extend`
   ${mixins.inlineLink};
   color: ${theme.colors.lightGrey};
-  font-family: ${theme.fonts.Josefin};
+  font-family: ${theme.fonts.Avenir};
   font-size: ${theme.fontSizes.xsmall};
   &:after {
     display: none;

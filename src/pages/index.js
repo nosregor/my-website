@@ -19,12 +19,6 @@ const MainContainer = Main.extend`
   counter-reset: section;
 `;
 
-// const IndexPage = ({
-//   data: {
-//     allMarkdownRemark: { edges },
-//   },
-// }) => (
-
 const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
@@ -34,7 +28,7 @@ const IndexPage = ({ data }) => (
       <Jobs jobs={data.jobs.edges} />
       <Featured featured={data.featured.edges} />
       <Projects projects={data.projects.edges} />
-      <Contact />
+      <Contact contact={data.contact.edges} email={data.site.siteMetadata.email} />
     </MainContainer>
   </Layout>
 );
@@ -46,6 +40,11 @@ IndexPage.propTypes = {
 /* eslint no-undef: off */
 export const query = graphql`
   query IndexQuery {
+    site {
+      siteMetadata {
+        email
+      }
+    }
     jobs: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/jobs/" } }
       sort: { fields: [frontmatter___date], order: DESC }
@@ -94,6 +93,16 @@ export const query = graphql`
             tech
             github
             external
+          }
+          html
+        }
+      }
+    }
+    contact: allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/contact/" } }) {
+      edges {
+        node {
+          frontmatter {
+            title
           }
           html
         }
