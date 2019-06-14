@@ -24,7 +24,7 @@ const IndexPage = ({ data }) => (
     <SEO title="Home" />
     <MainContainer>
       <Hero />
-      <About />
+      <About about={data.about.edges} />
       <Jobs jobs={data.jobs.edges} />
       <Featured featured={data.featured.edges} />
       <Projects projects={data.projects.edges} />
@@ -43,6 +43,18 @@ export const query = graphql`
     site {
       siteMetadata {
         email
+      }
+    }
+    about: allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/about/" } }) {
+      edges {
+        node {
+          frontmatter {
+            title
+            image
+            skills
+          }
+          html
+        }
       }
     }
     jobs: allMarkdownRemark(

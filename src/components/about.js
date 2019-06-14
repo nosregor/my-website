@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import styled from 'styled-components';
 import { theme, mixins, Section, H3, P, Ul, Img } from '../style';
@@ -12,7 +13,7 @@ const Content = styled.div`
   max-width: 480px;
   width: 50%;
 `;
-const SkillsContainer = styled.div`
+const SkillsContainer = Ul.extend`
   display: grid;
   grid-template-columns: 200px 200px;
   margin-top: 20px;
@@ -80,40 +81,33 @@ const PicContainer = styled.div`
   // }
 `;
 
-const About = () => (
-  <AboutContainer>
-    <H3>About Me</H3>
-    <FlexContainer>
-      <Content>
-        <P>
-          As a software engineer, I enjoy bridging the gap between engineering and design —
-          combining my technical knowledge with my keen eye for design to create a beautiful
-          product. My goal is to always build applications that are scalable and efficient under the
-          hood while providing engaging, pixel-perfect user experiences.
-        </P>
-        <P>Here&apos;s some technologies I&apos;m good at:</P>
-        <SkillsContainer>
-          <Ul>
-            <Skill>JavaScript (ES6+)</Skill>
-            <Skill>HTML & (S)CSS</Skill>
-            <Skill>Node.js</Skill>
-            <Skill>Express</Skill>
-            <Skill>GraphQL</Skill>
-          </Ul>
-          <Ul>
-            <Skill>React.js</Skill>
-            <Skill>Gatsby.js</Skill>
-            <Skill>Python</Skill>
-            <Skill>Ruby on Rails</Skill>
-            <Skill>InDesign</Skill>
-          </Ul>
-        </SkillsContainer>
-      </Content>
-      <PicContainer>
-        <ProfPic src="https://avatars3.githubusercontent.com/nosregor" alt="Profile Picture" />
-      </PicContainer>
-    </FlexContainer>
-  </AboutContainer>
-);
+class About extends Component {
+  static propTypes = {
+    about: PropTypes.array.isRequired,
+  };
+
+  render() {
+    const { about } = this.props;
+    const { node } = about[0];
+
+    return (
+      <AboutContainer>
+        <H3>{node.frontmatter.title}</H3>
+        <FlexContainer>
+          <Content>
+            <P dangerouslySetInnerHTML={{ __html: node.html }} />
+            <SkillsContainer>
+              {node.frontmatter.skills &&
+                node.frontmatter.skills.map((skill, i) => <Skill key={i}>{skill}</Skill>)}
+            </SkillsContainer>
+          </Content>
+          <PicContainer>
+            <ProfPic src={node.frontmatter.image} alt="Profile Picture" />
+          </PicContainer>
+        </FlexContainer>
+      </AboutContainer>
+    );
+  }
+}
 
 export default About;
