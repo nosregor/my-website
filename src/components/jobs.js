@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { theme, Section, H3, A, P } from '../style';
 
-const TAB_HEIGHT = theme.tabHeight;
-
 const JobsContainer = Section.extend`
   position: relative;
   max-width: 700px;
@@ -23,7 +21,7 @@ const Tabs = styled.div`
 const Tab = A.extend`
   display: block;
   width: 100px;
-  height: ${TAB_HEIGHT}px;
+  height: ${theme.tabHeight}px;
   padding: 10px 10px 10px 20px;
   text-align: center;
   transition: ${theme.transition};
@@ -49,7 +47,7 @@ const Highlighter = styled.span`
   transition-delay: 0.1s;
   z-index: 10;
   transform: translateY(
-    ${props => (props.activeTabId > 1 ? props.activeTabId * TAB_HEIGHT - TAB_HEIGHT : 0)}px
+    ${props => (props.activeTabId > 0 ? props.activeTabId * theme.tabHeight : 0)}px
   );
 `;
 const ContentContainer = styled.div`
@@ -65,7 +63,8 @@ const TabContent = styled.div`
   opacity: ${props => (props.isActive ? 1 : 0)};
   z-index: ${props => (props.isActive ? 2 : 0)};
   position: ${props => (props.isActive ? 'relative' : 'absolute')};
-  transition: opacity ${props => (props.isActive ? '0.5s' : '0s')} ease-in-out;
+  transition: ${theme.transition};
+  transition-duration: ${props => (props.isActive ? '0.5s' : '0s')};
 `;
 
 class Jobs extends Component {
@@ -74,7 +73,7 @@ class Jobs extends Component {
   };
 
   state = {
-    activeTabId: 1,
+    activeTabId: 0,
   };
 
   isActive = id => this.state.activeTabId === id;
