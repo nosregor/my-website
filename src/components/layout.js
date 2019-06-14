@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 
+import config from '../config';
 import Social from '../components/social';
 import Email from './email';
 import Header from '../components/header';
@@ -37,7 +38,7 @@ const Layout = ({ children }) => (
         <Header />
 
         <Social />
-        <Email emailAddress={data.site.siteMetadata.email} />
+        <Email email={config.email} />
 
         {children}
 

@@ -32,14 +32,14 @@ const EmailLink = A.extend`
   padding: 10px;
 `;
 
-const Email = ({ emailAddress }) => (
+const Email = ({ email }) => (
   <EmailContainer>
-    <EmailLink href={`mailto:${emailAddress}`}>werdnanosregor@gmail.com</EmailLink>
+    <EmailLink href={`mailto:${email}`}>{email}</EmailLink>
   </EmailContainer>
 );
 
 Email.propTypes = {
-  emailAddress: PropTypes.string,
+  email: PropTypes.string.isRequired,
 };
 
 export default Email;

@@ -1,9 +1,11 @@
+// import config from './src/config';
+// // eslint-disable-next-line no-console
+// console.log(config);
 module.exports = {
   siteMetadata: {
-    title: 'Personal Website',
-    siteUrl: `https://andrewrogerson.com`,
-    description: `Description TBD`,
-    email: `werdnanosregor@gmail.com`,
+    title: 'Andrew Rogerson',
+    siteUrl: 'https://andrewrogerson.me',
+    description: 'Software Engineer',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -18,43 +20,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'hero',
-        path: `${__dirname}/src/content/hero`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'about',
-        path: `${__dirname}/src/content/about`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'contact',
-        path: `${__dirname}/src/content/contact`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'jobs',
-        path: `${__dirname}/src/content/jobs`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'featured',
-        path: `${__dirname}/src/content/featured`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'projects',
-        path: `${__dirname}/src/content/projects`,
+        name: 'content',
+        path: `${__dirname}/src/content/`,
       },
     },
     {

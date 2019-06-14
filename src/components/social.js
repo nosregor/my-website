@@ -1,4 +1,5 @@
 import React from 'react';
+import config from '../config';
 
 import { IconGithub, IconLinkedin, IconCodepen, IconInstagram, IconTwitter } from './icons';
 
@@ -36,38 +37,29 @@ const SocialLink = A.extend`
     height: 18px;
   }
 `;
-
 const Social = () => (
   <SocialContainer>
     <SocialItemList>
-      <SocialItem>
-        <SocialLink href="https://github.com/nosregor" target="_blank" rel="noopener">
-          <IconGithub />
-        </SocialLink>
-      </SocialItem>
-      <SocialItem>
-        <SocialLink href="https://www.linkedin.com/in/rogeran81/" target="_blank" rel="noopener">
-          <IconLinkedin />
-        </SocialLink>
-      </SocialItem>
-      <SocialItem>
-        <SocialLink href="https://codepen.io/bchiang7/" target="_blank" rel="noopener">
-          <IconCodepen />
-        </SocialLink>
-      </SocialItem>
-      <SocialItem>
-        <SocialLink
-          href="https://www.instagram.com/andrew.rogerson/"
-          target="_blank"
-          rel="noopener">
-          <IconInstagram />
-        </SocialLink>
-      </SocialItem>
-      <SocialItem>
-        <SocialLink href="https://twitter.com/rogerson_andrew" target="_blank" rel="noopener">
-          <IconTwitter />
-        </SocialLink>
-      </SocialItem>
+      {config.socialMedia &&
+        config.socialMedia.map((social, i) => (
+          <SocialItem key={i}>
+            <SocialLink href={social.url} target="_blank" rel="noopener">
+              {social.name === 'Github' ? (
+                <IconGithub />
+              ) : social.name === 'Linkedin' ? (
+                <IconLinkedin />
+              ) : social.name === 'Codepen' ? (
+                <IconCodepen />
+              ) : social.name === 'Instagram' ? (
+                <IconInstagram />
+              ) : social.name === 'Twitter' ? (
+                <IconTwitter />
+              ) : (
+                <IconGithub />
+              )}
+            </SocialLink>
+          </SocialItem>
+        ))}
     </SocialItemList>
   </SocialContainer>
 );
