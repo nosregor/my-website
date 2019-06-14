@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 // import Image from '../components/image';
@@ -24,15 +25,15 @@ const MainContainer = Main.extend`
 //   },
 // }) => (
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
     <MainContainer>
       <Hero />
       <About />
       <Jobs />
-      <Featured />
-      <Projects />
+      <Featured featured={data.featured.edges} />
+      <Projects projects={data.projects.edges} />
       <Contact />
     </MainContainer>
   </Layout>
@@ -43,20 +44,45 @@ IndexPage.propTypes = {
 };
 
 /* eslint no-undef: off */
-// export const query = graphql`
-//   query IndexQuery {
-//     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-//       edges {
-//         node {
-//           frontmatter {
-//             date(formatString: "DD.MM.YYYY")
-//             title
-//             tech
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
+export const query = graphql`
+  query IndexQuery {
+    featured: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/featured/" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            date(formatString: "MM.DD.YYYY")
+            title
+            image
+            tech
+            github
+            external
+          }
+          html
+        }
+      }
+    }
+    projects: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/projects/" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            date(formatString: "MM.DD.YYYY")
+            title
+            image
+            tech
+            github
+            external
+          }
+          html
+        }
+      }
+    }
+  }
+`;
 
 export default IndexPage;
