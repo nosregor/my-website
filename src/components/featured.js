@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Img from 'gatsby-image';
 
 import { IconGithub, IconExternal } from './icons';
 
 import styled from 'styled-components';
-import { theme, mixins, Section, H3, Img, Ul, A } from '../style';
+import { theme, mixins, media, Section, H3, Ul, A } from '../style';
 
 const FeaturedContainer = Section.extend`
   ${mixins.flexCenter};
   flex-direction: column;
   align-items: flex-start;
 `;
-const ProjectImg = Img.extend``;
+const FeaturedImg = styled(Img)`
+  width: 100%;
+  max-width: 100%;
+  vertical-align: middle;
+`;
 const ImgContainer = styled.div`
   order: 0;
   position: relative;
@@ -19,10 +24,13 @@ const ImgContainer = styled.div`
   background-color: ${theme.colors.green};
   position: relative;
   border-radius: ${theme.borderRadius};
+
+  ${media.tablet`display: none;`};
+
   &:hover {
     background-color: transparent;
     &:before,
-    ${ProjectImg} {
+    ${FeaturedImg} {
       background-color: transparent;
       filter: none;
     }
@@ -41,7 +49,7 @@ const ImgContainer = styled.div`
     background-color: ${theme.colors.navy};
     mix-blend-mode: screen;
   }
-  ${ProjectImg} {
+  ${FeaturedImg} {
     position: relative;
     mix-blend-mode: multiply;
     filter: grayscale(100%) contrast(1);
@@ -52,7 +60,18 @@ const ProjectContent = styled.div`
   width: 45%;
   margin-left: -5%;
   z-index: 5;
+
+  ${media.tablet`
+    width: 100%;
+    margin: 0 !important;
+  `};
 `;
+
+const ProjectDetails = styled.div`
+  background-color: ${theme.colors.lightNavy};
+  padding: 25px 25px 15px;
+`;
+
 const FeaturedLabel = styled.h4`
   font-size: ${theme.fontSizes.small};
   font-weight: 400;
@@ -64,31 +83,43 @@ const FeaturedLabel = styled.h4`
 const ProjectName = styled.h5`
   font-family: ${theme.fonts.AvenirSemiBold};
   font-size: 28px;
-  margin: 0 0 10px;
+  margin: 0 0 20px;
 `;
 const ProjectDescription = styled.div`
-  background-color: ${theme.colors.white};
   font-size: ${theme.fontSizes.large};
-  padding: 5px 0 5px ${theme.margin};
+  p {
+    margin: 0;
+  }
 `;
 const TechList = Ul.extend`
   display: flex;
   justify-content: flex-end;
   margin: ${theme.margin} 0 0 auto;
+
+  ${media.tablet`justify-content: flex-start;`};
+
   li {
     font-family: ${theme.fonts.Avenir};
     font-size: ${theme.fontSizes.smallish};
     color: ${theme.colors.lightGrey};
     margin-left: ${theme.margin};
+
+    ${media.tablet`margin: 0 20px 0 0;`};
   }
 `;
 const Links = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-top: ${theme.margin};
+  position: relative;
+  right: -10px;
+  margin-top: 10px;
+
+  ${media.tablet`right: 0;`};
+
   a {
     padding: 10px;
+
     svg {
       width: ${theme.margin};
       height: ${theme.margin};
@@ -97,9 +128,14 @@ const Links = styled.div`
 `;
 const Project = styled.div`
   ${mixins.flexBetween};
-  align-items: flex-start;
   margin-bottom: 100px;
   text-align: right;
+
+  ${media.tablet`
+    display: block;
+    text-align: left;
+  `};
+
   &:last-of-type {
     margin-bottom: 0;
   }
@@ -112,15 +148,16 @@ const Project = styled.div`
       text-align: left;
       margin: 0 -5% 0 0;
     }
-    ${ProjectDescription} {
-      padding: ${theme.margin} ${theme.margin} ${theme.margin} 0;
-    }
     ${TechList}, ${Links} {
       justify-content: flex-start;
-      li,
-      a {
+      li {
         margin: 0 20px 0 0;
       }
+    }
+    ${Links} {
+      right: auto;
+      left: -10px;
+      ${media.tablet`justify-content: flex-end;`};
     }
   }
 `;
@@ -140,28 +177,27 @@ class Featured extends Component {
             featured.map((project, i) => (
               <Project key={i}>
                 <ImgContainer>
-                  <ProjectImg
-                    src="https://www.budapest.com/w/respsliders/bpcompromo02_1_2_1_2.jpg"
-                    alt=""
-                  />
+                  <FeaturedImg sizes={project.node.frontmatter.cover.childImageSharp.sizes} />
                 </ImgContainer>
                 <ProjectContent>
                   <FeaturedLabel>Featured Project</FeaturedLabel>
                   <ProjectName>{project.node.frontmatter.title}</ProjectName>
-                  <ProjectDescription dangerouslySetInnerHTML={{ __html: project.node.html }} />
-                  <TechList>
-                    {project.node.frontmatter.tech.map((tech, i) => (
-                      <li key={i}>{tech}</li>
-                    ))}
-                  </TechList>
-                  <Links>
-                    <A href={project.node.frontmatter.github} target="_blank" rel="noopener">
-                      <IconGithub />
-                    </A>
-                    <A href={project.node.frontmatter.external} target="_blank" rel="noopener">
-                      <IconExternal />
-                    </A>
-                  </Links>
+                  <ProjectDetails>
+                    <ProjectDescription dangerouslySetInnerHTML={{ __html: project.node.html }} />
+                    <TechList>
+                      {project.node.frontmatter.tech.map((tech, i) => (
+                        <li key={i}>{tech}</li>
+                      ))}
+                    </TechList>
+                    <Links>
+                      <A href={project.node.frontmatter.github} target="_blank" rel="noopener">
+                        <IconGithub />
+                      </A>
+                      <A href={project.node.frontmatter.external} target="_blank" rel="noopener">
+                        <IconExternal />
+                      </A>
+                    </Links>
+                  </ProjectDetails>
                 </ProjectContent>
               </Project>
             ))}

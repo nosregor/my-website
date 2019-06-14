@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import styled from 'styled-components';
-import { theme, mixins, Section, Ul, A } from '../style';
+import { theme, mixins, media, Section, Ul, A } from '../style';
 
 import { IconGithub, IconExternal, IconFolder } from './icons';
 
@@ -10,6 +10,10 @@ const ProjectsContainer = Section.extend`
   ${mixins.flexCenter};
   flex-direction: column;
   align-items: flex-start;
+
+  ${media.desktop`
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  `};
 `;
 const ProjectsGrid = styled.div`
   display: grid;

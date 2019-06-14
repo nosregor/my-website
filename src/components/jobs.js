@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import styled from 'styled-components';
-import { theme, mixins, Section, H3, A, P } from '../style';
+import { theme, mixins, media, Section, H3, P } from '../style';
 
 const JobsContainer = Section.extend`
   position: relative;
@@ -11,27 +11,48 @@ const JobsContainer = Section.extend`
 const TabsContainer = styled.div`
   display: flex;
   align-items: flex-start;
+
+  ${media.phablet`display: block;`};
 `;
 const Tabs = styled.div`
   display: block;
   position: relative;
   width: max-content;
   z-index: 3;
+
+  ${media.phablet`
+    display: flex;
+    margin-bottom: 30px;
+    width: 100%;
+    overflow-x: scroll;
+  `};v
 `;
-const Tab = A.extend`
+const Tab = styled.button`
+  ${mixins.link};
   display: block;
-  width: 100px;
+  width: 100%;
+  background-color: transparent;
   height: ${theme.tabHeight}px;
-  padding: 10px 10px 10px 20px;
-  text-align: center;
+  padding: 0 20px 2px;
   transition: ${theme.transition};
   border-left: 2px solid ${theme.colors.darkGrey};
-  border-radius: ${theme.borderRadius};
-  font-family: ${theme.fonts.SFMono};
-  font-size: ${theme.fontSizes.small};
-  color: ${props => (props.isActive ? theme.colors.green : theme.colors.lightGrey)};
+  text-align: left;
+  white-space: nowrap;
+  font-family: ${theme.fonts.Avenir};
+  font-size: ${theme.fontSizes.smallish};
+  color: ${props => (props.isActive ? theme.colors.green : theme.colors.mediumGrey)};
+
+  ${media.tablet`padding: 0 10px 2px;`};
+  ${media.phablet`
+    padding: 0 15px 2px;
+    text-align: center;
+    border-left: 0;
+    border-bottom: 2px solid ${theme.colors.darkGrey};
+    border-bottom-color: ${props => (props.isActive ? theme.colors.green : theme.colors.darkGrey)};
+  `};
+
   &:focus {
-    background-color: ${theme.colors.lightGrey};
+    background-color: ${theme.colors.mediumGrey};
   }
 `;
 const Highlighter = styled.span`
@@ -49,12 +70,16 @@ const Highlighter = styled.span`
   transform: translateY(
     ${props => (props.activeTabId > 0 ? props.activeTabId * theme.tabHeight : 0)}px
   );
+
+  ${media.phablet`display: none;`};
 `;
 const ContentContainer = styled.div`
   position: relative;
-  padding: 0 ${theme.margin};
+  padding-top: 14px;
+  padding-left: 30px;
   flex-grow: 1;
-  padding-left: ${theme.margin};
+  ${media.tablet`padding-left: 20px;`};
+  ${media.phablet`padding-left: 0;`};
 `;
 const TabContent = styled.div`
   top: 0;
@@ -121,8 +146,7 @@ class Jobs extends Component {
 
   isActive = id => this.state.activeTabId === id;
 
-  setActiveTab = (activeTabId, e) => {
-    e.preventDefault();
+  setActiveTab = activeTabId => {
     this.setState({ activeTabId });
   };
 

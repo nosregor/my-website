@@ -4,23 +4,26 @@ import PropTypes from 'prop-types';
 import config from '../config';
 
 import styled from 'styled-components';
-import { theme, mixins, Section, A, P } from '../style';
+import { theme, mixins, media, Section, A, P } from '../style';
 
 const HeroContainer = Section.extend`
   ${mixins.flexCenter};
   flex-direction: column;
   align-items: flex-start;
   font-family: ${theme.fonts.Avenir};
-  padding: ${theme.navbarHeight} 0 0 0;
-  // min-height: calc(100vh - ${theme.navbarHeight});
   min-height: 100vh;
+  // padding: ${theme.navbarHeight} 0 0 0;
+  // min-height: calc(100vh - ${theme.navbarHeight});
 `;
 const Hi = styled.h1`
-  // color: ${theme.colors.green};
+  color: ${theme.colors.green};
   margin: 0 0 20px 3px;
   font-size: ${theme.fontSizes.medium};
   font-family: ${theme.fonts.Avenir};
   font-weight: 400;
+
+  ${media.desktop`font-size: ${theme.fontSizes.small};`};
+  ${media.tablet`font-size: ${theme.fontSizes.smallish};`};
 `;
 const Name = styled.h1`
   color: ${theme.colors.green};
@@ -34,7 +37,12 @@ const Subtitle = styled.h2`
   font-weight: 600;
   font-family: ${theme.fonts.AvenirSemiBold};
   margin: 0 0 20px;
-  // color: ${theme.colors.purple};
+  color: ${theme.colors.purple};
+
+  ${media.desktop`font-size: 70px;`};
+  ${media.tablet`font-size: 60px;`};
+  ${media.phablet`font-size: 50px;`};
+  ${media.phone`font-size: 40px;`};
 `;
 const Blurb = styled.div`
   max-width: 50%;
@@ -42,21 +50,7 @@ const Blurb = styled.div`
   a {
     ${mixins.link};
     ${mixins.inlineLink};
-    // display: inline-block;
-    // text-decoration: none;
-    // text-decoration-skip-ink: auto;
-    // color: ${theme.colors.green};
-    // position: relative;
-    // transition: ${theme.transition};
-    // cursor: pointer;
-    // &:focus {
-    //   outline-color: ${theme.colors.blue};
-    // }
-    // &:hover,
-    // &:active,
-    // &:focus {
-    //   color: ${theme.colors.green};
-    // }
+
     &:after {
       top: -5px;
     }
@@ -78,8 +72,6 @@ class Hero extends Component {
 
     return (
       <HeroContainer>
-        {/* <Hi>Hi, my name is</Hi> */}
-        {/* <Name>Hi, I&apos;m Andrew.</Name> */}
         <Hi>{node.frontmatter.title}</Hi>
         <Name>{node.frontmatter.name}.</Name>
         <Subtitle>{node.frontmatter.subtitle}</Subtitle>

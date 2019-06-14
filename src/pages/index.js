@@ -12,10 +12,10 @@ import Featured from '../components/featured';
 import Projects from '../components/projects';
 import Contact from '../components/contact';
 
-import { Main } from '../style';
+import { mixins, Main } from '../style';
 
 const MainContainer = Main.extend`
-  padding: 0 150px;
+  ${mixins.padding};
   counter-reset: section;
 `;
 
@@ -102,6 +102,9 @@ export const query = graphql`
               childImageSharp {
                 sizes(maxWidth: 700, quality: 90, traceSVG: { color: "#64ffda" }) {
                   ...GatsbyImageSharpSizes_withWebp_tracedSVG
+                }
+                resize(width: 500, height: 500) {
+                  src
                 }
               }
             }

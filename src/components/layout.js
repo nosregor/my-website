@@ -34,14 +34,10 @@ const Layout = ({ children }) => (
             { name: 'keywords', content: 'sample, something' },
           ]}
         />
-
         <Social />
-        <Header />
-
         <Email email={config.email} />
-
+        <Header />
         {children}
-
         <Footer />
       </div>
     )}

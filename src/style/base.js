@@ -1,5 +1,7 @@
 import { injectGlobal } from 'styled-components';
 import theme from './theme';
+import media from './media';
+
 import {
   BrandonWOFF2,
   BrandonBoldWOFF2,
@@ -70,6 +72,8 @@ const base = injectGlobal`
     font-family: ${theme.fonts.Avenir};
     font-size: ${theme.fontSizes.xlarge};
 
+    ${media.tablet`font-size: ${theme.fontSizes.large};`}
+
     &.loading {
       overflow: hidden;
     }
@@ -100,6 +104,11 @@ const base = injectGlobal`
     height: 100%;
     fill: currentColor;
     vertical-align: middle;
+  }
+
+  button {
+    outline: 0;
+    border: 0;
   }
 `;
 
