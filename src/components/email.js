@@ -11,6 +11,8 @@ const EmailContainer = styled.div`
   position: fixed;
   bottom: 0;
   right: 40px;
+  vertical-align: middle;
+  width: 40px;
   &:after {
     content: '';
     height: 90px;
@@ -25,7 +27,8 @@ const EmailLink = A.extend`
   color: ${theme.colors.lightSlate};
   letter-spacing: 0.5px;
   writing-mode: vertical-rl;
-  margin: 20px auto;
+  margin: 20px 0;
+  right: -1px;
   padding: 10px;
 `;
 

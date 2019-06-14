@@ -1,4 +1,5 @@
-import IconLogo from './logoa';
+import IconLogo from './logo';
+import IconLogoSmall from './logo-small';
 import IconGithub from './github';
 import IconLinkedin from './linkedin';
 import IconCodepen from './codepen';
@@ -9,6 +10,7 @@ import IconFolder from './folder';
 
 export {
   IconLogo,
+  IconLogoSmall,
   IconGithub,
   IconLinkedin,
   IconCodepen,

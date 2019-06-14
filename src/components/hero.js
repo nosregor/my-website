@@ -7,27 +7,31 @@ const HeroContainer = Section.extend`
   ${mixins.flexCenter};
   flex-direction: column;
   align-items: flex-start;
+  font-family: ${theme.fonts.Avenir};
   padding: ${theme.navbarHeight} 0 0 0;
   // min-height: calc(100vh - ${theme.navbarHeight});
   min-height: 100vh;
 `;
 const Hi = styled.h1`
-  color: ${theme.colors.purple};
+  // color: ${theme.colors.green};
   margin: 0 0 10px 3px;
   font-size: ${theme.fontSizes.medium};
-  font-family: ${theme.fonts.Josefin};
+  font-family: ${theme.fonts.Avenir};
   font-weight: 400;
 `;
 const Name = styled.h1`
+  color: ${theme.colors.green};
   font-size: 80px;
   font-weight: 600;
+  font-family: ${theme.fonts.AvenirSemiBold};
   margin: 0;
 `;
 const Subtitle = styled.h2`
   font-size: 80px;
   font-weight: 600;
+  font-family: ${theme.fonts.AvenirSemiBold};
   margin: 0 0 20px;
-  color: ${theme.colors.darkNavy};
+  // color: ${theme.colors.purple};
 `;
 const Blurb = styled.div`
   max-width: 50%;
@@ -46,6 +50,8 @@ const EmailLink = A.extend`
 
 const Hero = () => (
   <HeroContainer>
+    {/* <Hi>Hi, my name is</Hi> */}
+    {/* <Name>Hi, I&apos;m Andrew.</Name> */}
     <Hi>Hi, my name is</Hi>
     <Name>Andrew Rogerson.</Name>
     <Subtitle>I build things for the web.</Subtitle>

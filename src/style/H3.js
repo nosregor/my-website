@@ -7,11 +7,12 @@ const H3 = styled.h3`
   align-items: center;
   margin: 10px 0 40px;
   font-size: ${theme.fontSizes.h3};
+  // font-family: ${theme.fonts.Avenir};
   &:before {
     // counter-increment: section;
     // content: '0' counter(section) '.';
     margin-right: 10px;
-    font-family: ${theme.fonts.Josefin};
+    font-family: ${theme.fonts.Avenir};
     font-weight: 400;
     color: ${theme.colors.green};
     font-size: ${theme.fontSizes.xlarge};

@@ -1,18 +1,47 @@
 import { injectGlobal } from 'styled-components';
 import theme from './theme';
-import { BrandonWOFF2 } from './fonts';
+import {
+  BrandonWOFF2,
+  BrandonBoldWOFF2,
+  AvenirBoldWOFF2,
+  AvenirRegularWOFF2,
+  AvenirMediumWOFF2,
+  AvenirSemiBoldWOFF2,
+} from './fonts';
 
 const base = injectGlobal`
 
   @font-face {
     font-family: 'Brandon';
     src:  url(${BrandonWOFF2}) format('woff2');
-    // font-weight: normal;
-    // font-style: normal;
   }
 
-  @import url("https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap");
+  @font-face {
+    font-family: 'BrandonBold';
+    src:  url(${BrandonBoldWOFF2}) format('woff2');
+  }
 
+  @font-face {
+    font-family: 'Avenir Next Black';
+    src:  url(${AvenirBoldWOFF2}) format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Avenir Next';
+    src:  url(${AvenirRegularWOFF2}) format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Avenir Next Semibold';
+    src:  url(${AvenirSemiBoldWOFF2}) format('woff2');
+  }
+
+  @font-face {
+    font-family: 'AvenirMedium';
+    src:  url(${AvenirMediumWOFF2}) format('woff2');
+  }
+
+  @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Open+Sans:400,700&display=swap');
 
   html {
     box-sizing: border-box;
@@ -37,7 +66,7 @@ const base = injectGlobal`
     -webkit-font-smoothing: antialiased;
     background-color: ${theme.colors.white};
     color: ${theme.colors.black};
-    font-family: ${theme.fonts.Josefin};
+    font-family: ${theme.fonts.Avenir};
     font-size: ${theme.fontSizes.xlarge};
 
     &.loading {

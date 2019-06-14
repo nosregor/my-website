@@ -19,7 +19,7 @@ const SkillsContainer = styled.div`
 `;
 const Skill = styled.li`
   position: relative;
-  font-family: ${theme.fonts.Josefin};
+  font-family: ${theme.fonts.Open};
   font-size: ${theme.fontSizes.smallish};
   margin-bottom: 10px;
   &:before {
@@ -30,10 +30,10 @@ const Skill = styled.li`
 `;
 const ProfPic = Img.extend`
   position: relative;
-  mix-blend-mode: multiply;
-  filter: grayscale(100%) contrast(1);
-  border-radius: ${theme.borderRadius};
-  transition: ${theme.transition};
+  // mix-blend-mode: multiply;
+  // filter: grayscale(100%) contrast(1);
+  // border-radius: ${theme.borderRadius};
+  // transition: ${theme.transition};
 `;
 
 const PicContainer = styled.div`
@@ -41,43 +41,43 @@ const PicContainer = styled.div`
   border-radius: ${theme.borderRadius};
   background-color: ${theme.colors.green};
   position: relative;
-  &:hover {
-    &:after {
-      top: 15px;
-      left: 15px;
-    }
-    ${ProfPic} {
-      filter: none;
-      mix-blend-mode: normal;
-    }
+  // &:hover {
+  //   &:after {
+  //     top: 15px;
+  //     left: 15px;
+  //   }
+  //   ${ProfPic} {
+  //     filter: none;
+  //     mix-blend-mode: normal;
+  //   }
   }
-  &:before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transition: ${theme.transition};
-    background-color: ${theme.colors.navy};
-    mix-blend-mode: screen;
-    border-radius: ${theme.borderRadius};
+  // &:before {
+  //   content: '';
+  //   position: absolute;
+  //   width: 100%;
+  //   height: 100%;
+  //   top: 0;
+  //   left: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   transition: ${theme.transition};
+  //   background-color: ${theme.colors.navy};
+  //   mix-blend-mode: screen;
+  //   border-radius: ${theme.borderRadius};
   }
-  &:after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
-    border: 2px solid ${theme.colors.green};
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: -1;
-    transition: ${theme.transition};
-    border-radius: ${theme.borderRadius};
-  }
+  // &:after {
+  //   content: '';
+  //   display: block;
+  //   width: 100%;
+  //   height: 100%;
+  //   border: 2px solid ${theme.colors.green};
+  //   position: absolute;
+  //   top: 20px;
+  //   left: 20px;
+  //   z-index: -1;
+  //   transition: ${theme.transition};
+  //   border-radius: ${theme.borderRadius};
+  // }
 `;
 
 const About = () => (
