@@ -61,11 +61,12 @@ const FeaturedLabel = styled.h4`
   padding-top: 0;
 `;
 const ProjectName = styled.h5`
-  font-size: 36px;
+  font-family: ${theme.fonts.AvenirSemiBold};
+  font-size: 28px;
   margin: 0 0 10px;
 `;
 const ProjectDescription = P.extend`
-  background-color: ${theme.colors.navy};
+  background-color: ${theme.colors.white};
   font-size: ${theme.fontSizes.large};
   padding: 20px 0 20px ${theme.margin};
 `;

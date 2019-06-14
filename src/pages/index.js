@@ -8,6 +8,7 @@ import Hero from '../components/hero';
 import About from '../components/about';
 import Jobs from '../components/jobs';
 import Featured from '../components/featured';
+import Projects from '../components/projects';
 import Contact from '../components/contact';
 
 import { Main } from '../style';
@@ -25,6 +26,7 @@ const IndexPage = () => (
       <About />
       <Jobs />
       <Featured />
+      <Projects />
       <Contact />
     </MainContainer>
   </Layout>

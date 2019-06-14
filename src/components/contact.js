@@ -24,6 +24,7 @@ const Next = H3.extend`
   }
 `;
 const Title = styled.h4`
+  font-family: ${theme.fonts.AvenirSemiBold};
   font-size: 60px;
   margin: 0 0 20px;
 `;
