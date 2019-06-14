@@ -37,6 +37,8 @@ IndexPage.propTypes = {
   data: PropTypes.object,
 };
 
+export default IndexPage;
+
 /* eslint no-undef: off */
 export const query = graphql`
   query IndexQuery {
@@ -58,7 +60,13 @@ export const query = graphql`
         node {
           frontmatter {
             title
-            image
+            avatar {
+              childImageSharp {
+                sizes(maxWidth: 700, quality: 90, traceSVG: { color: "#64ffda" }) {
+                  ...GatsbyImageSharpSizes_withWebp_tracedSVG
+                }
+              }
+            }
             skills
           }
           html
@@ -72,7 +80,6 @@ export const query = graphql`
       edges {
         node {
           frontmatter {
-            date(formatString: "MM.DD.YYYY")
             title
             company
             location
@@ -90,9 +97,14 @@ export const query = graphql`
       edges {
         node {
           frontmatter {
-            date(formatString: "MM.DD.YYYY")
             title
-            image
+            cover {
+              childImageSharp {
+                sizes(maxWidth: 700, quality: 90, traceSVG: { color: "#64ffda" }) {
+                  ...GatsbyImageSharpSizes_withWebp_tracedSVG
+                }
+              }
+            }
             tech
             github
             external
@@ -108,7 +120,6 @@ export const query = graphql`
       edges {
         node {
           frontmatter {
-            date(formatString: "MM.DD.YYYY")
             title
             image
             tech
@@ -131,5 +142,3 @@ export const query = graphql`
     }
   }
 `;
-
-export default IndexPage;

@@ -39,7 +39,6 @@ const EmailLink = A.extend`
 class Contact extends Component {
   static propTypes = {
     contact: PropTypes.array.isRequired,
-    email: PropTypes.string.isRequired,
   };
 
   render() {

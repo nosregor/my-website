@@ -36,7 +36,7 @@ const Folder = styled.div`
 `;
 const ProjectName = styled.h4`
   margin: 0 0 10px;
-  font-size: ${theme.fontSizes.h4};
+  font-size: ${theme.fontSizes.xxlarge};
   font-family: ${theme.fonts.AvenirSemiBold};
 `;
 const ProjectDescription = styled.div`

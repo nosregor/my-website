@@ -1,7 +1,7 @@
 ---
 date: '2017-04-01'
 title: 'Featured Project One'
-image: ''
+cover: './budapest.jpg'
 github: 'asdf'
 external: 'asdfg'
 tech:

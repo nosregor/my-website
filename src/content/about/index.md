@@ -1,6 +1,6 @@
 ---
 title: 'About Me'
-image: 'https://avatars3.githubusercontent.com/nosregor'
+avatar: './me.jpg'
 skills:
   - JavaScript (ES6)
   - HTML & (S)CSS

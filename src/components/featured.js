@@ -76,8 +76,8 @@ const TechList = Ul.extend`
   justify-content: flex-end;
   margin: ${theme.margin} 0 0 auto;
   li {
-    font-family: ${theme.fonts.SFMono};
-    font-size: 13px;
+    font-family: ${theme.fonts.Avenir};
+    font-size: ${theme.fontSizes.smallish};
     color: ${theme.colors.lightGrey};
     margin-left: ${theme.margin};
   }
@@ -88,7 +88,7 @@ const Links = styled.div`
   align-items: center;
   margin-top: ${theme.margin};
   a {
-    margin-left: ${theme.margin};
+    padding: 10px;
     svg {
       width: ${theme.margin};
       height: ${theme.margin};

@@ -29,7 +29,7 @@ const Tab = A.extend`
   border-radius: ${theme.borderRadius};
   font-family: ${theme.fonts.SFMono};
   font-size: ${theme.fontSizes.small};
-  color: ${props => (props.isActive ? theme.colors.green : theme.colors.grey)};
+  color: ${props => (props.isActive ? theme.colors.green : theme.colors.lightGrey)};
   &:focus {
     background-color: ${theme.colors.lightGrey};
   }

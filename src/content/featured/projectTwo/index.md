@@ -1,7 +1,7 @@
 ---
 date: '2017-06-01'
 title: 'Featured Project Two'
-image: ''
+cover: './budapest.jpg'
 github: 'asdf'
 external: 'asdfg'
 tech:

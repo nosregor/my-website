@@ -70,7 +70,6 @@ const EmailLink = A.extend`
 class Hero extends Component {
   static propTypes = {
     hero: PropTypes.array.isRequired,
-    email: PropTypes.string.isRequired,
   };
 
   render() {
