@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
 
 import Layout from '../components/layout';
 // import Image from '../components/image';
@@ -18,6 +18,12 @@ const MainContainer = Main.extend`
   counter-reset: section;
 `;
 
+// const IndexPage = ({
+//   data: {
+//     allMarkdownRemark: { edges },
+//   },
+// }) => (
+
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
@@ -31,5 +37,26 @@ const IndexPage = () => (
     </MainContainer>
   </Layout>
 );
+
+IndexPage.propTypes = {
+  data: PropTypes.object,
+};
+
+/* eslint no-undef: off */
+// export const query = graphql`
+//   query IndexQuery {
+//     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+//       edges {
+//         node {
+//           frontmatter {
+//             date(formatString: "DD.MM.YYYY")
+//             title
+//             tech
+//           }
+//         }
+//       }
+//     }
+//   }
+// `;
 
 export default IndexPage;
