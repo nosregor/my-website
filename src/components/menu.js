@@ -23,7 +23,7 @@ const MenuContainer = styled.div`
 const Sidebar = styled.div`
   ${mixins.flexCenter};
   flex-direction: column;
-  background-color: ${theme.colors.lightNavy};
+  background-color: ${theme.colors.white};
   padding: 50px;
   width: 50vw;
   height: 100%;

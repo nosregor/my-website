@@ -175,6 +175,7 @@ class Header extends Component {
 
   componentDidMount() {
     window.addEventListener('scroll', () => throttle(this.handleScroll()));
+    window.addEventListener('resize', () => throttle(this.handleResize()));
   }
 
   componentWillUnmount() {
@@ -182,7 +183,7 @@ class Header extends Component {
   }
 
   handleScroll() {
-    const { lastScrollTop, menuOpen } = this.state;
+    const { lastScrollTop, menuOpen, scrollDirection } = this.state;
     const fromTop = window.scrollY;
     const headerHeight = config.headerHeight;
 
@@ -199,24 +200,34 @@ class Header extends Component {
       this.setState({ scrollDirection: 'none' });
     } else if (fromTop > lastScrollTop && fromTop > headerHeight) {
       // Scroll Down
-      this.setState({ scrollDirection: 'down' });
+      if (scrollDirection !== 'down') {
+        this.setState({ scrollDirection: 'down' });
+      }
     } else if (fromTop + window.innerHeight < document.body.scrollHeight) {
       // Scroll Up
-      this.setState({ scrollDirection: 'up' });
+      if (scrollDirection !== 'up') {
+        this.setState({ scrollDirection: 'up' });
+      }
     }
 
     this.setState({ lastScrollTop: fromTop });
   }
 
-  toggleMenu = () => {
-    if (window.innerWidth < 768) {
-      const { menuOpen } = this.state;
+  handleResize = () => {
+    const { menuOpen } = this.state;
 
-      document.body.style.overflow = `${menuOpen ? 'auto' : 'hidden'}`;
-      document.body.classList.toggle('blur');
-
-      this.setState({ menuOpen: !menuOpen });
+    if (window.innerWidth > 768 && menuOpen) {
+      this.toggleMenu('closed');
     }
+  };
+
+  toggleMenu = (menuState = null) => {
+    const { menuOpen } = this.state;
+
+    document.body.style.overflow = `${menuOpen ? 'auto' : 'hidden'}`;
+    document.body.classList.toggle('blur');
+
+    this.setState({ menuOpen: menuState === 'closed' ? false : !menuOpen });
   };
 
   handleMenuClick = e => {
@@ -240,11 +251,13 @@ class Header extends Component {
               <IconLogoSmall />
             </LogoLink>
           </Logo>
+
           <Hamburger onClick={this.toggleMenu}>
             <HamburgerBox>
               <HamburgerInner menuOpen={menuOpen} />
             </HamburgerBox>
           </Hamburger>
+
           <NavLinks>
             <NavList>
               <NavListItem>
@@ -260,6 +273,7 @@ class Header extends Component {
                 <NavLink href="#contact">Contact</NavLink>
               </NavListItem>
             </NavList>
+
             <ResumeLink href={config.resume} target="_blank" rel="nofollow noopener noreferrer">
               Resume
             </ResumeLink>
