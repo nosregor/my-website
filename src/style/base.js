@@ -110,6 +110,10 @@ const base = injectGlobal`
     outline: 0;
     border: 0;
   }
+  
+  .gatsby-image-outer-wrapper {
+    height: 100%;
+  }
 `;
 
 export default base;
