@@ -12,6 +12,8 @@ const ContactContainer = Section.extend`
   margin: 0 auto 100px;
 `;
 const Header = H3.extend`
+  display: block;
+
   color: ${theme.colors.green};
   font-size: ${theme.fontSizes.medium};
   font-family: ${theme.fonts.SFMono};
@@ -22,9 +24,8 @@ const Header = H3.extend`
   ${media.desktop`font-size: ${theme.fontSizes.small};`};
 
   &:before {
-    font-size: ${theme.fontSizes.small};
     bottom: 0;
-
+    font-size: ${theme.fontSizes.small};
     ${media.desktop`font-size: ${theme.fontSizes.smallish};`};
   }
   &:after {

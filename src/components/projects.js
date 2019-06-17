@@ -55,7 +55,8 @@ const ProjectName = styled.h5`
   font-family: ${theme.fonts.AvenirSemiBold};
 `;
 const ProjectDescription = styled.div`
-  font-size: ${theme.fontSizes.medium};
+  font-size: 17px;
+  line-height: 1.25;
 
   a {
     ${mixins.link};

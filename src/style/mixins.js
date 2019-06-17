@@ -37,38 +37,6 @@ const mixins = {
     }
   `,
 
-  smallButton: css`
-    color: ${theme.colors.green};
-    background-color: transparent;
-    border: 1px solid ${theme.colors.green};
-    border-radius: ${theme.borderRadius};
-    padding: 18px 20px 12px;
-    font-size: ${theme.fontSizes.medium};
-    text-decoration: none;
-    cursor: pointer;
-    transition: ${theme.transition};
-
-    &:hover,
-    &:focus,
-    &:active {
-      background-color: ${theme.colors.transGreen};
-    }
-  `,
-
-  bigButton: css`
-    color: ${theme.colors.green};
-    background-color: transparent;
-    border: 1px solid ${theme.colors.green};
-    border-radius: ${theme.borderRadius};
-    padding: 20px 25px 15px;
-    font-size: ${theme.fontSizes.large};
-    &:hover,
-    &:focus,
-    &:active {
-      background-color: ${theme.colors.transGreen};
-    }
-  `,
-
   inlineLink: css`
     color: ${theme.colors.green};
     &:hover,
@@ -88,6 +56,47 @@ const mixins = {
       opacity: 0;
       background-color: ${theme.colors.green};
       transition: ${theme.transition};
+    }
+  `,
+
+  smallButton: css`
+    color: ${theme.colors.green};
+    background-color: transparent;
+    border: 1px solid ${theme.colors.green};
+    border-radius: ${theme.borderRadius};
+    padding: 20px;
+    font-size: ${theme.fontSizes.medium};
+    font-size: ${theme.fontSizes.smallish};
+    font-family: ${theme.fonts.SFMono};
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    transition: ${theme.transition};
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: ${theme.colors.transGreen};
+    }
+  `,
+
+  bigButton: css`
+    color: ${theme.colors.green};
+    background-color: transparent;
+    border: 1px solid ${theme.colors.green};
+    border-radius: ${theme.borderRadius};
+    padding: 20px 25px;
+    font-size: ${theme.fontSizes.small};
+    font-family: ${theme.fonts.Avenir};
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    transition: ${theme.transition};
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: ${theme.colors.transGreen};
     }
   `,
 
