@@ -12,6 +12,7 @@ import config from '../config';
 import Social from '../components/social';
 import Email from './email';
 import Header from '../components/header';
+import Menu from '../components/menu';
 import Footer from '../components/footer';
 
 const Layout = ({ children }) => (
@@ -36,6 +37,7 @@ const Layout = ({ children }) => (
         />
         <Social />
         <Email email={config.email} />
+        <Menu />
         <Header />
         {children}
         <Footer />

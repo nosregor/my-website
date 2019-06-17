@@ -1,4 +1,5 @@
 import IconLogo from './logo';
+import IconHamburger from './hamburger';
 import IconLogoSmall from './logo-small';
 import IconGithub from './github';
 import IconLinkedin from './linkedin';
@@ -11,6 +12,7 @@ import IconLocation from './location';
 
 export {
   IconLogo,
+  IconHamburger,
   IconLogoSmall,
   IconGithub,
   IconLinkedin,

@@ -81,7 +81,6 @@ const NavLink = styled(AnchorLink)`
 `;
 const ResumeLink = A.extend`
   ${mixins.smallButton};
-  padding: 10px;
   margin-left: 10px;
   padding: 10px 15px 10px;
   font-size: ${theme.fontSizes.smallish};
