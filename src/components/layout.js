@@ -32,7 +32,7 @@ const Layout = ({ children }) => (
       <div id="root">
         <Head siteMetadata={data.site.siteMetadata} />
         <Social />
-        <Email email={config.email} />
+        <Email />
         <Menu />
         <Header navLinks={config.navLinks} />
         {children}

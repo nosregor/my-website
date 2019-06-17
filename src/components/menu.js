@@ -57,7 +57,8 @@ const NavListItem = styled.li`
     display: block;
     // content: '0' counter(item) '.';
     color: ${theme.colors.green};
-    font-size: ${theme.fontSizes.medium};
+    font-size: ${theme.fontSizes.small};
+    margin-bottom: 5px;
   }
 `;
 const NavLink = styled(AnchorLink)`
@@ -68,7 +69,6 @@ const NavLink = styled(AnchorLink)`
 const ResumeLink = A.extend`
   ${mixins.bigButton};
   margin: 10% auto 0;
-  padding-top: 15px;
   width: max-content;
 `;
 const SocialContainer = styled.div`

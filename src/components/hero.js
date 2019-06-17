@@ -47,7 +47,7 @@ const Subtitle = styled.h2`
   ${media.phone`font-size: 36px;`};
 `;
 const Blurb = styled.div`
-  max-width: 50%;
+  width: 50%;
   max-width: 480px;
   a {
     ${mixins.link};
@@ -59,7 +59,8 @@ const Blurb = styled.div`
   }
 `;
 const EmailLink = A.extend`
-  ${mixins.smallButton};
+  ${mixins.bigButton};
+  font-size: ${theme.fontSizes.smallish};
   margin-top: 50px;
 `;
 

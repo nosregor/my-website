@@ -62,4 +62,6 @@ module.exports = {
 
   projectMaxWidth: 1100,
   headerHeight: 100,
+
+  navyColor: '#0a192f',
 };

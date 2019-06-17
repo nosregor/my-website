@@ -64,8 +64,7 @@ const mixins = {
     background-color: transparent;
     border: 1px solid ${theme.colors.green};
     border-radius: ${theme.borderRadius};
-    padding: 20px;
-    font-size: ${theme.fontSizes.medium};
+    padding: 12px 17px;
     font-size: ${theme.fontSizes.smallish};
     font-family: ${theme.fonts.SFMono};
     line-height: 1;
@@ -85,7 +84,7 @@ const mixins = {
     background-color: transparent;
     border: 1px solid ${theme.colors.green};
     border-radius: ${theme.borderRadius};
-    padding: 20px 25px;
+    padding: 18px 23px;
     font-size: ${theme.fontSizes.small};
     font-family: ${theme.fonts.Avenir};
     line-height: 1;

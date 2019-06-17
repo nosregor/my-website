@@ -16,31 +16,42 @@ const base = injectGlobal`
   @font-face {
     font-family: 'Brandon';
     src:  url(${BrandonWOFF2}) format('woff2');
+    font-weight: normal;
+    font-display: auto;
   }
 
   @font-face {
     font-family: 'BrandonBold';
     src:  url(${BrandonBoldWOFF2}) format('woff2');
-  }
+    font-weight: normal;
+    font-display: auto;  }
 
   @font-face {
     font-family: 'Avenir Next Black';
     src:  url(${AvenirBoldWOFF2}) format('woff2');
+    font-weight: normal;
+    font-display: auto;
   }
 
   @font-face {
     font-family: 'Avenir Next';
     src:  url(${AvenirRegularWOFF2}) format('woff2');
+    font-weight: normal;
+    font-display: auto;
   }
 
   @font-face {
     font-family: 'Avenir Next Semibold';
     src:  url(${AvenirSemiBoldWOFF2}) format('woff2');
+    font-weight: normal;
+    font-display: auto;
   }
 
   @font-face {
     font-family: 'AvenirMedium';
     src:  url(${AvenirMediumWOFF2}) format('woff2');
+    font-weight: normal;
+    font-display: auto;
   }
 
   @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Open+Sans:400,700&display=swap');
@@ -117,7 +128,7 @@ const base = injectGlobal`
   p {
     margin-top: 0;
   }
-  
+
   .gatsby-image-outer-wrapper {
     height: 100%;
   }

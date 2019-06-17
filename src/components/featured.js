@@ -12,6 +12,9 @@ const FeaturedContainer = Section.extend`
   flex-direction: column;
   align-items: flex-start;
 `;
+const FeaturedGrid = styled.div`
+  position: relative;
+`;
 const ContentContainer = styled.div`
   position: relative;
   z-index: 2;
@@ -28,7 +31,7 @@ const FeaturedLabel = styled.h4`
   font-weight: normal;
   color: ${theme.colors.green};
   font-family: ${theme.fonts.SFMono};
-  margin-top: 0;
+  margin-top: 10px;
   padding-top: 0;
 `;
 const ProjectName = styled.h5`
@@ -188,7 +191,7 @@ class Featured extends Component {
     return (
       <FeaturedContainer id="projects">
         <H3>Some Things I&apos;ve Built</H3>
-        <div className="featured__things">
+        <FeaturedGrid>
           {featured &&
             featured.map((project, i) => (
               <Project key={i}>
@@ -227,7 +230,7 @@ class Featured extends Component {
                 </ImgContainer>
               </Project>
             ))}
-        </div>
+        </FeaturedGrid>
       </FeaturedContainer>
     );
   }
