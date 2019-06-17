@@ -12,6 +12,7 @@ const HeroContainer = Section.extend`
   align-items: flex-start;
   font-family: ${theme.fonts.Avenir};
   min-height: 100vh;
+  ${media.tablet`padding-top: 150px;`};
   // padding: ${theme.navbarHeight} 0 0 0;
   // min-height: calc(100vh - ${theme.navbarHeight});
 `;

@@ -40,4 +40,5 @@ module.exports = {
   googleAnalyticsID: 'UA-12345689-1',
 
   projectMaxWidth: 1100,
+  headerHeight: 100,
 };
