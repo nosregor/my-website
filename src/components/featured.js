@@ -34,7 +34,10 @@ const FeaturedLabel = styled.h4`
 const ProjectName = styled.h5`
   font-family: ${theme.fonts.AvenirSemiBold};
   font-size: 28px;
+  font-weight: 600;
   margin: 0 0 20px;
+  ${media.tablet`font-size: 24px;`};
+  ${media.thone`font-size: ${theme.fontSizes.xxlarge};`};
 `;
 const ProjectDescription = styled.div`
   background-color: ${theme.colors.lightNavy};

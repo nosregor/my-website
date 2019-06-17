@@ -33,7 +33,7 @@ const GithubLink = A.extend`
 const Footer = () => (
   <FooterContainer>
     <Copy>Designed &amp; Developed by Andrew Rogerson</Copy>
-    <GithubLink href="https://github.com/nosregor/my-webiste" target="_blank" rel="noopener">
+    <GithubLink href="https://github.com/nosregor/my-website" target="_blank" rel="noopener">
       View Source
     </GithubLink>
   </FooterContainer>

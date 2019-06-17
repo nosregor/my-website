@@ -13,11 +13,9 @@ const HeroContainer = Section.extend`
   font-family: ${theme.fonts.Avenir};
   min-height: 100vh;
   ${media.tablet`padding-top: 150px;`};
-  // padding: ${theme.navbarHeight} 0 0 0;
-  // min-height: calc(100vh - ${theme.navbarHeight});
 `;
 const Hi = styled.h1`
-  color: ${theme.colors.green};
+  color: ${theme.colors.slate};
   margin: 0 0 20px 3px;
   font-size: ${theme.fontSizes.medium};
   font-family: ${theme.fonts.Avenir};
@@ -27,23 +25,26 @@ const Hi = styled.h1`
   ${media.tablet`font-size: ${theme.fontSizes.smallish};`};
 `;
 const Name = styled.h1`
-  color: ${theme.colors.green};
-  font-size: 80px;
-  font-weight: 600;
+  // color: ${theme.colors.green};
   font-family: ${theme.fonts.AvenirSemiBold};
+  font-size: 80px;
   margin: 0;
+  ${media.desktop`font-size: 70px;`};
+  ${media.tablet`font-size: 60px;`};
+  ${media.phablet`font-size: 50px;`};
+  ${media.phone`font-size: 36px;`};
 `;
 const Subtitle = styled.h2`
   font-size: 80px;
   font-weight: 600;
   font-family: ${theme.fonts.AvenirSemiBold};
   margin: 0 0 20px;
-  color: ${theme.colors.purple};
+  color: ${theme.colors.slate};
 
   ${media.desktop`font-size: 70px;`};
   ${media.tablet`font-size: 60px;`};
   ${media.phablet`font-size: 50px;`};
-  ${media.phone`font-size: 40px;`};
+  ${media.phone`font-size: 36px;`};
 `;
 const Blurb = styled.div`
   max-width: 50%;

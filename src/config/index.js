@@ -1,8 +1,8 @@
 module.exports = {
   // Site information
-  siteTitle: 'Andrew Rogerson',
-  siteTitleAlt: 'Andrew Rogerson | Software Engineer',
-  siteDescription: 'Software Engineer',
+  siteTitle: 'Andrew Rogerson | Software Engineer',
+  siteDescription:
+    'Design-minded software engineer based in Berlin, Germany who specializes in developing (and occasionally designing) beautiful, high-quality websites and applications.',
   siteUrl: 'https://andrewrogerson.me',
   siteLanguage: 'en',
   ogLanguage: 'en_US',
@@ -36,7 +36,7 @@ module.exports = {
     },
   ],
 
-  userTwitter: '@rogerson_andrew', // Twitter Username
+  userTwitter: '@rogerson_andrew',
   googleAnalyticsID: 'UA-12345689-1',
 
   projectMaxWidth: 1100,
