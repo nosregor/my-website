@@ -5,10 +5,11 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 
 import config from '../config';
+
+import Head from '../components/head';
 import Social from '../components/social';
 import Email from './email';
 import Header from '../components/header';
@@ -29,13 +30,7 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <div id="root">
-        <Helmet
-          title={data.site.siteMetadata.title}
-          meta={[
-            { name: 'description', content: data.site.siteMetadata.description },
-            { name: 'keywords', content: 'sample, something' },
-          ]}
-        />
+        <Head siteMetadata={data.site.siteMetadata} />
         <Social />
         <Email email={config.email} />
         <Menu />
