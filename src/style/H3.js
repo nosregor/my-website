@@ -10,9 +10,7 @@ const H3 = styled.h3`
   white-space: nowrap;
 
   font-size: ${theme.fontSizes.h3};
-  ${media.tablet`
-    font-size: 24px;
-  `};
+  ${media.tablet`font-size: 24px;`};
 
   font-family: ${theme.fonts.AvenirSemiBold};
   &:before {
@@ -26,9 +24,7 @@ const H3 = styled.h3`
     font-size: $fzXLarge;
     position: relative;
     bottom: 4px;
-    ${media.tablet`
-      font-size: ${theme.fontSizes.large};
-    `};
+    ${media.tablet`font-size: ${theme.fontSizes.large};`};
   }
   &:after {
     content: '';

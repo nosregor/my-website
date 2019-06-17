@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import styled from 'styled-components';
-import { theme, mixins, media, Section, Ul, A } from '../style';
+import { theme, mixins, media, Section, Ul, A, Button } from '../style';
 
 import { IconGithub, IconExternal, IconFolder } from './icons';
 
@@ -16,8 +16,9 @@ const ProjectsContainer = Section.extend`
   `};
 `;
 const ProjectsTitle = styled.h4`
-  font-size: ${theme.fontSizes.h3};
   margin: 0 auto 50px;
+  font-size: ${theme.fontSizes.h3};
+  ${media.tablet`font-size: 24px;`};
 `;
 const ProjectsGrid = styled.div`
   display: grid;
@@ -49,7 +50,7 @@ const Folder = styled.div`
 `;
 const ProjectName = styled.h5`
   margin: 0 0 10px;
-  font-size: 24px;
+  font-size: ${theme.fontSizes.xxlarge};
   font-weight: 600;
   font-family: ${theme.fonts.AvenirSemiBold};
 `;
@@ -73,11 +74,15 @@ const TechList = Ul.extend`
   flex-wrap: wrap;
   margin-top: 20px;
   li {
-    margin-right: 15px;
     font-family: ${theme.fonts.SFMono};
     font-size: ${theme.fontSizes.xsmall};
     color: ${theme.colors.lightGrey};
     line-height: 2;
+    margin-right: 15px;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
   }
 `;
 const Links = styled.div`
@@ -94,21 +99,36 @@ const IconLink = A.extend`
     height: 20px;
   }
 `;
+const ShowMoreButton = Button.extend`
+  ${mixins.link};
+  ${mixins.bigButton};
+  margin: 100px auto 0;
+`;
 
 class Projects extends Component {
   static propTypes = {
     projects: PropTypes.array.isRequired,
   };
+
+  state = {
+    showMore: false,
+  };
+
+  showMoreToggle = () => this.setState({ showMore: !this.state.showMore });
+
   render() {
+    const { showMore } = this.state;
     const { projects } = this.props;
+    const firstThree = projects.slice(0, 3);
+    const projectsToShow = showMore ? projects : firstThree;
 
     return (
       <ProjectsContainer>
         <ProjectsTitle>Other Projects</ProjectsTitle>
 
         <ProjectsGrid>
-          {projects &&
-            projects.map((project, i) => (
+          {projectsToShow &&
+            projectsToShow.map((project, i) => (
               <Project key={i}>
                 <ProjectTop>
                   <Folder>
@@ -145,6 +165,8 @@ class Projects extends Component {
               </Project>
             ))}
         </ProjectsGrid>
+
+        <ShowMoreButton onClick={this.showMoreToggle}>Show More</ShowMoreButton>
       </ProjectsContainer>
     );
   }
