@@ -9,6 +9,7 @@ module.exports = {
   siteLanguage: 'en',
   ogLanguage: 'en_US',
   siteLogo: '/logos/logo-1024.png',
+  siteIcon: '../static/logo.png',
 
   avatar: '/logos/social.png',
   name: 'Andrew Rogerson',

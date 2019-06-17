@@ -12,7 +12,7 @@ const FlexContainer = styled.div`
 
   ${media.tablet`display: block;`};
 `;
-const Content = styled.div`
+const ContentContainer = styled.div`
   width: 60%;
   max-width: 480px;
   padding-right: 30px;
@@ -34,6 +34,7 @@ const Skill = styled.li`
   font-size: ${theme.fontSizes.smallish};
   margin-bottom: 10px;
   padding-left: 20px;
+
   &:before {
     content: '▹';
     color: ${theme.colors.green};
@@ -76,13 +77,13 @@ class About extends Component {
       <AboutContainer id="about">
         <H3>{node.frontmatter.title}</H3>
         <FlexContainer>
-          <Content>
+          <ContentContainer>
             <P dangerouslySetInnerHTML={{ __html: node.html }} />
             <SkillsContainer>
               {node.frontmatter.skills &&
                 node.frontmatter.skills.map((skill, i) => <Skill key={i}>{skill}</Skill>)}
             </SkillsContainer>
-          </Content>
+          </ContentContainer>
           <PicContainer>
             <Avatar sizes={node.frontmatter.avatar.childImageSharp.sizes} alt="Avatar" />
           </PicContainer>
