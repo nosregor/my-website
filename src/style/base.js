@@ -47,6 +47,7 @@ const base = injectGlobal`
 
   html {
     box-sizing: border-box;
+    width: 100%;
   }
 
   *,
@@ -55,14 +56,9 @@ const base = injectGlobal`
     box-sizing: inherit;
   }
 
-  html,
-  body {
-    width: 100%;
-    height: 100%;
-  }
-
   body {
     margin: 0;
+    width: 100%;
     min-height: 100%;
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
@@ -73,10 +69,6 @@ const base = injectGlobal`
     font-size: ${theme.fontSizes.xlarge};
 
     ${media.tablet`font-size: ${theme.fontSizes.large};`}
-
-    &.loading {
-      overflow: hidden;
-    }
   }
 
   ::selection {
@@ -90,6 +82,7 @@ const base = injectGlobal`
   h5 {
     font-weight: 600;
     color: ${theme.colors.dark};
+    margin: 0 0 10px 0;
   }
 
   #root {

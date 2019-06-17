@@ -52,7 +52,7 @@ const ProjectDescription = styled.div`
 `;
 const TechList = Ul.extend`
   display: flex;
-  margin: ${theme.margin} 0;
+  margin: 25px 0 10px;
   li {
     font-family: ${theme.fonts.Avenir};
     font-size: ${theme.fontSizes.smallish};
@@ -97,7 +97,8 @@ const ImgContainer = styled.div`
   z-index: 1;
   border-radius: ${theme.borderRadius};
   background-color: ${theme.colors.green};
-  background: linear-gradient(0.4turn, ${theme.colors.green}, ${theme.colors.blue});
+  background: ${theme.gradient};
+  // background: linear-gradient(0.4turn, ${theme.colors.green}, ${theme.colors.blue});
   border-radius: 2px;
   grid-column: 6 / -1;
   grid-row: 1 / -1;
@@ -133,13 +134,44 @@ const Project = styled.div`
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(6, 1fr);
   align-items: center;
   margin-bottom: 100px;
-  ${media.tablet`align-items: flex-start;`};
   ${media.thone`margin-bottom: 70px;`};
+
   &:last-of-type {
     margin-bottom: 0;
+  }
+
+  &:nth-of-type(odd) {
+    ${ContentContainer} {
+      grid-column: 7 / -1;
+      text-align: right;
+      ${media.thone`
+        grid-column: 1 / -1;
+        padding: 40px 40px 30px;
+      `};
+      ${media.phablet`padding: 30px 25px 20px;`};
+    }
+    ${TechList} {
+      justify-content: flex-end;
+      li {
+        margin-left: ${theme.margin};
+        margin-right: 0;
+      }
+    }
+    ${Links} {
+      justify-content: flex-end;
+      margin-left: 0;
+      margin-right: -10px;
+    }
+    ${ImgContainer} {
+      grid-column: 1 / 8;
+      ${media.tablet`height: 100%;`};
+      ${media.thone`
+        grid-column: 1 / -1;
+        opacity: 0.25;
+      `};
+    }
   }
 `;
 
@@ -167,10 +199,16 @@ class Featured extends Component {
                     ))}
                   </TechList>
                   <Links>
-                    <A href={project.node.frontmatter.github} target="_blank" rel="noopener">
+                    <A
+                      href={project.node.frontmatter.github}
+                      target="_blank"
+                      rel="nofollow noopener noreferrer">
                       <IconGithub />
                     </A>
-                    <A href={project.node.frontmatter.external} target="_blank" rel="noopener">
+                    <A
+                      href={project.node.frontmatter.external}
+                      target="_blank"
+                      rel="nofollow noopener noreferrer">
                       <IconExternal />
                     </A>
                   </Links>

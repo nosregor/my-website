@@ -53,8 +53,6 @@ const theme = {
     h3: '32px',
   },
 
-  spacing: {},
-
   transition: 'all 0.25s ease-in-out',
 
   borderRadius: '2px',
@@ -62,6 +60,9 @@ const theme = {
   headerScrollHeight: '70px',
   margin: '20px',
   tabHeight: 42,
+  tabWidth: 120,
+
+  gradient: `linear-gradient(0.4turn, #64ffda, #64d6ff)`,
 };
 
 export default theme;

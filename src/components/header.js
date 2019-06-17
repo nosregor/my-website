@@ -27,6 +27,7 @@ const HeaderContainer = styled.header`
   );
 
   ${media.desktop`padding: 0 40px;`};
+  ${media.tablet`padding: 0 22px;`};
 `;
 
 const Navbar = Nav.extend`
@@ -57,6 +58,7 @@ const LogoLink = A.extend`
 const NavLinks = styled.div`
   display: flex;
   align-items: center;
+  ${media.tablet`display: none;`};
 `;
 const NavList = Ol.extend`
   display: flex;
@@ -137,7 +139,7 @@ class Header extends Component {
       <HeaderContainer innerRef={x => (this.header = x)} scrollDirection={scrollDirection}>
         <Navbar>
           <Logo>
-            <LogoLink to="/" target="_blank" rel="noopener">
+            <LogoLink to="/">
               <IconLogoSmall />
             </LogoLink>
           </Logo>
@@ -156,8 +158,7 @@ class Header extends Component {
                 <NavLink href="#contact">Contact</NavLink>
               </NavListItem>
             </NavList>
-            <ResumeLink href={config.resume} target="_blank" rel="noopener">
-              {' '}
+            <ResumeLink href={config.resume} target="_blank" rel="nofollow noopener noreferrer">
               Resume
             </ResumeLink>
           </NavLinks>

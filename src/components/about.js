@@ -17,12 +17,16 @@ const Content = styled.div`
   max-width: 480px;
   padding-right: 30px;
 
-  ${media.tablet`width: 100%;`};
+  ${media.tablet`
+    width: 100%;
+    padding-right: 0;
+  `};
 `;
 const SkillsContainer = Ul.extend`
-  display: grid;
-  grid-template-columns: 200px 200px;
   margin-top: 20px;
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: repeat(2, minmax(140px, 200px));
 `;
 const Skill = styled.li`
   position: relative;
@@ -48,58 +52,15 @@ const Avatar = styled(Img)`
   // border-radius: ${theme.borderRadius};
   // transition: ${theme.transition};
 `;
-
 const PicContainer = styled.div`
+  position: relative;
   width: 40%;
   max-width: 300px;
   border-radius: ${theme.borderRadius};
   background-color: ${theme.colors.green};
-  position: relative;
 
-  ${media.tablet`
-    margin: 50px auto 0;
-  `};
-  ${media.phablet`
-    width: 70%;
-  `};
-  
-  // &:hover {
-  //   &:after {
-  //     top: 15px;
-  //     left: 15px;
-  //   }
-  //   ${Avatar} {
-  //     filter: none;
-  //     mix-blend-mode: normal;
-  //   }
-  }
-  // &:before {
-  //   content: '';
-  //   position: absolute;
-  //   width: 100%;
-  //   height: 100%;
-  //   top: 0;
-  //   left: 0;
-  //   right: 0;
-  //   bottom: 0;
-  //   transition: ${theme.transition};
-  //   background-color: ${theme.colors.navy};
-  //   mix-blend-mode: screen;
-  //   border-radius: ${theme.borderRadius};
-  }
-  // &:after {
-  //   content: '';
-  //   display: block;
-  //   width: 100%;
-  //   height: 100%;
-  //   border: 2px solid ${theme.colors.green};
-  //   position: absolute;
-  //   top: 20px;
-  //   left: 20px;
-  //   z-index: -1;
-  //   transition: ${theme.transition};
-  //   border-radius: ${theme.borderRadius};
-  // }
+  ${media.tablet`margin: 50px auto 0;`};
+  ${media.phablet`width: 70%;`};
 `;
 
 class About extends Component {
