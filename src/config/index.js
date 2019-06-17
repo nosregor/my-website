@@ -38,6 +38,25 @@ module.exports = {
     },
   ],
 
+  navLinks: [
+    {
+      name: 'About',
+      url: '#about',
+    },
+    {
+      name: 'Experience',
+      url: '#jobs',
+    },
+    {
+      name: 'Work',
+      url: '#projects',
+    },
+    {
+      name: 'Contact',
+      url: '#contact',
+    },
+  ],
+
   twitterHandle: '@rogerson_andrew',
   googleAnalyticsID: 'UA-12345689-1',
 

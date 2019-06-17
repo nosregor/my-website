@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 import Menu from '../components/menu';
@@ -167,6 +168,10 @@ const ResumeLink = A.extend`
 const DELTA = 5;
 
 class Header extends Component {
+  static propTypes = {
+    navLinks: PropTypes.array.isRequired,
+  };
+
   state = {
     lastScrollTop: 0,
     scrollDirection: 'none',
@@ -242,6 +247,7 @@ class Header extends Component {
 
   render() {
     const { scrollDirection, menuOpen } = this.state;
+    const { navLinks } = this.props;
 
     return (
       <HeaderContainer innerRef={x => (this.header = x)} scrollDirection={scrollDirection}>
@@ -260,18 +266,12 @@ class Header extends Component {
 
           <NavLinks>
             <NavList>
-              <NavListItem>
-                <NavLink href="#about">About</NavLink>
-              </NavListItem>
-              <NavListItem>
-                <NavLink href="#jobs">Experience</NavLink>
-              </NavListItem>
-              <NavListItem>
-                <NavLink href="#projects">Work</NavLink>
-              </NavListItem>
-              <NavListItem>
-                <NavLink href="#contact">Contact</NavLink>
-              </NavListItem>
+              {navLinks &&
+                navLinks.map((link, i) => (
+                  <NavListItem key={i}>
+                    <NavLink href={link.url}>{link.name}</NavLink>
+                  </NavListItem>
+                ))}
             </NavList>
 
             <ResumeLink href={config.resume} target="_blank" rel="nofollow noopener noreferrer">
@@ -279,8 +279,11 @@ class Header extends Component {
             </ResumeLink>
           </NavLinks>
         </Navbar>
-
-        <Menu menuOpen={menuOpen} handleMenuClick={e => this.handleMenuClick(e)} />
+        <Menu
+          navLinks={navLinks}
+          menuOpen={menuOpen}
+          handleMenuClick={e => this.handleMenuClick(e)}
+        />
       </HeaderContainer>
     );
   }

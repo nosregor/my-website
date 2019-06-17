@@ -34,7 +34,7 @@ const Layout = ({ children }) => (
         <Social />
         <Email email={config.email} />
         <Menu />
-        <Header />
+        <Header navLinks={config.navLinks} />
         {children}
         <Footer />
       </div>
