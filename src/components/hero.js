@@ -21,7 +21,7 @@ const Hi = styled.h1`
   margin: 0 0 20px 3px;
   font-size: ${theme.fontSizes.medium};
   font-family: ${theme.fonts.Avenir};
-  font-weight: 400;
+  font-weight: normal;
 
   ${media.desktop`font-size: ${theme.fontSizes.small};`};
   ${media.tablet`font-size: ${theme.fontSizes.smallish};`};

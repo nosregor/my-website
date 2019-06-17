@@ -20,7 +20,7 @@ const H3 = styled.h3`
     // content: '0' counter(section) '.';
     margin-right: 10px;
     font-family: ${theme.fonts.AvenirSemiBold};
-    font-weight: 400;
+    font-weight: normal;
     color: ${theme.colors.green};
     font-size: ${theme.fontSizes.xlarge};
     font-size: $fzXLarge;
