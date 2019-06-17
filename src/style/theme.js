@@ -25,7 +25,8 @@ const theme = {
     // green: '#6CCB93',
     green: '#4AA57F',
     transGreen: 'rgba(100, 255, 218, 0.1)',
-    transNavy: 'rgba(2, 12, 27, 0.9)',
+    transNavy: 'rgba(2, 12, 27, 0.5)',
+    shadowNavy: 'rgba(2, 12, 27, 0.9)',
   },
 
   fonts: {
