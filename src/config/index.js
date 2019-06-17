@@ -15,7 +15,6 @@ module.exports = {
   name: 'Andrew Rogerson',
   location: 'Berlin, Germany',
   email: 'werdnanosregor@gmail.com',
-  resume: 'https://andrewrogerson.me/resume.pdf',
   socialMedia: [
     {
       name: 'Github',

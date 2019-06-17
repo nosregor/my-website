@@ -120,7 +120,7 @@ class Menu extends Component {
                   </NavListItem>
                 ))}
             </NavList>
-            <ResumeLink href={config.resume} target="_blank" rel="nofollow noopener noreferrer">
+            <ResumeLink href="/resume.pdf" target="_blank" rel="nofollow noopener noreferrer">
               Resume
             </ResumeLink>
           </NavLinks>

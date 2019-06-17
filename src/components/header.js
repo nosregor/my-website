@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
+import { Link } from 'gatsby';
 
 import Menu from '../components/menu';
 import config from '../config';
@@ -49,7 +50,7 @@ const Navbar = Nav.extend`
 const Logo = styled.div`
   ${mixins.flexCenter};
 `;
-const LogoLink = A.extend`
+const LogoLink = styled(Link)`
   color: ${theme.colors.green};
   width: 200px;
   height: 40px;
@@ -274,7 +275,7 @@ class Header extends Component {
                 ))}
             </NavList>
 
-            <ResumeLink href={config.resume} target="_blank" rel="nofollow noopener noreferrer">
+            <ResumeLink href="/resume.pdf" target="_blank" rel="nofollow noopener noreferrer">
               Resume
             </ResumeLink>
           </NavLinks>

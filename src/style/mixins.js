@@ -41,8 +41,12 @@ const mixins = {
     color: ${theme.colors.green};
     border: 1px solid ${theme.colors.green};
     border-radius: ${theme.borderRadius};
-    padding: 15px 20px 10px;
+    padding: 18px 20px 12px;
     font-size: ${theme.fontSizes.medium};
+    text-decoration: none;
+    cursor: pointer;
+    transition: ${theme.transition};
+
     &:hover,
     &:focus,
     &:active {
