@@ -51,9 +51,11 @@ const Folder = styled.div`
 const ProjectName = styled.h5`
   margin: 0 0 10px;
   font-size: ${theme.fontSizes.xxlarge};
+  color: ${theme.colors.lightestSlate};
   font-weight: 600;
   font-family: ${theme.fonts.AvenirSemiBold};
 `;
+const ProjectLink = A.extend``;
 const ProjectDescription = styled.div`
   font-size: 17px;
   line-height: 1.25;
@@ -153,7 +155,18 @@ class Projects extends Component {
                       </IconLink>
                     )}
                   </Links>
-                  <ProjectName>{project.node.frontmatter.title}</ProjectName>
+                  <ProjectName>
+                    {project.node.frontmatter.external ? (
+                      <ProjectLink
+                        href={project.node.frontmatter.external}
+                        target="_blank"
+                        rel="nofollow noopener noreferrer">
+                        {project.node.frontmatter.title}
+                      </ProjectLink>
+                    ) : (
+                      project.node.frontmatter.title
+                    )}
+                  </ProjectName>
                   <ProjectDescription dangerouslySetInnerHTML={{ __html: project.node.html }} />
                 </ProjectTop>
                 <ProjectBottom>

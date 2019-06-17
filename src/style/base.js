@@ -67,7 +67,7 @@ const base = injectGlobal`
     color: ${theme.colors.black};
     font-family: ${theme.fonts.Avenir};
     font-size: ${theme.fontSizes.xlarge};
-
+    line-height: 1.25;
     ${media.tablet`font-size: ${theme.fontSizes.large};`}
 
     &.blur {
@@ -112,6 +112,10 @@ const base = injectGlobal`
   button {
     outline: 0;
     border: 0;
+  }
+  
+  p {
+    margin-top: 0;
   }
   
   .gatsby-image-outer-wrapper {

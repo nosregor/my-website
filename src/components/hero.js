@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import config from '../config';
 
 import styled from 'styled-components';
-import { theme, mixins, media, Section, A, P } from '../style';
+import { theme, mixins, media, Section, A } from '../style';
 
 const HeroContainer = Section.extend`
   ${mixins.flexCenter};
@@ -77,9 +77,8 @@ class Hero extends Component {
         <Hi>{node.frontmatter.title}</Hi>
         <Name>{node.frontmatter.name}.</Name>
         <Subtitle>{node.frontmatter.subtitle}</Subtitle>
-        <Blurb>
-          <P dangerouslySetInnerHTML={{ __html: node.html }} />
-        </Blurb>
+        <Blurb dangerouslySetInnerHTML={{ __html: node.html }} />
+
         <EmailLink href={`mailto:${config.email}`} className="git">
           Get In Touch
         </EmailLink>
