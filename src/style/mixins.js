@@ -38,6 +38,12 @@ const mixins = {
   `,
 
   inlineLink: css`
+    display: inline-block;
+    text-decoration: none;
+    text-decoration-skip-ink: auto;
+    position: relative;
+    transition: ${theme.transition};
+    cursor: pointer;
     color: ${theme.colors.green};
     &:hover,
     &:focus,
@@ -51,8 +57,8 @@ const mixins = {
       display: block;
       width: 100%;
       height: 1px;
-      position: relative;
-      top: 0px;
+      position: absolute;
+      bottom: 0.25em;
       opacity: 0;
       background-color: ${theme.colors.green};
       transition: ${theme.transition};

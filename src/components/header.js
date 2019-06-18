@@ -43,7 +43,6 @@ const Navbar = Nav.extend`
   width: 100%;
   color: ${theme.colors.black};
   // counter-reset: item 0;
-  // text-transform: uppercase;
   position: relative;
   z-index: 12;
 `;
@@ -52,7 +51,7 @@ const Logo = styled.div`
 `;
 const LogoLink = styled(Link)`
   color: ${theme.colors.green};
-  width: 200px;
+  width: 40px;
   height: 40px;
   &:hover {
     svg {

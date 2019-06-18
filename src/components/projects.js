@@ -24,6 +24,7 @@ const ProjectsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 20px;
+  position: relative;
 `;
 const Project = styled.div`
   ${mixins.flexBetween};
@@ -180,7 +181,9 @@ class Projects extends Component {
             ))}
         </ProjectsGrid>
 
-        <ShowMoreButton onClick={this.showMoreToggle}>Show More</ShowMoreButton>
+        <ShowMoreButton onClick={this.showMoreToggle}>
+          Show {showMore ? 'Less' : 'More'}
+        </ShowMoreButton>
       </ProjectsContainer>
     );
   }
