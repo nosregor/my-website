@@ -66,12 +66,12 @@ const EmailLink = A.extend`
 
 class Hero extends Component {
   static propTypes = {
-    hero: PropTypes.array.isRequired,
+    data: PropTypes.array.isRequired,
   };
 
   render() {
-    const { hero } = this.props;
-    const { node } = hero[0];
+    const { data } = this.props;
+    const { node } = data[0];
 
     return (
       <HeroContainer>

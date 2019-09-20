@@ -25,6 +25,10 @@ const ProjectsGrid = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 20px;
   position: relative;
+
+  ${media.desktop`
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  `};
 `;
 const Project = styled.div`
   ${mixins.flexBetween};
@@ -111,7 +115,7 @@ const ShowMoreButton = Button.extend`
 
 class Projects extends Component {
   static propTypes = {
-    projects: PropTypes.array.isRequired,
+    data: PropTypes.array.isRequired,
   };
 
   state = {
@@ -122,9 +126,9 @@ class Projects extends Component {
 
   render() {
     const { showMore } = this.state;
-    const { projects } = this.props;
-    const firstThree = projects.slice(0, 3);
-    const projectsToShow = showMore ? projects : firstThree;
+    const { data } = this.props;
+    const firstThree = data.slice(0, 3);
+    const projectsToShow = showMore ? data : firstThree;
 
     return (
       <ProjectsContainer>
@@ -182,7 +186,7 @@ class Projects extends Component {
         </ProjectsGrid>
 
         <ShowMoreButton onClick={this.showMoreToggle}>
-          Show {showMore ? 'Less' : 'More'}
+          {showMore ? 'Fewer' : 'More'} Projects
         </ShowMoreButton>
       </ProjectsContainer>
     );

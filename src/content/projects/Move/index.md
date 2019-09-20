@@ -9,6 +9,7 @@ tech:
   - JS
   - HTML / SCSS
   - Cordoba
+show: 'true'
 ---
 
 A Game that allows you to create stories and play it.

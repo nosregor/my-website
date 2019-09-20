@@ -7,6 +7,7 @@ external: 'https://nosregor.github.io/web-toolkit/'
 tech:
   - HTML / SCSS
   - GitHub pages
+show: 'true'
 ---
 
 This is a list of awesome resources to help you get started with desgining and developing web pages

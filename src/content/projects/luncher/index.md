@@ -11,6 +11,7 @@ tech:
   - Postgres
   - JS
   - HTML / SCSS
+show: 'true'
 ---
 
 A web application built on the ruby on rails (Postgres) stack for my web development course at Northeastern. I created this web app with the intention of providing car2go employees a better chance to network.

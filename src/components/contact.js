@@ -47,12 +47,12 @@ const EmailLink = A.extend`
 
 class Contact extends Component {
   static propTypes = {
-    contact: PropTypes.array.isRequired,
+    data: PropTypes.array.isRequired,
   };
 
   render() {
-    const { contact } = this.props;
-    const { node } = contact[0];
+    const { data } = this.props;
+    const { node } = data[0];
 
     return (
       <ContactContainer id="contact">

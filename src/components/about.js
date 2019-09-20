@@ -66,12 +66,12 @@ const PicContainer = styled.div`
 
 class About extends Component {
   static propTypes = {
-    about: PropTypes.array.isRequired,
+    data: PropTypes.array.isRequired,
   };
 
   render() {
-    const { about } = this.props;
-    const { node } = about[0];
+    const { data } = this.props;
+    const { node } = data[0];
 
     return (
       <AboutContainer id="about">

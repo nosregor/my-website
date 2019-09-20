@@ -8,7 +8,6 @@ const H3 = styled.h3`
   align-items: center;
   margin: 10px 0 40px;
   white-space: nowrap;
-
   font-size: ${theme.fontSizes.h3};
   ${media.tablet`font-size: 24px;`};
 
@@ -26,6 +25,7 @@ const H3 = styled.h3`
     bottom: 4px;
     ${media.tablet`font-size: ${theme.fontSizes.large};`};
   }
+
   &:after {
     content: '';
     display: block;

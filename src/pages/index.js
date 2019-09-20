@@ -23,12 +23,12 @@ const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
     <MainContainer>
-      <Hero hero={data.hero.edges} />
-      <About about={data.about.edges} />
-      <Jobs jobs={data.jobs.edges} />
-      <Featured featured={data.featured.edges} />
-      <Projects projects={data.projects.edges} />
-      <Contact contact={data.contact.edges} />
+      <Hero data={data.hero.edges} />
+      <About data={data.about.edges} />
+      <Jobs data={data.jobs.edges} />
+      <Featured data={data.featured.edges} />
+      <Projects data={data.projects.edges} />
+      <Contact data={data.contact.edges} />
     </MainContainer>
   </Layout>
 );
@@ -125,6 +125,7 @@ export const query = graphql`
             tech
             github
             external
+            show
           }
           html
         }
