@@ -8,7 +8,7 @@ import { theme, mixins, media, Section, H3, A, P } from '../style';
 
 const ContactContainer = Section.extend`
   text-align: center;
-  max-width: 700px;
+  max-width: 600px;
   margin: 0 auto 100px;
 `;
 const Header = H3.extend`

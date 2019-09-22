@@ -9,6 +9,8 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -39,15 +41,12 @@ module.exports = {
             options: {
               maxWidth: 1100,
               quality: 90,
-              linkImagesToOriginal: false,
+              linkImagesToOriginal: true,
             },
           },
         ],
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

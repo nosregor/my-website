@@ -23,7 +23,7 @@ const ProjectsTitle = styled.h4`
 const ProjectsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 20px;
+  grid-gap: 15px;
   position: relative;
 
   ${media.desktop`
@@ -125,10 +125,12 @@ class Projects extends Component {
   showMoreToggle = () => this.setState({ showMore: !this.state.showMore });
 
   render() {
+    const GRID_LIMIT = 3;
     const { showMore } = this.state;
     const { data } = this.props;
-    const firstThree = data.slice(0, 3);
-    const projectsToShow = showMore ? data : firstThree;
+    const projects = data.filter(({ node }) => node.frontmatter.show === 'true');
+    const firstThree = projects.slice(0, GRID_LIMIT);
+    const projectsToShow = showMore ? projects : firstThree;
 
     return (
       <ProjectsContainer>

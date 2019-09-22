@@ -47,13 +47,19 @@ const ProjectDescription = styled.div`
   color: ${theme.colors.lightSlate};
   padding: 20px;
   border-radius: ${theme.borderRadius};
-  font-size: ${theme.fontSizes.large};
+  // font-size: ${theme.fontSizes.large};
+  font-size: 17px;
+  line-height: 1.3;
   ${media.thone`
     background-color: transparent;
     padding: 20px 0;
   `};
   p {
     margin: 0;
+  }
+  a {
+    ${mixins.inlineLink};
+    color: ${theme.colors.white};
   }
 `;
 const TechList = Ul.extend`
@@ -90,7 +96,7 @@ const FeaturedImg = styled(Img)`
   border-radius: ${theme.borderRadius};
   position: relative;
   mix-blend-mode: multiply;
-  filter: grayscale(100%) contrast(1);
+  filter: grayscale(100%) contrast(1) brightness(90%);;
   ${media.tablet`
     object-fit: cover;
     width: auto;
