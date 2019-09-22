@@ -16,7 +16,7 @@ import Header from '../components/header';
 import Menu from '../components/menu';
 import Footer from '../components/footer';
 
-const Layout = ({ children }) => (
+const Layout = ({ children, location }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -34,7 +34,8 @@ const Layout = ({ children }) => (
         <Social />
         <Email />
         <Menu />
-        <Header navLinks={config.navLinks} />
+        <Header location={location} navLinks={config.navLinks} />
+
         {children}
         <Footer />
       </div>
@@ -44,6 +45,7 @@ const Layout = ({ children }) => (
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  location: PropTypes.object.isRequired,
 };
 
 export default Layout;

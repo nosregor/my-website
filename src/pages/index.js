@@ -19,8 +19,8 @@ const MainContainer = Main.extend`
   counter-reset: section;
 `;
 
-const IndexPage = ({ data }) => (
-  <Layout>
+const IndexPage = ({ data, location }) => (
+  <Layout location={location}>
     <SEO title="Home" />
     <MainContainer>
       <Hero data={data.hero.edges} />
@@ -35,6 +35,7 @@ const IndexPage = ({ data }) => (
 
 IndexPage.propTypes = {
   data: PropTypes.object,
+  location: PropTypes.object.isRequired,
 };
 
 export default IndexPage;
