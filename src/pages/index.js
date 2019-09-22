@@ -62,8 +62,8 @@ export const query = graphql`
             title
             avatar {
               childImageSharp {
-                sizes(maxWidth: 700, quality: 90, traceSVG: { color: "#64ffda" }) {
-                  ...GatsbyImageSharpSizes_withWebp_tracedSVG
+                fluid(maxWidth: 700, quality: 90, traceSVG: { color: "#64ffda" }) {
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }
               }
             }
@@ -100,8 +100,8 @@ export const query = graphql`
             title
             cover {
               childImageSharp {
-                sizes(maxWidth: 700, quality: 90, traceSVG: { color: "#64ffda" }) {
-                  ...GatsbyImageSharpSizes_withWebp_tracedSVG
+                fluid(maxWidth: 700, quality: 90, traceSVG: { color: "#64ffda" }) {
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }
               }
             }

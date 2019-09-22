@@ -234,7 +234,7 @@ class Featured extends Component {
                   </Links>
                 </ContentContainer>
                 <ImgContainer>
-                  <FeaturedImg sizes={project.node.frontmatter.cover.childImageSharp.sizes} />
+                  <FeaturedImg fluid={project.node.frontmatter.cover.childImageSharp.fluid} />
                 </ImgContainer>
               </Project>
             ))}
