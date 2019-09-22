@@ -5,7 +5,7 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 import { theme, mixins, media, Section, H3, P, Ul } from '../style';
 
-const AboutContainer = Section.extend``;
+const AboutContainer = styled(Section)``;
 const FlexContainer = styled.div`
   ${mixins.flexBetween};
   align-items: flex-start;
@@ -19,7 +19,7 @@ const ContentContainer = styled.div`
 
   ${media.tablet`width: 100%;`};
 `;
-const SkillsContainer = Ul.extend`
+const SkillsContainer = styled(Ul)`
   margin-top: 20px;
   display: grid;
   overflow: hidden;

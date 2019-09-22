@@ -25,7 +25,7 @@ const EmailContainer = styled.div`
     display: block;
   }
 `;
-const EmailLink = A.extend`
+const EmailLink = styled(A)`
   font-family: ${theme.fonts.Josefin};
   font-size: ${theme.fontSizes.xsmall};
   color: ${theme.colors.lightSlate};
