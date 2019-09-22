@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { theme, mixins, media, Section, H3, P } from '../style';
 
-const JobsContainer = styled(Section)`
+const JobsContainer = Section.extend`
   position: relative;
   max-width: 700px;
 `;

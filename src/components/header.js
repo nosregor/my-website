@@ -37,7 +37,7 @@ const HeaderContainer = styled.header`
   ${media.tablet`padding: 0 25px;`};
 `;
 
-const Navbar = styled(Nav)`
+const Navbar = Nav.extend`
   ${mixins.flexBetween};
   font-family: ${theme.fonts.AvenirSemiBold};
   width: 100%;
@@ -134,7 +134,7 @@ const NavLinks = styled.div`
   align-items: center;
   ${media.tablet`display: none;`};
 `;
-const NavList = styled(Ol)`
+const NavList = Ol.extend`
   ${mixins.flexBetween};
 `;
 const NavListItem = styled.li`
@@ -153,7 +153,7 @@ const NavLink = styled(AnchorLink)`
   ${mixins.link};
   padding: 12px 0;
 `;
-const ResumeLink = styled(A)`
+const ResumeLink = A.extend`
   ${mixins.smallButton};
   margin-left: 10px;
   padding: 10px 15px 10px;

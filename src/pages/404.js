@@ -5,7 +5,7 @@ import Layout from '../components/layout';
 import styled from 'styled-components';
 import { theme, mixins, media, Main } from '../style';
 
-const MainContainer = styled(Main)`
+const MainContainer = Main.extend`
   ${mixins.padding};
   ${mixins.flexCenter};
   flex-direction: column;

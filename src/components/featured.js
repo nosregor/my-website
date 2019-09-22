@@ -7,7 +7,7 @@ import { IconGithub, IconExternal } from './icons';
 import styled from 'styled-components';
 import { theme, mixins, media, Section, H3, Ul, A } from '../style';
 
-const FeaturedContainer = styled(Section)`
+const FeaturedContainer = Section.extend`
   ${mixins.flexCenter};
   flex-direction: column;
   align-items: flex-start;
@@ -62,7 +62,7 @@ const ProjectDescription = styled.div`
     color: ${theme.colors.white};
   }
 `;
-const TechList = styled(Ul)`
+const TechList = Ul.extend`
   display: flex;
   margin: 25px 0 10px;
   li {

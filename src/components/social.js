@@ -28,11 +28,11 @@ const SocialContainer = styled.div`
     background-color: ${theme.colors.lightSlate};
   }
 `;
-const SocialItemList = styled(Ul)`
+const SocialItemList = Ul.extend`
   margin-bottom: 10px;
 `;
 const SocialItem = styled.li``;
-const SocialLink = styled(A)`
+const SocialLink = A.extend`
   padding: 10px;
 
   svg {

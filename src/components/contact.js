@@ -6,12 +6,12 @@ import config from '../config';
 import styled from 'styled-components';
 import { theme, mixins, media, Section, H3, A, P } from '../style';
 
-const ContactContainer = styled(Section)`
+const ContactContainer = Section.extend`
   text-align: center;
   max-width: 600px;
   margin: 0 auto 100px;
 `;
-const Header = styled(H3)`
+const Header = H3.extend`
   display: block;
 
   color: ${theme.colors.green};
@@ -40,7 +40,7 @@ const Title = styled.h4`
   ${media.desktop`font-size: 50px;`};
   ${media.tablet`font-size: 40px;`};
 `;
-const EmailLink = styled(A)`
+const EmailLink = A.extend`
   ${mixins.bigButton};
   margin-top: 50px;
 `;

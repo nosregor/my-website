@@ -15,12 +15,12 @@ const FooterContainer = styled.footer`
   ${media.phone`padding: 0 20px;`};
 `;
 
-const Copy = styled(P)`
+const Copy = P.extend`
   margin: 5px 0 3px;
   font-size: ${theme.fontSizes.medium};
 `;
 
-const GithubLink = styled(A)`
+const GithubLink = A.extend`
   ${mixins.inlineLink};
   color: ${theme.colors.lightGrey};
   font-family: ${theme.fonts.Avenir};

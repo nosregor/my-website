@@ -6,7 +6,7 @@ import { theme, mixins, media, Section, Ul, A, Button } from '../style';
 
 import { IconGithub, IconExternal, IconFolder } from './icons';
 
-const ProjectsContainer = styled(Section)`
+const ProjectsContainer = Section.extend`
   ${mixins.flexCenter};
   flex-direction: column;
   align-items: flex-start;
@@ -60,7 +60,7 @@ const ProjectName = styled.h5`
   font-weight: 600;
   font-family: ${theme.fonts.AvenirSemiBold};
 `;
-const ProjectLink = styled(A)``;
+const ProjectLink = A.extend``;
 const ProjectDescription = styled.div`
   font-size: 17px;
   line-height: 1.25;
@@ -74,7 +74,7 @@ const ProjectDescription = styled.div`
     }
   }
 `;
-const TechList = styled(Ul)`
+const TechList = Ul.extend`
   flex-grow: 1;
 
   display: flex;
@@ -100,14 +100,14 @@ const Links = styled.div`
   display: flex;
   align-items: center;
 `;
-const IconLink = styled(A)`
+const IconLink = A.extend`
   margin-left: 15px;
   svg {
     width: 20px;
     height: 20px;
   }
 `;
-const ShowMoreButton = styled(Button)`
+const ShowMoreButton = Button.extend`
   ${mixins.link};
   ${mixins.bigButton};
   margin: 100px auto 0;
