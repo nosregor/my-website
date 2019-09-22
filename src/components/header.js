@@ -135,7 +135,7 @@ const NavLinks = styled.div`
   ${media.tablet`display: none;`};
 `;
 const NavList = Ol.extend`
-  display: flex;
+  ${mixins.flexBetween};
 `;
 const NavListItem = styled.li`
   margin: 0 10px;
@@ -151,7 +151,7 @@ const NavListItem = styled.li`
 `;
 const NavLink = styled(AnchorLink)`
   ${mixins.link};
-  padding: 10px;
+  padding: 12px 0;
 `;
 const ResumeLink = A.extend`
   ${mixins.smallButton};
@@ -253,7 +253,7 @@ class Header extends Component {
       <HeaderContainer innerRef={x => (this.header = x)} scrollDirection={scrollDirection}>
         <Navbar>
           <Logo>
-            <LogoLink to="/">
+            <LogoLink to="/" aria-label="Home">
               <IconLogoSmall />
             </LogoLink>
           </Logo>

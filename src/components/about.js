@@ -17,10 +17,7 @@ const ContentContainer = styled.div`
   max-width: 480px;
   padding-right: 30px;
 
-  ${media.tablet`
-    width: 100%;
-    padding-right: 0;
-  `};
+  ${media.tablet`width: 100%;`};
 `;
 const SkillsContainer = Ul.extend`
   margin-top: 20px;
@@ -57,10 +54,11 @@ const PicContainer = styled.div`
   position: relative;
   width: 40%;
   max-width: 300px;
+  margin-left: 60px;
   border-radius: ${theme.borderRadius};
   background-color: ${theme.colors.green};
 
-  ${media.tablet`margin: 50px auto 0;`};
+  ${media.tablet`margin: 60px auto 0;`};
   ${media.phablet`width: 70%;`};
 `;
 

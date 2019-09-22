@@ -147,7 +147,8 @@ class Projects extends Component {
                       <IconLink
                         href={project.node.frontmatter.github}
                         target="_blank"
-                        rel="nofollow noopener noreferrer">
+                        rel="nofollow noopener noreferrer"
+                        aria-label="Github Link">
                         <IconGithub />
                       </IconLink>
                     )}
@@ -155,7 +156,8 @@ class Projects extends Component {
                       <IconLink
                         href={project.node.frontmatter.external}
                         target="_blank"
-                        rel="nofollow noopener noreferrer">
+                        rel="nofollow noopener noreferrer"
+                        aria-label="External Link">
                         <IconExternal />
                       </IconLink>
                     )}
@@ -165,7 +167,8 @@ class Projects extends Component {
                       <ProjectLink
                         href={project.node.frontmatter.external}
                         target="_blank"
-                        rel="nofollow noopener noreferrer">
+                        rel="nofollow noopener noreferrer"
+                        aria-label="Visit Website">
                         {project.node.frontmatter.title}
                       </ProjectLink>
                     ) : (
