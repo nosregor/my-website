@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { Link } from 'gatsby';
+import { throttle } from '../utils';
+import config from '../config';
 
 import Menu from '../components/menu';
-import config from '../config';
-import { throttle } from '../utils';
 import { IconLogoSmall } from './icons';
 
 import styled from 'styled-components';
@@ -188,7 +188,7 @@ class Header extends Component {
     window.removeEventListener('scroll', this.handleScroll);
   }
 
-  handleScroll() {
+  handleScroll = () => {
     const { lastScrollTop, menuOpen, scrollDirection } = this.state;
     const fromTop = window.scrollY;
     const headerHeight = config.headerHeight;
@@ -217,7 +217,7 @@ class Header extends Component {
     }
 
     this.setState({ lastScrollTop: fromTop });
-  }
+  };
 
   handleResize = () => {
     const { menuOpen } = this.state;
@@ -252,7 +252,7 @@ class Header extends Component {
     const isHome = location && location.pathname === '/';
 
     return (
-      <HeaderContainer innerRef={x => (this.header = x)} scrollDirection={scrollDirection}>
+      <HeaderContainer innerRef={el => (this.header = el)} scrollDirection={scrollDirection}>
         <Navbar>
           <Logo>
             <LogoLink to="/" aria-label="Home">
