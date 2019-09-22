@@ -31,13 +31,14 @@ const Layout = ({ children, location }) => (
     render={data => (
       <div id="root">
         <Head siteMetadata={data.site.siteMetadata} />
-        <Social />
-        <Email />
-        <Menu />
-        <Header location={location} navLinks={config.navLinks} />
-
-        {children}
-        <Footer />
+        <div className="content">
+          <Header location={location} navLinks={config.navLinks} />
+          <Social />
+          <Email />
+          {children}
+          <Menu />
+          <Footer />
+        </div>
       </div>
     )}
   />
@@ -45,7 +46,7 @@ const Layout = ({ children, location }) => (
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-  location: PropTypes.object.isRequired,
+  location: PropTypes.object,
 };
 
 export default Layout;

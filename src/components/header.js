@@ -169,6 +169,7 @@ const DELTA = 5;
 
 class Header extends Component {
   static propTypes = {
+    location: PropTypes.object,
     navLinks: PropTypes.array.isRequired,
   };
 
@@ -247,7 +248,8 @@ class Header extends Component {
 
   render() {
     const { scrollDirection, menuOpen } = this.state;
-    const { navLinks } = this.props;
+    const { location, navLinks } = this.props;
+    const isHome = location && location.pathname === '/';
 
     return (
       <HeaderContainer innerRef={x => (this.header = x)} scrollDirection={scrollDirection}>
@@ -265,21 +267,23 @@ class Header extends Component {
           </Hamburger>
 
           <NavLinks>
-            <NavList>
-              {navLinks &&
-                navLinks.map((link, i) => (
-                  <NavListItem key={i}>
-                    <NavLink href={link.url}>{link.name}</NavLink>
-                  </NavListItem>
-                ))}
-            </NavList>
-
+            {isHome && (
+              <NavList>
+                {navLinks &&
+                  navLinks.map((link, i) => (
+                    <NavListItem key={i}>
+                      <NavLink href={link.url}>{link.name}</NavLink>
+                    </NavListItem>
+                  ))}
+              </NavList>
+            )}
             <ResumeLink href="/resume.pdf" target="_blank" rel="nofollow noopener noreferrer">
               Resume
             </ResumeLink>
           </NavLinks>
         </Navbar>
         <Menu
+          isHome={isHome}
           navLinks={navLinks}
           menuOpen={menuOpen}
           handleMenuClick={e => this.handleMenuClick(e)}
