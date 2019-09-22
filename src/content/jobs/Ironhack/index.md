@@ -1,12 +1,12 @@
 ---
 date: '2018-10-01'
-title: 'Coding Teacher'
+title: 'Web Development Teacher'
 company: 'Ironhack'
 location: 'Berlin'
-range: 'October 2018 - April 2019'
+range: 'October 2018 - March 2019'
 url: 'https://www.ironhack.com/en/locations/berlin'
 ---
 
-- Gluten-free you probably haven't heard of them jianbing pitchfork pabst. Kombucha
-- occupy iPhone live-edge beard iceland freegan small batch before they sold out DIY
-- marfa chillwave sustainable taiyaki bushwick
+- Oversaw the whole academic experience of a bootcamp from student selection to graduation
+- Gave lectures and created engaging content for the Web Development courses that included lessons, exercises and mini-projects
+- Taught and mentored students: pair programming, code reviews, and debugging issues

@@ -4,6 +4,7 @@ avatar: './me.jpg'
 skills:
   - JavaScript (ES6)
   - HTML & (S)CSS
+  - TypeScript
   - Node.js
   - Express
   - GraphQL
