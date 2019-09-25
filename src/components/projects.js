@@ -33,17 +33,29 @@ const ProjectsGrid = styled.div`
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   `};
 `;
-const Project = styled.div`
+const ProjectInner = styled.div`
   ${mixins.flexBetween};
   flex-direction: column;
   align-items: flex-start;
   position: relative;
   border: 1px solid ${theme.colors.green};
   padding: 25px;
+  height: 100%;
   border-radius: ${theme.borderRadius};
   transition: ${theme.transition};
-  &:hover {
-    background-color: ${theme.colors.transGreen};
+  // background-color: ${theme.colors.lightNavy};
+}
+`;
+const Project = styled.div`
+  transition: ${theme.transition};
+  &:hover,
+  // background-color: ${theme.colors.transGreen};
+  &:focus {
+    ${ProjectInner} {
+      transform: translateY(-5px);
+      box-shadow: 0 2px 4px ${theme.colors.shadowNavy};
+      box-shadow: 0 19px 38px ${theme.colors.darkestNavy} 0 15px 12px ${theme.colors.shadowNavy};
+    }
   }
 `;
 const ProjectTop = styled.div``;
@@ -101,7 +113,9 @@ const TechList = styled(Ul)`
   li {
     font-family: ${theme.fonts.SFMono};
     font-size: ${theme.fontSizes.xsmall};
-    color: ${theme.colors.lightGrey};
+    // color: ${theme.colors.lightGrey};
+    color: ${theme.colors.green};
+    opacity: 0.7;
     line-height: 2;
     margin-right: 15px;
 
@@ -157,54 +171,56 @@ class Projects extends Component {
           {projectsToShow &&
             projectsToShow.map((project, i) => (
               <Project key={i}>
-                <ProjectTop>
-                  <ProjectHeader>
-                    <Folder>
-                      <IconFolder />
-                    </Folder>
-                    <Links>
-                      {project.node.frontmatter.github && (
-                        <IconLink
-                          href={project.node.frontmatter.github}
-                          target="_blank"
-                          rel="nofollow noopener noreferrer"
-                          aria-label="Github Link">
-                          <IconGithub />
-                        </IconLink>
-                      )}
-                      {project.node.frontmatter.external && (
-                        <IconLink
+                <ProjectInner>
+                  <ProjectTop>
+                    <ProjectHeader>
+                      <Folder>
+                        <IconFolder />
+                      </Folder>
+                      <Links>
+                        {project.node.frontmatter.github && (
+                          <IconLink
+                            href={project.node.frontmatter.github}
+                            target="_blank"
+                            rel="nofollow noopener noreferrer"
+                            aria-label="Github Link">
+                            <IconGithub />
+                          </IconLink>
+                        )}
+                        {project.node.frontmatter.external && (
+                          <IconLink
+                            href={project.node.frontmatter.external}
+                            target="_blank"
+                            rel="nofollow noopener noreferrer"
+                            aria-label="External Link">
+                            <IconExternal />
+                          </IconLink>
+                        )}
+                      </Links>
+                    </ProjectHeader>
+                    <ProjectName>
+                      {project.node.frontmatter.external ? (
+                        <ProjectLink
                           href={project.node.frontmatter.external}
                           target="_blank"
                           rel="nofollow noopener noreferrer"
-                          aria-label="External Link">
-                          <IconExternal />
-                        </IconLink>
+                          aria-label="Visit Website">
+                          {project.node.frontmatter.title}
+                        </ProjectLink>
+                      ) : (
+                        project.node.frontmatter.title
                       )}
-                    </Links>
-                  </ProjectHeader>
-                  <ProjectName>
-                    {project.node.frontmatter.external ? (
-                      <ProjectLink
-                        href={project.node.frontmatter.external}
-                        target="_blank"
-                        rel="nofollow noopener noreferrer"
-                        aria-label="Visit Website">
-                        {project.node.frontmatter.title}
-                      </ProjectLink>
-                    ) : (
-                      project.node.frontmatter.title
-                    )}
-                  </ProjectName>
-                  <ProjectDescription dangerouslySetInnerHTML={{ __html: project.node.html }} />
-                </ProjectTop>
-                <ProjectBottom>
-                  <TechList>
-                    {project.node.frontmatter.tech.map((tech, i) => (
-                      <li key={i}>{tech}</li>
-                    ))}
-                  </TechList>
-                </ProjectBottom>
+                    </ProjectName>
+                    <ProjectDescription dangerouslySetInnerHTML={{ __html: project.node.html }} />
+                  </ProjectTop>
+                  <ProjectBottom>
+                    <TechList>
+                      {project.node.frontmatter.tech.map((tech, i) => (
+                        <li key={i}>{tech}</li>
+                      ))}
+                    </TechList>
+                  </ProjectBottom>
+                </ProjectInner>
               </Project>
             ))}
         </ProjectsGrid>

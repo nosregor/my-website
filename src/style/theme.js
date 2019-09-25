@@ -29,6 +29,7 @@ const theme = {
     transGreen: 'rgba(100, 255, 218, 0.1)',
     transNavy: 'rgba(2, 12, 27, 0.5)',
     shadowNavy: 'rgba(2, 12, 27, 0.9)',
+    highlight: 'rgba(41, 61, 90, 0.99)',
   },
 
   fonts: {
