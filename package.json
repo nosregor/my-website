@@ -19,7 +19,7 @@
     "gatsby-plugin-styled-components": "^3.0.7",
     "gatsby-remark-external-links": "0.0.4",
     "gatsby-remark-images": "^3.0.16",
-    "gatsby-source-filesystem": "^2.0.39",
+    "gatsby-source-filesystem": "^2.1.26",
     "gatsby-transformer-remark": "^2.3.12",
     "gatsby-transformer-sharp": "^2.1.21",
     "prop-types": "^15.7.2",
