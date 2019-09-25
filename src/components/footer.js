@@ -32,7 +32,7 @@ const GithubLink = styled(A)`
 
 const Footer = () => (
   <FooterContainer>
-    <Copy>Designed &amp; Developed by Andrew Rogerson</Copy>
+    <Copy>Designed &amp; Built by Andrew Rogerson</Copy>
     <GithubLink href="https://github.com/nosregor/my-website" target="_blank" rel="noopener">
       View Source
     </GithubLink>

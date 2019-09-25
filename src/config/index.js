@@ -4,7 +4,7 @@ module.exports = {
   siteDescription:
     'Design-minded software engineer based in Berlin, Germany who specializes in developing (and occasionally designing) beautiful, high-quality websites and applications.',
   siteKeywords:
-    'andrew rogerson, andrew, rogerson, nosregor, software engineer, web developer, javascript, berlin',
+    'Andrew Rogerson, Andrew, Rogerson, nosregor, software engineer, web developer, javascript, berlin',
   siteUrl: 'https://andrewrogerson.me',
   siteLanguage: 'en',
   ogLanguage: 'en_US',
