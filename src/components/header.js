@@ -184,6 +184,15 @@ class Header extends Component {
   componentDidMount() {
     window.addEventListener('scroll', () => throttle(this.handleScroll()));
     window.addEventListener('resize', () => throttle(this.handleResize()));
+    window.addEventListener('keydown', evt => {
+      const { menuOpen } = this.state;
+      if (!menuOpen) {
+        return;
+      }
+      if (evt.key === 'Escape' || evt.key === 'Esc') {
+        this.toggleMenu();
+      }
+    });
   }
 
   componentWillUnmount() {
@@ -226,17 +235,15 @@ class Header extends Component {
     const { menuOpen } = this.state;
 
     if (window.innerWidth > 768 && menuOpen) {
-      this.toggleMenu('closed');
+      this.toggleMenu();
     }
   };
 
-  toggleMenu = (menuState = null) => {
+  toggleMenu = () => {
     const { menuOpen } = this.state;
-
+    this.setState({ menuOpen: !menuOpen });
     document.body.style.overflow = `${menuOpen ? 'auto' : 'hidden'}`;
     document.body.classList.toggle('blur');
-
-    this.setState({ menuOpen: menuState === 'closed' ? false : !menuOpen });
   };
 
   handleMenuClick = e => {
@@ -253,7 +260,6 @@ class Header extends Component {
     const { scrollDirection, menuOpen } = this.state;
     const { location, navLinks } = this.props;
     const isHome = location && location.pathname === '/';
-    const showHamburger = window.innerWidth < 768;
 
     return (
       <HeaderContainer innerRef={el => (this.header = el)} scrollDirection={scrollDirection}>
@@ -286,14 +292,13 @@ class Header extends Component {
             </ResumeLink>
           </NavLinks>
         </Navbar>
-        {showHamburger && (
-          <Menu
-            isHome={isHome}
-            navLinks={navLinks}
-            menuOpen={menuOpen}
-            handleMenuClick={e => this.handleMenuClick(e)}
-          />
-        )}
+
+        <Menu
+          isHome={isHome}
+          navLinks={navLinks}
+          menuOpen={menuOpen}
+          handleMenuClick={e => this.handleMenuClick(e)}
+        />
       </HeaderContainer>
     );
   }

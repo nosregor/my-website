@@ -187,8 +187,8 @@ class Jobs extends Component {
                   onClick={e => this.setActiveTab(i, e)}
                   role="tab"
                   aria-selected={this.isActive(i) ? 'true' : 'false'}
-                  aria-controls={i}
-                  id={i}
+                  aria-controls={`tab${i}`}
+                  id={`tab${i}`}
                   tabindex={this.isActive(i) ? '0' : '-1'}>
                   <span>{tab.node.frontmatter.company}</span>
                 </Tab>
@@ -204,7 +204,9 @@ class Jobs extends Component {
                   id={i}
                   role="tabpanel"
                   tabindex="0"
-                  aria-labelledby={i}>
+                  aria-labelledby={`job${i}`}
+                  aria-hidden={!this.isActive(i)}
+                  hidden={!this.isActive(i)}>
                   <JobTitle>
                     <span>{job.node.frontmatter.title} @ </span>
                     <Company>
