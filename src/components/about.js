@@ -34,21 +34,12 @@ const Skill = styled.li`
 
   &:before {
     content: '▹';
-    color: ${theme.colors.green};
     position: absolute;
-    top: -2px;
     left: 0;
+    color: ${theme.colors.green};
+    font-size: ${theme.fontSizes.small};
+    line-height: 12px;
   }
-`;
-const Avatar = styled(Img)`
-  width: 100%;
-  max-width: 100%;
-  vertical-align: middle;
-  position: relative;
-  // mix-blend-mode: multiply;
-  // filter: grayscale(100%) contrast(1);
-  // border-radius: ${theme.borderRadius};
-  // transition: ${theme.transition};
 `;
 const PicContainer = styled.div`
   position: relative;
@@ -61,7 +52,16 @@ const PicContainer = styled.div`
   ${media.tablet`margin: 60px auto 0;`};
   ${media.phablet`width: 70%;`};
 `;
-
+const Avatar = styled(Img)`
+  width: 100%;
+  max-width: 100%;
+  vertical-align: middle;
+  position: relative;
+  // mix-blend-mode: multiply;
+  // filter: grayscale(100%) contrast(1);
+  // border-radius: ${theme.borderRadius};
+  // transition: ${theme.transition};
+`;
 class About extends Component {
   static propTypes = {
     data: PropTypes.array.isRequired,

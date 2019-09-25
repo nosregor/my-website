@@ -118,6 +118,8 @@ const TabContent = styled.div`
         position: absolute;
         top: 0;
         left: 0;
+        color: ${theme.colors.green};
+        line-height: ${theme.fontSizes.xlarge};
       }
     }
   }

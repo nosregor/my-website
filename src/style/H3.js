@@ -7,6 +7,7 @@ const H3 = styled.h3`
   display: flex;
   align-items: center;
   margin: 10px 0 40px;
+  width: 100%;
   white-space: nowrap;
   font-size: ${theme.fontSizes.h3};
   ${media.tablet`font-size: 24px;`};
@@ -38,6 +39,7 @@ const H3 = styled.h3`
 
     ${media.desktop`width: 200px`};
     ${media.tablet`width: 100%;`};
+    ${media.thone`margin-left: 10px;`};
   }
 `;
 

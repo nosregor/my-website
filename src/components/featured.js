@@ -40,7 +40,9 @@ const ProjectName = styled.h5`
   font-weight: 600;
   margin: 0 0 20px;
   ${media.tablet`font-size: 24px;`};
-  ${media.thone`font-size: ${theme.fontSizes.xxlarge};`};
+  a {
+    ${media.tablet`display: block;`};
+  }
 `;
 const ProjectDescription = styled.div`
   background-color: ${theme.colors.lightNavy};
@@ -64,15 +66,22 @@ const ProjectDescription = styled.div`
 `;
 const TechList = styled(Ul)`
   display: flex;
+  flex-wrap: wrap;
   margin: 25px 0 10px;
   li {
     font-family: ${theme.fonts.Avenir};
     font-size: ${theme.fontSizes.smallish};
     color: ${theme.colors.slate};
     margin-right: ${theme.margin};
+    margin-bottom: 7px;
+    white-space: nowrap;
     &:last-of-type {
       margin-right: 0;
     }
+    ${media.thone`
+    color: ${theme.colors.lightestSlate};
+    margin-right: 10px;
+  `};
   }
 `;
 const Links = styled.div`
@@ -84,8 +93,8 @@ const Links = styled.div`
   a {
     padding: 10px;
     svg {
-      width: ${theme.margin};
-      height: ${theme.margin};
+      width: 22px;
+      height: 22px;
     }
   }
 `;
@@ -101,6 +110,7 @@ const FeaturedImg = styled(Img)`
     object-fit: cover;
     width: auto;
     height: 100%;
+    filter: grayscale(100%) contrast(1) brightness(80%);
   `};
   }
 `;
@@ -109,8 +119,6 @@ const ImgContainer = styled.div`
   z-index: 1;
   border-radius: ${theme.borderRadius};
   background-color: ${theme.colors.green};
-  background: ${theme.gradient};
-  // background: linear-gradient(0.4turn, ${theme.colors.green}, ${theme.colors.blue});
   border-radius: 2px;
   grid-column: 6 / -1;
   grid-row: 1 / -1;

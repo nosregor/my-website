@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { Link } from 'gatsby';
 import { throttle } from '../utils';
+
 import config from '../config';
+import resume from '../../static/resume.pdf';
 
 import Menu from '../components/menu';
 import { IconLogoSmall } from './icons';
@@ -185,7 +187,8 @@ class Header extends Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener('scroll', () => this.handleScroll());
+    window.removeEventListener('resize', () => this.handleResize());
   }
 
   handleScroll = () => {
@@ -250,6 +253,7 @@ class Header extends Component {
     const { scrollDirection, menuOpen } = this.state;
     const { location, navLinks } = this.props;
     const isHome = location && location.pathname === '/';
+    const showHamburger = window.innerWidth < 768;
 
     return (
       <HeaderContainer innerRef={el => (this.header = el)} scrollDirection={scrollDirection}>
@@ -277,17 +281,19 @@ class Header extends Component {
                   ))}
               </NavList>
             )}
-            <ResumeLink href="/resume.pdf" target="_blank" rel="nofollow noopener noreferrer">
+            <ResumeLink href={resume} target="_blank" rel="nofollow noopener noreferrer">
               Resume
             </ResumeLink>
           </NavLinks>
         </Navbar>
-        <Menu
-          isHome={isHome}
-          navLinks={navLinks}
-          menuOpen={menuOpen}
-          handleMenuClick={e => this.handleMenuClick(e)}
-        />
+        {showHamburger && (
+          <Menu
+            isHome={isHome}
+            navLinks={navLinks}
+            menuOpen={menuOpen}
+            handleMenuClick={e => this.handleMenuClick(e)}
+          />
+        )}
       </HeaderContainer>
     );
   }

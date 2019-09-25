@@ -16,6 +16,7 @@ const A = styled.a`
   &:active,
   &:focus {
     color: ${theme.colors.darkGrey};
+    outline: 0;
   }
 `;
 

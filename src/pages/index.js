@@ -23,7 +23,7 @@ const MainContainer = styled(Main)`
 const IndexPage = ({ data, location }) => (
   <Layout location={location}>
     <SEO title="Home" />
-    <MainContainer>
+    <MainContainer id="content">
       <Hero data={data.hero.edges} />
       <About data={data.about.edges} />
       <Jobs data={data.jobs.edges} />

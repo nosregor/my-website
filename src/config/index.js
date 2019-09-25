@@ -8,7 +8,7 @@ module.exports = {
   siteUrl: 'https://andrewrogerson.me',
   siteLanguage: 'en',
   ogLanguage: 'en_US',
-  siteLogo: '/logos/logo-1024.png',
+  siteImage: '../static/og.png', // 1280px x 800px
   siteIcon: '../static/logo.png',
 
   avatar: '/logos/social.png',

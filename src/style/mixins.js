@@ -34,6 +34,7 @@ const mixins = {
     &:active,
     &:focus {
       color: ${theme.colors.green};
+      outline: 0;
     }
   `,
 
@@ -48,6 +49,8 @@ const mixins = {
     &:hover,
     &:focus,
     &:active {
+      color: ${theme.colors.green};
+      outline: 0;
       &:after {
         opacity: 1;
       }

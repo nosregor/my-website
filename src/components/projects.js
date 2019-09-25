@@ -19,6 +19,9 @@ const ProjectsTitle = styled.h4`
   margin: 0 auto 50px;
   font-size: ${theme.fontSizes.h3};
   ${media.tablet`font-size: 24px;`};
+  a {
+    display: block;
+  }
 `;
 const ProjectsGrid = styled.div`
   display: grid;
@@ -45,12 +48,26 @@ const Project = styled.div`
 `;
 const ProjectTop = styled.div``;
 const ProjectBottom = styled.div``;
+const ProjectHeader = styled.div`
+  ${mixins.flexBetween};
+  margin-bottom: 30px;
+`;
 const Folder = styled.div`
   color: ${theme.colors.green};
   margin-bottom: 30px;
   svg {
     width: 40px;
     height: 40px;
+  }
+`;
+const Links = styled.div`
+  margin-right: -10px;
+`;
+const IconLink = styled(A)`
+  padding: 10px;
+  svg {
+    width: 22px;
+    height: 22px;
   }
 `;
 const ProjectName = styled.h5`
@@ -93,20 +110,20 @@ const TechList = styled(Ul)`
     }
   }
 `;
-const Links = styled.div`
-  position: absolute;
-  top: 25px;
-  right: 25px;
-  display: flex;
-  align-items: center;
-`;
-const IconLink = styled(A)`
-  margin-left: 15px;
-  svg {
-    width: 20px;
-    height: 20px;
-  }
-`;
+// const Links = styled.div`
+//   position: absolute;
+//   top: 25px;
+//   right: 25px;
+//   display: flex;
+//   align-items: center;
+// `;
+// const IconLink = styled(A)`
+//   margin-left: 15px;
+//   svg {
+//     width: 20px;
+//     height: 20px;
+//   }
+// `;
 const ShowMoreButton = styled(Button)`
   ${mixins.link};
   ${mixins.bigButton};
@@ -141,29 +158,31 @@ class Projects extends Component {
             projectsToShow.map((project, i) => (
               <Project key={i}>
                 <ProjectTop>
-                  <Folder>
-                    <IconFolder />
-                  </Folder>
-                  <Links>
-                    {project.node.frontmatter.github && (
-                      <IconLink
-                        href={project.node.frontmatter.github}
-                        target="_blank"
-                        rel="nofollow noopener noreferrer"
-                        aria-label="Github Link">
-                        <IconGithub />
-                      </IconLink>
-                    )}
-                    {project.node.frontmatter.external && (
-                      <IconLink
-                        href={project.node.frontmatter.external}
-                        target="_blank"
-                        rel="nofollow noopener noreferrer"
-                        aria-label="External Link">
-                        <IconExternal />
-                      </IconLink>
-                    )}
-                  </Links>
+                  <ProjectHeader>
+                    <Folder>
+                      <IconFolder />
+                    </Folder>
+                    <Links>
+                      {project.node.frontmatter.github && (
+                        <IconLink
+                          href={project.node.frontmatter.github}
+                          target="_blank"
+                          rel="nofollow noopener noreferrer"
+                          aria-label="Github Link">
+                          <IconGithub />
+                        </IconLink>
+                      )}
+                      {project.node.frontmatter.external && (
+                        <IconLink
+                          href={project.node.frontmatter.external}
+                          target="_blank"
+                          rel="nofollow noopener noreferrer"
+                          aria-label="External Link">
+                          <IconExternal />
+                        </IconLink>
+                      )}
+                    </Links>
+                  </ProjectHeader>
                   <ProjectName>
                     {project.node.frontmatter.external ? (
                       <ProjectLink
