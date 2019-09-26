@@ -146,7 +146,6 @@ const JobDetails = styled.h5`
   font-size: ${theme.fontSizes.smallish};
   font-weight: normal;
   letter-spacing: 0.5px;
-  color: ${theme.colors.slate};
   margin-bottom: 30px;
   svg {
     width: 15px;
@@ -208,7 +207,7 @@ class Jobs extends Component {
                   aria-hidden={!this.isActive(i)}
                   hidden={!this.isActive(i)}>
                   <JobTitle>
-                    <span>{job.node.frontmatter.title} @ </span>
+                    <span>{job.node.frontmatter.title}</span>
                     <Company>
                       &nbsp;@&nbsp;
                       <a

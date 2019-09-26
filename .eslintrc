@@ -5,7 +5,7 @@
     "plugin:prettier/recommended",
     "plugin:react/recommended"
   ],
-  "plugins": ["jsx-a11y"],
+  "plugins": ["jsx-a11y", "react"],
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 2018,
@@ -52,5 +52,10 @@
     "no-var": "error",
     "prefer-const": "error",
     "prefer-template": "error"
+  },
+  "settings": {
+    "react": {
+      "version": "16.8.6"
+    }
   }
 }

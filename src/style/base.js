@@ -13,14 +13,13 @@ import {
 } from './fonts';
 
 const base = injectGlobal`
-
   @font-face {
     font-family: 'Brandon';
     src:  url(${BrandonWOFF2}) format('woff2');
     font-weight: normal;
     font-display: auto;
   }
-
+  
   @font-face {
     font-family: 'BrandonBold';
     src:  url(${BrandonBoldWOFF2}) format('woff2');

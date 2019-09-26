@@ -113,6 +113,7 @@ const TechList = styled(Ul)`
   li {
     font-family: ${theme.fonts.SFMono};
     font-size: ${theme.fontSizes.xsmall};
+    // color: ${theme.colors.lightSlate};
     // color: ${theme.colors.lightGrey};
     color: ${theme.colors.green};
     opacity: 0.7;
