@@ -102,6 +102,7 @@ const TabContent = styled.div`
   opacity: ${props => (props.isActive ? 1 : 0)};
   z-index: ${props => (props.isActive ? 2 : -1)};
   position: ${props => (props.isActive ? 'relative' : 'absolute')};
+  visibility: ${props => (props.isActive ? 'visible' : 'hidden')};
   transition: ${theme.transition};
   transition-duration: ${props => (props.isActive ? '0.5s' : '0s')};
   padding-top: 12px;
@@ -204,8 +205,7 @@ class Jobs extends Component {
                   role="tabpanel"
                   tabindex="0"
                   aria-labelledby={`job${i}`}
-                  aria-hidden={!this.isActive(i)}
-                  hidden={!this.isActive(i)}>
+                  aria-hidden={!this.isActive(i)}>
                   <JobTitle>
                     <span>{job.node.frontmatter.title}</span>
                     <Company>

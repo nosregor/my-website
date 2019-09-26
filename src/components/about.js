@@ -18,6 +18,9 @@ const ContentContainer = styled.div`
   padding-right: 30px;
 
   ${media.tablet`width: 100%;`};
+  a {
+    ${mixins.inlineLink};
+  }
 `;
 const SkillsContainer = styled(Ul)`
   margin-top: 20px;
@@ -69,21 +72,21 @@ class About extends Component {
 
   render() {
     const { data } = this.props;
-    const { node } = data[0];
+    const { frontmatter, html } = data[0].node;
 
     return (
       <AboutContainer id="about">
-        <H3>{node.frontmatter.title}</H3>
+        <H3>{frontmatter.title}</H3>
         <FlexContainer>
           <ContentContainer>
-            <P dangerouslySetInnerHTML={{ __html: node.html }} />
+            <P dangerouslySetInnerHTML={{ __html: html }} />
             <SkillsContainer>
-              {node.frontmatter.skills &&
-                node.frontmatter.skills.map((skill, i) => <Skill key={i}>{skill}</Skill>)}
+              {frontmatter.skills &&
+                frontmatter.skills.map((skill, i) => <Skill key={i}>{skill}</Skill>)}
             </SkillsContainer>
           </ContentContainer>
           <PicContainer>
-            <Avatar fluid={node.frontmatter.avatar.childImageSharp.fluid} alt="Avatar" />
+            <Avatar fluid={frontmatter.avatar.childImageSharp.fluid} alt="Avatar" />
           </PicContainer>
         </FlexContainer>
       </AboutContainer>

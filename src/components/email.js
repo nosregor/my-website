@@ -1,5 +1,5 @@
 import React from 'react';
-import config from '../config';
+import { email } from '../config';
 
 import styled from 'styled-components';
 import { theme, media, A } from '../style';
@@ -38,7 +38,7 @@ const EmailLink = styled(A)`
 
 const Email = () => (
   <EmailContainer>
-    <EmailLink href={`mailto:${config.email}`}>{config.email}</EmailLink>
+    <EmailLink href={`mailto:${email}`}>{email}</EmailLink>
   </EmailContainer>
 );
 

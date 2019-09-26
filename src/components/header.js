@@ -4,7 +4,7 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { Link } from 'gatsby';
 import { throttle } from '../utils';
 
-import config from '../config';
+import { headerHeight } from '../config';
 import resume from '../../static/resume.pdf';
 
 import Menu from '../components/menu';
@@ -53,8 +53,8 @@ const Logo = styled.div`
 `;
 const LogoLink = styled(Link)`
   color: ${theme.colors.green};
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   &:hover {
     svg {
       fill: ${theme.colors.transGreen};
@@ -203,7 +203,6 @@ class Header extends Component {
   handleScroll = () => {
     const { lastScrollTop, menuOpen, scrollDirection } = this.state;
     const fromTop = window.scrollY;
-    const headerHeight = config.headerHeight;
 
     if (menuOpen) {
       return;
@@ -280,9 +279,9 @@ class Header extends Component {
             {isHome && (
               <NavList>
                 {navLinks &&
-                  navLinks.map((link, i) => (
+                  navLinks.map(({ url, name }, i) => (
                     <NavListItem key={i}>
-                      <NavLink href={link.url}>{link.name}</NavLink>
+                      <NavLink href={url}>{name}</NavLink>
                     </NavListItem>
                   ))}
               </NavList>

@@ -7,7 +7,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 
-import config from '../config';
+import { nav } from '../config';
 
 import Head from '../components/head';
 import Social from '../components/social';
@@ -32,7 +32,7 @@ const Layout = ({ children, location }) => (
       <div id="root">
         <Head siteMetadata={data.site.siteMetadata} />
         {/* <div className="container"> */}
-        <Header location={location} navLinks={config.navLinks} />
+        <Header location={location} navLinks={nav} />
         <Social />
         <Email />
         {children}

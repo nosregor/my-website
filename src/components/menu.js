@@ -17,6 +17,7 @@ const MenuContainer = styled.div`
   min-height: 100vh;
   z-index: 10;
   transition: ${theme.transition};
+  visibility: ${props => (props.isActive ? 'visible' : 'hidden')};
   transform: translateX(${props => (props.menuOpen ? 0 : 100)}vw);
 `;
 const Sidebar = styled.div`
@@ -95,7 +96,7 @@ class Menu extends Component {
         menuOpen={menuOpen}
         onClick={handleMenuClick}
         aria-hidden={!menuOpen}
-        hidden={!menuOpen}>
+        tabIndex={menuOpen ? 1 : -1}>
         <Sidebar>
           <NavLinks>
             {isHome && (

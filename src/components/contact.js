@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import config from '../config';
+import { email } from '../config';
 
 import styled from 'styled-components';
 import { theme, mixins, media, Section, H3, A, P } from '../style';
@@ -52,14 +52,14 @@ class Contact extends Component {
 
   render() {
     const { data } = this.props;
-    const { node } = data[0];
+    const { frontmatter, html } = data[0].node;
 
     return (
       <ContactContainer id="contact">
         <Header>What&apos;s Next?</Header>
-        <Title>{node.frontmatter.title}</Title>{' '}
-        <P dangerouslySetInnerHTML={{ __html: node.html }} />{' '}
-        <EmailLink href={`mailto:${config.email}`} target="_blank" rel="noopener">
+        <Title>{frontmatter.title}</Title>
+        <P dangerouslySetInnerHTML={{ __html: html }} />
+        <EmailLink href={`mailto:${email}`} target="_blank" rel="nofollow noopener noreferrer">
           Say Hi
         </EmailLink>
       </ContactContainer>

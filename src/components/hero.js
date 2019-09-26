@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import config from '../config';
+import { email } from '../config';
 
 import styled from 'styled-components';
 import { theme, mixins, media, Section, A } from '../style';
@@ -74,16 +74,16 @@ class Hero extends Component {
 
   render() {
     const { data } = this.props;
-    const { node } = data[0];
+    const { frontmatter, html } = data[0].node;
 
     return (
       <HeroContainer>
-        <Hi>{node.frontmatter.title}</Hi>
-        <Name>{node.frontmatter.name}.</Name>
-        <Subtitle>{node.frontmatter.subtitle}</Subtitle>
-        <Blurb dangerouslySetInnerHTML={{ __html: node.html }} />
+        <Hi>{frontmatter.title}</Hi>
+        <Name>{frontmatter.name}.</Name>
+        <Subtitle>{frontmatter.subtitle}</Subtitle>
+        <Blurb dangerouslySetInnerHTML={{ __html: html }} />
 
-        <EmailLink href={`mailto:${config.email}`} className="git">
+        <EmailLink href={`mailto:${email}`} className="git">
           Get In Touch
         </EmailLink>
       </HeroContainer>

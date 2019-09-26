@@ -29,9 +29,7 @@ const ProjectsGrid = styled.div`
   grid-gap: 15px;
   position: relative;
 
-  ${media.desktop`
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  `};
+  ${media.desktop`grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));`};
 `;
 const ProjectInner = styled.div`
   ${mixins.flexBetween};
