@@ -208,45 +208,61 @@ class Featured extends Component {
         <H3>Some Things I&apos;ve Built</H3>
         <FeaturedGrid>
           {data &&
-            data.map((project, i) => (
-              <Project key={i}>
-                <ContentContainer>
-                  <FeaturedLabel>Featured Project</FeaturedLabel>
-                  <ProjectName>{project.node.frontmatter.title}</ProjectName>
-                  <ProjectDescription dangerouslySetInnerHTML={{ __html: project.node.html }} />
-                  {project.node.frontmatter.tech && (
-                    <TechList>
-                      {project.node.frontmatter.tech.map((tech, i) => (
-                        <li key={i}>{tech}</li>
-                      ))}
-                    </TechList>
-                  )}
-                  <Links>
-                    {project.node.frontmatter.github && (
-                      <a
-                        href={project.node.frontmatter.github}
-                        target="_blank"
-                        rel="nofollow noopener noreferrer"
-                        aria-label="Github Link">
-                        <IconGithub />
-                      </a>
+            data.map(({ node }, i) => {
+              const { frontmatter, html } = node;
+              const { external, title, tech, github, cover } = frontmatter;
+              return (
+                <Project key={i}>
+                  <ContentContainer>
+                    <FeaturedLabel>Featured Project</FeaturedLabel>
+                    <ProjectName>
+                      {external ? (
+                        <a
+                          href={external}
+                          target="_blank"
+                          rel="nofollow noopener noreferrer"
+                          aria-label="External Link">
+                          {title}
+                        </a>
+                      ) : (
+                        title
+                      )}
+                    </ProjectName>
+                    <ProjectDescription dangerouslySetInnerHTML={{ __html: html }} />
+                    {tech && (
+                      <TechList>
+                        {tech.map((tech, i) => (
+                          <li key={i}>{tech}</li>
+                        ))}
+                      </TechList>
                     )}
-                    {project.node.frontmatter.external && (
-                      <a
-                        href={project.node.frontmatter.external}
-                        target="_blank"
-                        rel="nofollow noopener noreferrer"
-                        aria-label="External Link">
-                        <IconExternal />
-                      </a>
-                    )}
-                  </Links>
-                </ContentContainer>
-                <ImgContainer>
-                  <FeaturedImg fluid={project.node.frontmatter.cover.childImageSharp.fluid} />
-                </ImgContainer>
-              </Project>
-            ))}
+                    <Links>
+                      {github && (
+                        <a
+                          href={github}
+                          target="_blank"
+                          rel="nofollow noopener noreferrer"
+                          aria-label="Github Link">
+                          <IconGithub />
+                        </a>
+                      )}
+                      {external && (
+                        <a
+                          href={external}
+                          target="_blank"
+                          rel="nofollow noopener noreferrer"
+                          aria-label="External Link">
+                          <IconExternal />
+                        </a>
+                      )}
+                    </Links>
+                  </ContentContainer>
+                  <ImgContainer>
+                    <FeaturedImg fluid={cover.childImageSharp.fluid} />
+                  </ImgContainer>
+                </Project>
+              );
+            })}
         </FeaturedGrid>
       </FeaturedContainer>
     );

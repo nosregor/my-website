@@ -36,9 +36,9 @@ class Layout extends Component {
             }
           }
         `}
-        render={data => (
+        render={({ site }) => (
           <div id="root">
-            <Head metaData={data.site.siteMetadata} />
+            <Head metaData={site.siteMetadata} />
             <div className="container">
               <Header location={location} navLinks={nav} />
               <Social />

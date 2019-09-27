@@ -9,5 +9,6 @@ import Section from './Section';
 import Footer from './Footer';
 import H3 from './H3';
 import Button from './Button';
+import InlineLink from './InlineLink';
 
-export { theme, base, mixins, media, Header, Nav, Main, Section, Footer, H3, Button };
+export { theme, base, mixins, media, Header, Nav, Main, Section, Footer, H3, Button, InlineLink };

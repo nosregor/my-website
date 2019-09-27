@@ -169,50 +169,54 @@ class Jobs extends Component {
         <TabsContainer>
           <Tabs role="tablist">
             {data &&
-              data.map(({ node }, i) => (
-                <Tab
-                  key={i}
-                  isActive={this.isActive(i)}
-                  onClick={e => this.setActiveTab(i, e)}
-                  role="tab"
-                  aria-selected={this.isActive(i) ? 'true' : 'false'}
-                  aria-controls={`tab${i}`}
-                  id={`tab${i}`}
-                  tabIndex={this.isActive(i) ? '0' : '-1'}>
-                  <span>{node.frontmatter.company}</span>
-                </Tab>
-              ))}
+              data.map(({ node }, i) => {
+                const { company } = node.frontmatter;
+                return (
+                  <Tab
+                    key={i}
+                    isActive={this.isActive(i)}
+                    onClick={e => this.setActiveTab(i, e)}
+                    role="tab"
+                    aria-selected={this.isActive(i) ? 'true' : 'false'}
+                    aria-controls={`tab${i}`}
+                    id={`tab${i}`}
+                    tabIndex={this.isActive(i) ? '0' : '-1'}>
+                    <span>{company}</span>
+                  </Tab>
+                );
+              })}
             <Highlighter activeTabId={activeTabId} />
           </Tabs>
           <ContentContainer>
             {data &&
-              data.map(({ node }, i) => (
-                <TabContent
-                  key={i}
-                  isActive={this.isActive(i)}
-                  id={`job${i}`}
-                  role="tabpanel"
-                  tabIndex="0"
-                  aria-labelledby={`job${i}`}
-                  aria-hidden={!this.isActive(i)}>
-                  <JobTitle>
-                    <span>{node.frontmatter.title}</span>
-                    <Company>
-                      &nbsp;@&nbsp;
-                      <a
-                        href={node.frontmatter.url}
-                        target="_blank"
-                        rel="nofollow noopener noreferrer">
-                        {node.frontmatter.company}
-                      </a>
-                    </Company>
-                  </JobTitle>
-                  <JobDetails>
-                    <span>{node.frontmatter.range}</span>
-                  </JobDetails>
-                  <p dangerouslySetInnerHTML={{ __html: node.html }} />
-                </TabContent>
-              ))}
+              data.map(({ node }, i) => {
+                const { frontmatter, html } = node;
+                const { title, url, company, range } = frontmatter;
+                return (
+                  <TabContent
+                    key={i}
+                    isActive={this.isActive(i)}
+                    id={`job${i}`}
+                    role="tabpanel"
+                    tabIndex="0"
+                    aria-labelledby={`job${i}`}
+                    aria-hidden={!this.isActive(i)}>
+                    <JobTitle>
+                      <span>{title}</span>
+                      <Company>
+                        &nbsp;@&nbsp;
+                        <a href={url} target="_blank" rel="nofollow noopener noreferrer">
+                          {company}
+                        </a>
+                      </Company>
+                    </JobTitle>
+                    <JobDetails>
+                      <span>{range}</span>
+                    </JobDetails>
+                    <p dangerouslySetInnerHTML={{ __html: html }} />
+                  </TabContent>
+                );
+              })}
           </ContentContainer>
         </TabsContainer>
       </JobsContainer>

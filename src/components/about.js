@@ -26,6 +26,8 @@ const SkillsContainer = styled.ul`
   display: grid;
   overflow: hidden;
   grid-template-columns: repeat(2, minmax(140px, 200px));
+  overflow: hidden;
+  margin-top: 20px;
 `;
 const Skill = styled.li`
   position: relative;
@@ -72,20 +74,20 @@ class About extends Component {
   render() {
     const { data } = this.props;
     const { frontmatter, html } = data[0].node;
+    const { title, skills, avatar } = frontmatter;
 
     return (
       <AboutContainer id="about">
-        <H3>{frontmatter.title}</H3>
+        <H3>{title}</H3>
         <FlexContainer>
           <ContentContainer>
             <p dangerouslySetInnerHTML={{ __html: html }} />
             <SkillsContainer>
-              {frontmatter.skills &&
-                frontmatter.skills.map((skill, i) => <Skill key={i}>{skill}</Skill>)}
+              {skills && skills.map((skill, i) => <Skill key={i}>{skill}</Skill>)}
             </SkillsContainer>
           </ContentContainer>
           <PicContainer>
-            <Avatar fluid={frontmatter.avatar.childImageSharp.fluid} alt="Avatar" />
+            <Avatar fluid={avatar.childImageSharp.fluid} alt="Avatar" />
           </PicContainer>
         </FlexContainer>
       </AboutContainer>
