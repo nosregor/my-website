@@ -34,7 +34,7 @@ const Heading = styled(H3)`
 `;
 const Title = styled.h4`
   font-family: ${theme.fonts.AvenirSemiBold};
-  margin: 0 0 20px
+  margin: 0 0 20px;
   font-size: 60px;
   ${media.desktop`font-size: 50px;`};
   ${media.tablet`font-size: 40px;`};
