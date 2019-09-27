@@ -10,7 +10,7 @@ import Social from '../components/social';
 import Email from '../components/email';
 import Footer from '../components/footer';
 
-import '../styles/base';
+import { GlobalStyle } from '../styles';
 
 class Layout extends Component {
   static propTypes = {
@@ -39,6 +39,8 @@ class Layout extends Component {
         render={({ site }) => (
           <div id="root">
             <Head metaData={site.siteMetadata} />
+            <GlobalStyle />
+
             <div className="container">
               <Header location={location} navLinks={nav} />
               <Social />

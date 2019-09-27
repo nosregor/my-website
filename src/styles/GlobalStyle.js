@@ -1,4 +1,4 @@
-import { injectGlobal } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import theme from './theme';
 import media from './media';
 
@@ -11,7 +11,7 @@ import {
   AvenirSemiBoldWOFF2,
 } from './fonts';
 
-const base = injectGlobal`
+const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Brandon';
     src:  url(${BrandonWOFF2}) format('woff2');
@@ -181,4 +181,4 @@ const base = injectGlobal`
   }
 `;
 
-export default base;
+export default GlobalStyle;
