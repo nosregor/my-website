@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { StaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 
 import { nav } from '../config';
@@ -15,20 +16,37 @@ class Layout extends Component {
     location: PropTypes.object,
   };
 
+  finishLoading = () => this.setState({ isLoading: false });
+
   render() {
     const { children, location } = this.props;
 
     return (
-      <div id="root">
-        <Head />
-        <div className="container">
-          <Header location={location} navLinks={nav} />
-          <Social />
-          <Email />
-          {children}
-          <Footer />
-        </div>
-      </div>
+      <StaticQuery
+        query={graphql`
+          query LayoutQuery {
+            site {
+              siteMetadata {
+                title
+                siteUrl
+                description
+              }
+            }
+          }
+        `}
+        render={data => (
+          <div id="root">
+            <Head metaData={data.site.siteMetadata} />
+            <div className="container">
+              <Header location={location} navLinks={nav} />
+              <Social />
+              <Email />
+              {children}
+              <Footer />
+            </div>
+          </div>
+        )}
+      />
     );
   }
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { Link } from 'gatsby';
@@ -198,15 +199,12 @@ class Header extends Component {
   componentWillUnmount() {
     window.removeEventListener('scroll', () => this.handleScroll());
     window.removeEventListener('resize', () => this.handleResize());
+    window.removeEventListener('keydown', () => this.handleKeydown());
   }
 
   handleScroll = () => {
     const { lastScrollTop, menuOpen, scrollDirection } = this.state;
     const fromTop = window.scrollY;
-
-    if (menuOpen) {
-      return;
-    }
 
     // Make sure they scroll more than DELTA
     if (Math.abs(lastScrollTop - fromTop) <= DELTA || menuOpen) {
@@ -216,12 +214,10 @@ class Header extends Component {
     if (fromTop < DELTA) {
       this.setState({ scrollDirection: 'none' });
     } else if (fromTop > lastScrollTop && fromTop > headerHeight) {
-      // Scroll Down
       if (scrollDirection !== 'down') {
         this.setState({ scrollDirection: 'down' });
       }
     } else if (fromTop + window.innerHeight < document.body.scrollHeight) {
-      // Scroll Up
       if (scrollDirection !== 'up') {
         this.setState({ scrollDirection: 'up' });
       }
@@ -238,12 +234,17 @@ class Header extends Component {
     }
   };
 
-  toggleMenu = () => {
+  handleKeydown = evt => {
     const { menuOpen } = this.state;
-    this.setState({ menuOpen: !menuOpen });
-    document.body.style.overflow = `${menuOpen ? 'auto' : 'hidden'}`;
-    document.body.classList.toggle('blur');
+    if (!menuOpen) {
+      return;
+    }
+    if (evt.key === 'Escape' || evt.key === 'Esc') {
+      this.toggleMenu();
+    }
   };
+
+  toggleMenu = () => this.setState({ menuOpen: !this.state.menuOpen });
 
   handleMenuClick = e => {
     const target = e.target;
@@ -262,6 +263,9 @@ class Header extends Component {
 
     return (
       <HeaderContainer innerRef={el => (this.header = el)} scrollDirection={scrollDirection}>
+        <Helmet>
+          <body className={menuOpen ? 'blur' : ''} />
+        </Helmet>
         <Navbar>
           <Logo>
             <LogoLink to="/" aria-label="Home">

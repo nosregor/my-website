@@ -81,7 +81,11 @@ const base = injectGlobal`
     line-height: 1.25;
     ${media.tablet`font-size: ${theme.fontSizes.large};`}
 
+    &.hidden {
+      overflow: hidden;
+    }
     &.blur {
+      overflow: hidden;
       #root > .container > * {
         filter: blur(5px) brightness(0.7);
         transition: ${theme.transition};
