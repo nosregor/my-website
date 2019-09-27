@@ -10,55 +10,48 @@ const HeroContainer = styled(Section)`
   ${mixins.flexCenter};
   flex-direction: column;
   align-items: flex-start;
-  font-family: ${theme.fonts.Avenir};
   min-height: 100vh;
+  font-family: ${theme.fonts.Avenir};
   ${media.tablet`padding-top: 150px;`};
+  div {
+    width: 100%;
+  }
 `;
 const Hi = styled.h1`
-  color: ${theme.colors.slate};
+  color: ${theme.colors.green};
   margin: 0 0 20px 3px;
   font-size: ${theme.fontSizes.medium};
   font-family: ${theme.fonts.Avenir};
   font-weight: normal;
-
   ${media.desktop`font-size: ${theme.fontSizes.small};`};
   ${media.tablet`font-size: ${theme.fontSizes.smallish};`};
 `;
 const Name = styled.h2`
-  // color: ${theme.colors.green};
-  font-family: ${theme.fonts.AvenirSemiBold};
   font-size: 80px;
   line-height: 1.1;
   margin: 0;
+  font-family: ${theme.fonts.AvenirSemiBold};
   ${media.desktop`font-size: 70px;`};
   ${media.tablet`font-size: 60px;`};
   ${media.phablet`font-size: 50px;`};
-  ${media.phone`font-size: 36px;`};
+  ${media.phone`font-size: 40px;`};
 `;
 const Subtitle = styled.h3`
   font-size: 80px;
   line-height: 1.1;
-  font-weight: 600;
-  font-family: ${theme.fonts.AvenirSemiBold};
-  margin: 0 0 20px;
   color: ${theme.colors.slate};
-
+  font-family: ${theme.fonts.AvenirSemiBold};
   ${media.desktop`font-size: 70px;`};
   ${media.tablet`font-size: 60px;`};
   ${media.phablet`font-size: 50px;`};
-  ${media.phone`font-size: 36px;`};
+  ${media.phone`font-size: 40px;`};
 `;
 const Blurb = styled.div`
   margin-top: 25px;
   width: 50%;
-  max-width: 480px;
+  max-width: 500px;
   a {
-    ${mixins.link};
     ${mixins.inlineLink};
-
-    &:after {
-      top: -5px;
-    }
   }
 `;
 const EmailLink = styled(A)`

@@ -5,18 +5,17 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 import { theme, mixins, media, Section, H3, P, Ul } from '../style';
 
-const AboutContainer = styled(Section)``;
+const AboutContainer = styled(Section)`
+  position: relative;
+`;
 const FlexContainer = styled.div`
   ${mixins.flexBetween};
   align-items: flex-start;
-
   ${media.tablet`display: block;`};
 `;
 const ContentContainer = styled.div`
   width: 60%;
   max-width: 480px;
-  padding-right: 30px;
-
   ${media.tablet`width: 100%;`};
   a {
     ${mixins.inlineLink};
@@ -30,11 +29,11 @@ const SkillsContainer = styled(Ul)`
 `;
 const Skill = styled.li`
   position: relative;
-  font-family: ${theme.fonts.Avenir};
-  font-size: ${theme.fontSizes.smallish};
   margin-bottom: 10px;
   padding-left: 20px;
-
+  font-family: ${theme.fonts.Avenir};
+  font-size: ${theme.fontSizes.smallish};
+  // color: ${theme.colors.slate};
   &:before {
     content: '▹';
     position: absolute;

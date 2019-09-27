@@ -1,45 +1,47 @@
 import React from 'react';
+
 import { socialMedia } from '../config';
 
 import { IconGithub, IconLinkedin, IconCodepen, IconInstagram, IconTwitter } from './icons';
 
 import styled from 'styled-components';
-import { theme, media, A, Ul } from '../style';
+import { theme, media, A, Ul } from '../styles';
 
 const SocialContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: ${theme.colors.lightSlate};
-  vertical-align: middle;
   width: 40px;
   position: fixed;
   bottom: 0;
   left: 40px;
-
+  color: ${theme.colors.lightSlate};
   ${media.desktop`left: 25px;`};
   ${media.tablet`display: none;`};
-
+`;
+const SocialItemList = styled(Ul)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   &:after {
     content: '';
     display: block;
     width: 1px;
     height: 90px;
+    margin: 0 auto;
     background-color: ${theme.colors.lightSlate};
   }
 `;
-const SocialItemList = styled(Ul)`
-  margin-bottom: 10px;
+const SocialItem = styled.li`
+  &:last-of-type {
+    margin-bottom: 20px;
+  }
 `;
-const SocialItem = styled.li``;
 const SocialLink = styled(A)`
   padding: 10px;
-
   svg {
     width: 18px;
     height: 18px;
   }
 `;
+
 const Social = () => (
   <SocialContainer>
     <SocialItemList>

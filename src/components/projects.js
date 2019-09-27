@@ -10,10 +10,9 @@ const ProjectsContainer = styled(Section)`
   ${mixins.flexCenter};
   flex-direction: column;
   align-items: flex-start;
-
-  ${media.desktop`
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  `};
+  // ${media.desktop`
+  //   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  // `};
 `;
 const ProjectsTitle = styled.h4`
   margin: 0 auto 50px;
@@ -28,7 +27,6 @@ const ProjectsGrid = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 15px;
   position: relative;
-
   ${media.desktop`grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));`};
 `;
 const ProjectInner = styled.div`
@@ -84,26 +82,17 @@ const ProjectName = styled.h5`
   margin: 0 0 10px;
   font-size: ${theme.fontSizes.xxlarge};
   color: ${theme.colors.lightestSlate};
-  font-weight: 600;
-  font-family: ${theme.fonts.AvenirSemiBold};
 `;
 const ProjectLink = styled(A)``;
 const ProjectDescription = styled.div`
   font-size: 17px;
   line-height: 1.25;
-
   a {
-    ${mixins.link};
     ${mixins.inlineLink};
-    color: ${theme.colors.offWhite};
-    &:after {
-      top: -5px;
-    }
   }
 `;
 const TechList = styled(Ul)`
   flex-grow: 1;
-
   display: flex;
   align-items: flex-end;
   flex-wrap: wrap;
@@ -113,32 +102,15 @@ const TechList = styled(Ul)`
     font-size: ${theme.fontSizes.xsmall};
     // color: ${theme.colors.lightSlate};
     // color: ${theme.colors.lightGrey};
-    color: ${theme.colors.green};
-    opacity: 0.7;
+    // color: ${theme.colors.green};
     line-height: 2;
     margin-right: 15px;
-
     &:last-of-type {
       margin-right: 0;
     }
   }
 `;
-// const Links = styled.div`
-//   position: absolute;
-//   top: 25px;
-//   right: 25px;
-//   display: flex;
-//   align-items: center;
-// `;
-// const IconLink = styled(A)`
-//   margin-left: 15px;
-//   svg {
-//     width: 20px;
-//     height: 20px;
-//   }
-// `;
 const ShowMoreButton = styled(Button)`
-  ${mixins.link};
   ${mixins.bigButton};
   margin: 100px auto 0;
 `;
@@ -168,8 +140,12 @@ class Projects extends Component {
 
         <ProjectsGrid>
           {projectsToShow &&
-            projectsToShow.map((project, i) => (
-              <Project key={i}>
+            projectsToShow.map(({ node }, i) => (
+              <Project
+                key={i}
+                style={{
+                  transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms`,
+                }}>
                 <ProjectInner>
                   <ProjectTop>
                     <ProjectHeader>
@@ -177,18 +153,18 @@ class Projects extends Component {
                         <IconFolder />
                       </Folder>
                       <Links>
-                        {project.node.frontmatter.github && (
+                        {node.frontmatter.github && (
                           <IconLink
-                            href={project.node.frontmatter.github}
+                            href={node.frontmatter.github}
                             target="_blank"
                             rel="nofollow noopener noreferrer"
                             aria-label="Github Link">
                             <IconGithub />
                           </IconLink>
                         )}
-                        {project.node.frontmatter.external && (
+                        {node.frontmatter.external && (
                           <IconLink
-                            href={project.node.frontmatter.external}
+                            href={node.frontmatter.external}
                             target="_blank"
                             rel="nofollow noopener noreferrer"
                             aria-label="External Link">
@@ -198,23 +174,23 @@ class Projects extends Component {
                       </Links>
                     </ProjectHeader>
                     <ProjectName>
-                      {project.node.frontmatter.external ? (
+                      {node.frontmatter.external ? (
                         <ProjectLink
-                          href={project.node.frontmatter.external}
+                          href={node.frontmatter.external}
                           target="_blank"
                           rel="nofollow noopener noreferrer"
                           aria-label="Visit Website">
-                          {project.node.frontmatter.title}
+                          {node.frontmatter.title}
                         </ProjectLink>
                       ) : (
-                        project.node.frontmatter.title
+                        node.frontmatter.title
                       )}
                     </ProjectName>
-                    <ProjectDescription dangerouslySetInnerHTML={{ __html: project.node.html }} />
+                    <ProjectDescription dangerouslySetInnerHTML={{ __html: node.html }} />
                   </ProjectTop>
                   <ProjectBottom>
                     <TechList>
-                      {project.node.frontmatter.tech.map((tech, i) => (
+                      {node.frontmatter.tech.map((tech, i) => (
                         <li key={i}>{tech}</li>
                       ))}
                     </TechList>
