@@ -12,7 +12,6 @@ const TabsContainer = styled.div`
   display: flex;
   align-items: flex-start;
   position: relative;
-
   ${media.thone`display: block;`};
 `;
 const Tabs = styled.div`
@@ -20,7 +19,6 @@ const Tabs = styled.div`
   position: relative;
   width: max-content;
   z-index: 3;
-
   ${media.thone`
     display: flex;
     margin-bottom: 30px;
@@ -43,7 +41,6 @@ const Tab = styled.button`
   font-family: ${theme.fonts.Avenir};
   font-size: ${theme.fontSizes.smallish};
   color: ${props => (props.isActive ? theme.colors.green : theme.colors.mediumGrey)};
-
   ${media.tablet`padding: 0 15px 2px;`};
   ${media.thone`
     ${mixins.flexCenter};
@@ -53,7 +50,6 @@ const Tab = styled.button`
     border-bottom: 2px solid ${theme.colors.darkGrey};
     min-width: 120px;
   `};
-
   &:hover,
   &:focus {
     background-color: ${theme.colors.white};
@@ -74,7 +70,6 @@ const Highlighter = styled.span`
   transform: translateY(
     ${props => (props.activeTabId > 0 ? props.activeTabId * theme.tabHeight : 0)}px
   );
-
   ${media.thone`
     width: 100%;
     max-width: ${theme.tabWidth}px;
@@ -113,13 +108,11 @@ const TabContent = styled.div`
     font-size: ${theme.fontSizes.large};
     li {
       position: relative;
-      padding-left: ${theme.margin};
+      padding-left: 30px;
       margin-bottom: 5px;
       &:before {
         content: '▹';
-        color: ${theme.colors.green};
         position: absolute;
-        top: 0;
         left: 0;
         color: ${theme.colors.green};
         line-height: ${theme.fontSizes.xlarge};
@@ -127,15 +120,12 @@ const TabContent = styled.div`
     }
   }
   a {
-    ${mixins.link};
     ${mixins.inlineLink};
-    &:after {
-      top: -5px;
-    }
   }
 `;
 const JobTitle = styled.h4`
-  font-size: ${theme.fontSizes.xlarge};
+  // color: ${theme.colors.lightestSlate};
+  font-size: ${theme.fontSizes.xxlarge};
   font-weight: 500;
   margin-bottom: 5px;
 `;
@@ -147,6 +137,7 @@ const JobDetails = styled.h5`
   font-size: ${theme.fontSizes.smallish};
   font-weight: normal;
   letter-spacing: 0.5px;
+  // color: ${theme.colors.lightSlate};
   margin-bottom: 30px;
   svg {
     width: 15px;
@@ -178,11 +169,9 @@ class Jobs extends Component {
         <TabsContainer>
           <Tabs role="tablist">
             {data &&
-              data.map((tab, i) => (
+              data.map(({ node }, i) => (
                 <Tab
-                  href="#"
                   key={i}
-                  content={tab.text}
                   isActive={this.isActive(i)}
                   onClick={e => this.setActiveTab(i, e)}
                   role="tab"
@@ -190,38 +179,38 @@ class Jobs extends Component {
                   aria-controls={`tab${i}`}
                   id={`tab${i}`}
                   tabindex={this.isActive(i) ? '0' : '-1'}>
-                  <span>{tab.node.frontmatter.company}</span>
+                  <span>{node.frontmatter.company}</span>
                 </Tab>
               ))}
             <Highlighter activeTabId={activeTabId} />
           </Tabs>
           <ContentContainer>
             {data &&
-              data.map((job, i) => (
+              data.map(({ node }, i) => (
                 <TabContent
                   key={i}
                   isActive={this.isActive(i)}
-                  id={i}
+                  id={`job${i}`}
                   role="tabpanel"
                   tabindex="0"
                   aria-labelledby={`job${i}`}
                   aria-hidden={!this.isActive(i)}>
                   <JobTitle>
-                    <span>{job.node.frontmatter.title}</span>
+                    <span>{node.frontmatter.title}</span>
                     <Company>
                       &nbsp;@&nbsp;
                       <a
-                        href={job.node.frontmatter.url}
+                        href={node.frontmatter.url}
                         target="_blank"
                         rel="nofollow noopener noreferrer">
-                        {job.node.frontmatter.company}
+                        {node.frontmatter.company}
                       </a>
                     </Company>
                   </JobTitle>
                   <JobDetails>
-                    <span>{job.node.frontmatter.range} </span>
+                    <span>{node.frontmatter.range}</span>
                   </JobDetails>
-                  <P dangerouslySetInnerHTML={{ __html: job.node.html }} />
+                  <P dangerouslySetInnerHTML={{ __html: node.html }} />
                 </TabContent>
               ))}
           </ContentContainer>

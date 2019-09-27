@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import config from '../config';
 
-import logo from '../static/logo.png';
+import logo from '../../static/logo.png';
 // import appleIcon57x57 from '../../static/favicons/apple-icon-57x57.png';
 // import appleIcon60x60 from '../../static/favicons/apple-icon-60x60.png';
 // import appleIcon72x72 from '../../static/favicons/apple-icon-72x72.png';

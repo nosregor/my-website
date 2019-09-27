@@ -1,52 +1,36 @@
-//  * with Gatsby's StaticQuery component
-//  *
-//  * See: https://www.gatsbyjs.org/docs/static-query/
-//  */
-
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { StaticQuery, graphql } from 'gatsby';
 
 import { nav } from '../config';
 
 import Head from '../components/head';
-import Social from '../components/social';
-import Email from './email';
 import Header from '../components/header';
-import Menu from '../components/menu';
+import Social from '../components/social';
+import Email from '../components/email';
 import Footer from '../components/footer';
 
-const Layout = ({ children, location }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-            description
-          }
-        }
-      }
-    `}
-    render={data => (
-      <div id="root">
-        <Head siteMetadata={data.site.siteMetadata} />
-        {/* <div className="container"> */}
-        <Header location={location} navLinks={nav} />
-        <Social />
-        <Email />
-        {children}
-        <Menu />
-        <Footer />
-      </div>
-      // </div>
-    )}
-  />
-);
+class Layout extends Component {
+  static propTypes = {
+    children: PropTypes.node.isRequired,
+    location: PropTypes.object,
+  };
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-  location: PropTypes.object,
-};
+  render() {
+    const { children, location } = this.props;
+
+    return (
+      <div id="root">
+        <Head />
+        <div className="container">
+          <Header location={location} navLinks={nav} />
+          <Social />
+          <Email />
+          {children}
+          <Footer />
+        </div>
+      </div>
+    );
+  }
+}
 
 export default Layout;

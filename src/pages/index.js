@@ -4,7 +4,6 @@ import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 // import Image from '../components/image';
-import SEO from '../components/seo';
 import Hero from '../components/hero';
 import About from '../components/about';
 import Jobs from '../components/jobs';
@@ -22,7 +21,6 @@ const MainContainer = styled(Main)`
 
 const IndexPage = ({ data, location }) => (
   <Layout location={location}>
-    <SEO title="Home" />
     <MainContainer id="content">
       <Hero data={data.hero.edges} />
       <About data={data.about.edges} />

@@ -10,19 +10,19 @@ const ContactContainer = styled(Section)`
   text-align: center;
   max-width: 600px;
   margin: 0 auto 100px;
+  a {
+    ${mixins.inlineLink};
+  }
 `;
 const Header = styled(H3)`
   display: block;
-
   color: ${theme.colors.green};
   font-size: ${theme.fontSizes.medium};
   font-family: ${theme.fonts.SFMono};
   font-weight: normal;
   margin-bottom: 20px;
   justify-content: center;
-
   ${media.desktop`font-size: ${theme.fontSizes.small};`};
-
   &:before {
     bottom: 0;
     font-size: ${theme.fontSizes.small};
@@ -34,9 +34,8 @@ const Header = styled(H3)`
 `;
 const Title = styled.h4`
   font-family: ${theme.fonts.AvenirSemiBold};
+  margin: 0 0 20px
   font-size: 60px;
-  margin: 0 0 20px;
-
   ${media.desktop`font-size: 50px;`};
   ${media.tablet`font-size: 40px;`};
 `;
