@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "Andrew Rogerson <werdnanosregor@gmail.com>",
   "dependencies": {
-    "animejs": "^3.0.1",
+    "animejs": "^3.1.0",
     "babel-plugin-styled-components": "^1.10.6",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "gatsby": "^2.9.0",
