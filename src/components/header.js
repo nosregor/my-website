@@ -12,7 +12,7 @@ import Menu from '../components/menu';
 import { IconLogoSmall } from './icons';
 
 import styled from 'styled-components';
-import { theme, mixins, media, Nav, Ol, A } from '../styles';
+import { theme, mixins, media, Nav } from '../styles';
 
 const HeaderContainer = styled.header`
   ${mixins.flexBetween};
@@ -137,7 +137,7 @@ const NavLinks = styled.div`
   align-items: center;
   ${media.tablet`display: none;`};
 `;
-const NavList = styled(Ol)`
+const NavList = styled.ol`
   ${mixins.flexBetween};
 `;
 const NavListItem = styled.li`
@@ -156,7 +156,7 @@ const NavLink = styled(AnchorLink)`
   ${mixins.link};
   padding: 12px 0;
 `;
-const ResumeLink = styled(A)`
+const ResumeLink = styled.a`
   ${mixins.smallButton};
   margin-left: 10px;
   padding: 10px 15px 10px;

@@ -1,5 +1,4 @@
 import { injectGlobal } from 'styled-components';
-import mixins from './mixins';
 import theme from './theme';
 import media from './media';
 
@@ -114,8 +113,25 @@ const base = injectGlobal`
     grid-template-columns: 100%;
   }
 
+  img {
+    width: 100%;
+    max-width: 100%;
+    vertical-align: middle;
+  }	
+
   a {
-    ${mixins.link};
+    display: inline-block;
+    text-decoration: none;
+    text-decoration-skip-ink: auto;
+    color: inherit;
+    position: relative;
+    transition: ${theme.transition};
+    cursor: pointer;
+    &:hover,
+    &:focus {
+      color: ${theme.colors.green};
+      outline: 0;
+    }
   }
 
   svg {
@@ -126,13 +142,39 @@ const base = injectGlobal`
   }
 
   button {
-    outline: 0;
+    cursor: pointer;
     border: 0;
+    border-radius: 0;
+    &:focus,
+    &:active {
+      outline-color: ${theme.colors.blue};
+    }
+  }
+  input, textarea {
+    border-radius: 0;
+    outline: 0;
+    &:focus {
+      outline: 0;
+    }
+    &::placeholder {
+    }
+    &:focus,
+    &:active {
+      &::placeholder {
+        opacity: 0.5;
+      }
+    }
   }
   
   p {
-    margin-top: 0;
+    margin: 0 0 10px 0;
   }
+  
+  ul, ol {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }	 
 
   .gatsby-image-outer-wrapper {
     height: 100%;

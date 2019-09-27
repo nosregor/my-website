@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { email } from '../config';
 
 import styled from 'styled-components';
-import { theme, mixins, media, Section, A } from '../style';
+import { theme, mixins, media, Section } from '../style';
 
 const HeroContainer = styled(Section)`
   ${mixins.flexCenter};
@@ -54,7 +54,7 @@ const Blurb = styled.div`
     ${mixins.inlineLink};
   }
 `;
-const EmailLink = styled(A)`
+const EmailLink = styled.a`
   ${mixins.bigButton};
   font-size: ${theme.fontSizes.smallish};
   margin-top: 50px;

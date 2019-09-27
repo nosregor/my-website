@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import { theme, mixins, media, Main } from '../style';
 
 const MainContainer = styled(Main)`
-  ${mixins.sidePadding};
   ${mixins.flexCenter};
   flex-direction: column;
   height: 100vh !important;

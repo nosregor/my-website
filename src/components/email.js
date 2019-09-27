@@ -2,7 +2,7 @@ import React from 'react';
 import { email } from '../config';
 
 import styled from 'styled-components';
-import { theme, media, A } from '../styles';
+import { theme, media } from '../styles';
 
 const EmailContainer = styled.div`
   display: flex;
@@ -25,7 +25,7 @@ const EmailContainer = styled.div`
     display: block;
   }
 `;
-const EmailLink = styled(A)`
+const EmailLink = styled.a`
   font-family: ${theme.fonts.SFMono};
   font-size: ${theme.fontSizes.xsmall};
   letter-spacing: 0.5px;

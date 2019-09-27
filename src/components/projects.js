@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import styled from 'styled-components';
-import { theme, mixins, media, Section, Ul, A, Button } from '../style';
+import { theme, mixins, media, Section, Button } from '../style';
 
 import { IconGithub, IconExternal, IconFolder } from './icons';
 
@@ -71,7 +71,7 @@ const Folder = styled.div`
 const Links = styled.div`
   margin-right: -10px;
 `;
-const IconLink = styled(A)`
+const IconLink = styled.a`
   padding: 10px;
   svg {
     width: 22px;
@@ -83,7 +83,7 @@ const ProjectName = styled.h5`
   font-size: ${theme.fontSizes.xxlarge};
   color: ${theme.colors.lightestSlate};
 `;
-const ProjectLink = styled(A)``;
+const ProjectLink = styled.a``;
 const ProjectDescription = styled.div`
   font-size: 17px;
   line-height: 1.25;
@@ -91,7 +91,7 @@ const ProjectDescription = styled.div`
     ${mixins.inlineLink};
   }
 `;
-const TechList = styled(Ul)`
+const TechList = styled.ul`
   flex-grow: 1;
   display: flex;
   align-items: flex-end;
@@ -111,7 +111,6 @@ const TechList = styled(Ul)`
   }
 `;
 const ShowMoreButton = styled(Button)`
-  ${mixins.bigButton};
   margin: 100px auto 0;
 `;
 

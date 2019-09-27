@@ -5,7 +5,7 @@ import { socialMedia } from '../config';
 import { IconGithub, IconLinkedin, IconCodepen, IconInstagram, IconTwitter } from './icons';
 
 import styled from 'styled-components';
-import { theme, mixins, media, A, P, Ul } from '../styles';
+import { theme, mixins, media } from '../styles';
 
 const FooterContainer = styled.footer`
   ${mixins.flexCenter};
@@ -25,11 +25,11 @@ const SocialContainer = styled.div`
   display: none;
   ${media.tablet`display: block;`};
 `;
-const SocialItemList = styled(Ul)`
+const SocialItemList = styled.ul`
   ${mixins.flexBetween};
 `;
 const SocialItem = styled.li``;
-const SocialLink = styled(A)`
+const SocialLink = styled.a`
   padding: 10px;
   svg {
     width: 20px;
@@ -37,14 +37,14 @@ const SocialLink = styled(A)`
   }
 `;
 
-const Copy = styled(P)`
+const Copy = styled.p`
   margin: 5px 0 3px;
   font-size: ${theme.fontSizes.medium};
 `;
 
-const GithubLink = styled(A)`
-  ${mixins.inlineLink};
-  color: ${theme.colors.lightGrey};
+const GithubLink = styled.a`
+  ${mixins.link};
+  color: ${theme.colors.slate};
   font-family: ${theme.fonts.Avenir};
   font-size: ${theme.fontSizes.xsmall};
   &:after {
@@ -82,10 +82,14 @@ const Footer = () => (
           ))}
       </SocialItemList>
     </SocialContainer>
-    <Copy>Designed &amp; Built by Andrew Rogerson</Copy>
-    <GithubLink href="https://github.com/nosregor/my-website" target="_blank" rel="noopener">
-      View Source
-    </GithubLink>
+    <Copy>
+      <GithubLink
+        href="https://github.com/nosregor/my-website"
+        target="_blank"
+        rel="nofollow noopener noreferrer">
+        Designed &amp; Built by Brittany Chiang
+      </GithubLink>
+    </Copy>
   </FooterContainer>
 );
 

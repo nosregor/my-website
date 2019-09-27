@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 
 import styled from 'styled-components';
-import { theme, mixins, media, Section, H3, P, Ul } from '../style';
+import { theme, mixins, media, Section, H3 } from '../style';
 
 const AboutContainer = styled(Section)`
   position: relative;
@@ -21,7 +21,7 @@ const ContentContainer = styled.div`
     ${mixins.inlineLink};
   }
 `;
-const SkillsContainer = styled(Ul)`
+const SkillsContainer = styled.ul`
   margin-top: 20px;
   display: grid;
   overflow: hidden;
@@ -78,7 +78,7 @@ class About extends Component {
         <H3>{frontmatter.title}</H3>
         <FlexContainer>
           <ContentContainer>
-            <P dangerouslySetInnerHTML={{ __html: html }} />
+            <p dangerouslySetInnerHTML={{ __html: html }} />
             <SkillsContainer>
               {frontmatter.skills &&
                 frontmatter.skills.map((skill, i) => <Skill key={i}>{skill}</Skill>)}

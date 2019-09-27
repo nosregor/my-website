@@ -10,6 +10,8 @@ import Social from '../components/social';
 import Email from '../components/email';
 import Footer from '../components/footer';
 
+import '../styles/base';
+
 class Layout extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,

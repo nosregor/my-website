@@ -5,7 +5,7 @@ import Img from 'gatsby-image';
 import { IconGithub, IconExternal } from './icons';
 
 import styled from 'styled-components';
-import { theme, mixins, media, Section, H3, Ul, A } from '../style';
+import { theme, mixins, media, Section, H3 } from '../styles';
 
 const FeaturedContainer = styled(Section)`
   ${mixins.flexCenter};
@@ -65,7 +65,7 @@ const ProjectDescription = styled.div`
     color: ${theme.colors.white};
   }
 `;
-const TechList = styled(Ul)`
+const TechList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   margin: 25px 0 10px;
@@ -223,22 +223,22 @@ class Featured extends Component {
                   )}
                   <Links>
                     {project.node.frontmatter.github && (
-                      <A
+                      <a
                         href={project.node.frontmatter.github}
                         target="_blank"
                         rel="nofollow noopener noreferrer"
                         aria-label="Github Link">
                         <IconGithub />
-                      </A>
+                      </a>
                     )}
                     {project.node.frontmatter.external && (
-                      <A
+                      <a
                         href={project.node.frontmatter.external}
                         target="_blank"
                         rel="nofollow noopener noreferrer"
                         aria-label="External Link">
                         <IconExternal />
-                      </A>
+                      </a>
                     )}
                   </Links>
                 </ContentContainer>

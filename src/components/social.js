@@ -5,7 +5,7 @@ import { socialMedia } from '../config';
 import { IconGithub, IconLinkedin, IconCodepen, IconInstagram, IconTwitter } from './icons';
 
 import styled from 'styled-components';
-import { theme, media, A, Ul } from '../styles';
+import { theme, media } from '../styles';
 
 const SocialContainer = styled.div`
   width: 40px;
@@ -16,7 +16,7 @@ const SocialContainer = styled.div`
   ${media.desktop`left: 25px;`};
   ${media.tablet`display: none;`};
 `;
-const SocialItemList = styled(Ul)`
+const SocialItemList = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,7 +34,7 @@ const SocialItem = styled.li`
     margin-bottom: 20px;
   }
 `;
-const SocialLink = styled(A)`
+const SocialLink = styled.a`
   padding: 10px;
   svg {
     width: 18px;
