@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 
 import Layout from '../components/layout';
 import styled from 'styled-components';
-import { theme, mixins, media, Main } from '../style';
+import { theme, mixins, media, Main } from '../styles';
 
 const MainContainer = styled(Main)`
   ${mixins.flexCenter};

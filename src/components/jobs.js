@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import styled from 'styled-components';
-import { theme, mixins, media, Section, H3 } from '../style';
+import { theme, mixins, media, Section, H3 } from '../styles';
 
 const JobsContainer = styled(Section)`
   position: relative;

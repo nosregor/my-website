@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { email } from '../config';
 
 import styled from 'styled-components';
-import { theme, mixins, media, Section, H3 } from '../style';
+import { theme, mixins, media, Section, H3 } from '../styles';
 
 const ContactContainer = styled(Section)`
   text-align: center;

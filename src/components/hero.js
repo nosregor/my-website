@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { email } from '../config';
 
 import styled from 'styled-components';
-import { theme, mixins, media, Section } from '../style';
+import { theme, mixins, media, Section } from '../styles';
 
 const HeroContainer = styled(Section)`
   ${mixins.flexCenter};

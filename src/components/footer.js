@@ -87,7 +87,7 @@ const Footer = () => (
         href="https://github.com/nosregor/my-website"
         target="_blank"
         rel="nofollow noopener noreferrer">
-        Designed &amp; Built by Brittany Chiang
+        Designed &amp; Built by Andrew Rogerson
       </GithubLink>
     </Copy>
   </FooterContainer>
