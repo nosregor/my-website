@@ -19,8 +19,8 @@ const MainContainer = styled(Main)`
   counter-reset: section;
 `;
 
-const IndexPage = ({ data, location }) => (
-  <Layout location={location}>
+const IndexPage = ({ data }) => (
+  <Layout>
     <MainContainer id="content">
       <Hero data={data.hero.edges} />
       <About data={data.about.edges} />
@@ -40,8 +40,8 @@ IndexPage.propTypes = {
 export default IndexPage;
 
 /* eslint no-undef: off */
-export const query = graphql`
-  query IndexQuery {
+export const pageQuery = graphql`
+  {
     hero: allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/hero/" } }) {
       edges {
         node {

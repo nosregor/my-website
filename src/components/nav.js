@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
-import PropTypes from 'prop-types';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { Link } from 'gatsby';
 import { throttle } from '../utils';
 
-import { navHeight } from '../config';
+import { navLinks, navHeight } from '../config';
 import resume from '../../static/resume.pdf';
 
 import Menu from './menu';
@@ -142,15 +141,16 @@ const NavList = styled.ol`
   ${mixins.flexBetween};
 `;
 const NavListItem = styled.li`
+  color: ${colors.grey};
   margin: 0 10px;
   position: relative;
-  font-size: ${fontSizes.smallish};
+  font-size: ${fontSizes.medium};
   // counter-increment: item 1;
   &:before {
     // content: '0' counter(item) '.';
     text-align: right;
     color: ${colors.green};
-    font-size: ${fontSizes.xsmall};
+    font-size: ${fontSizes.small};
   }
 `;
 const NavLink = styled(AnchorLink)`
@@ -172,11 +172,6 @@ const ResumeLink = styled.a`
 const DELTA = 5;
 
 class Nav extends Component {
-  static propTypes = {
-    location: PropTypes.object.isRequired,
-    navLinks: PropTypes.array.isRequired,
-  };
-
   state = {
     lastScrollTop: 0,
     scrollDirection: 'none',
@@ -186,21 +181,13 @@ class Nav extends Component {
   componentDidMount() {
     window.addEventListener('scroll', () => throttle(this.handleScroll()));
     window.addEventListener('resize', () => throttle(this.handleResize()));
-    window.addEventListener('keydown', evt => {
-      const { menuOpen } = this.state;
-      if (!menuOpen) {
-        return;
-      }
-      if (evt.key === 'Escape' || evt.key === 'Esc') {
-        this.toggleMenu();
-      }
-    });
+    window.addEventListener('keydown', e => this.handleKeydown(e));
   }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', () => this.handleScroll());
     window.removeEventListener('resize', () => this.handleResize());
-    window.removeEventListener('keydown', () => this.handleKeydown());
+    window.removeEventListener('keydown', e => this.handleKeydown(e));
   }
 
   handleScroll = () => {
@@ -228,39 +215,25 @@ class Nav extends Component {
   };
 
   handleResize = () => {
-    const { menuOpen } = this.state;
-
-    if (window.innerWidth > 768 && menuOpen) {
+    if (window.innerWidth > 768 && this.state.menuOpen) {
       this.toggleMenu();
     }
   };
 
-  handleKeydown = evt => {
-    const { menuOpen } = this.state;
-    if (!menuOpen) {
+  handleKeydown = e => {
+    if (!this.state.menuOpen) {
       return;
     }
-    if (evt.key === 'Escape' || evt.key === 'Esc') {
+
+    if (e.which === 27 || e.key === 'Escape') {
       this.toggleMenu();
     }
   };
 
   toggleMenu = () => this.setState({ menuOpen: !this.state.menuOpen });
 
-  handleMenuClick = e => {
-    const target = e.target;
-    const isLink = target.hasAttribute('href');
-    const isContainer = target.classList ? target.classList[0].includes('MenuContainer') : false;
-
-    if (isLink || isContainer) {
-      this.toggleMenu();
-    }
-  };
-
   render() {
     const { scrollDirection, menuOpen } = this.state;
-    const { location, navLinks } = this.props;
-    const isHome = location && location.pathname === '/';
 
     return (
       <NavContainer innerRef={el => (this.header = el)} scrollDirection={scrollDirection}>
@@ -281,29 +254,20 @@ class Nav extends Component {
           </Hamburger>
 
           <NavLinks>
-            {isHome && (
-              <NavList>
-                {navLinks &&
-                  navLinks.map(({ url, name }, i) => (
-                    <NavListItem key={i}>
-                      <NavLink href={url}>{name}</NavLink>
-                    </NavListItem>
-                  ))}
-              </NavList>
-            )}
+            <NavList>
+              {navLinks &&
+                navLinks.map(({ url, name }, i) => (
+                  <NavListItem key={i}>
+                    <NavLink href={url}>{name}</NavLink>
+                  </NavListItem>
+                ))}
+            </NavList>
             <ResumeLink href={resume} target="_blank" rel="nofollow noopener noreferrer">
               Resume
             </ResumeLink>
           </NavLinks>
         </Navbar>
-        {navLinks && (
-          <Menu
-            isHome={isHome}
-            navLinks={navLinks}
-            menuOpen={menuOpen}
-            handleMenuClick={e => this.handleMenuClick(e)}
-          />
-        )}
+        <Menu menuOpen={menuOpen} toggleMenu={this.toggleMenu} />
       </NavContainer>
     );
   }

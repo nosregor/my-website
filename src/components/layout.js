@@ -8,14 +8,11 @@ import Social from './social';
 import Email from './email';
 import Footer from './footer';
 
-import { navLinks } from '../config';
-
 import { GlobalStyle } from '../styles';
 
 class Layout extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
-    location: PropTypes.object.isRequired,
   };
 
   state = {
@@ -41,7 +38,7 @@ class Layout extends Component {
   }
 
   render() {
-    const { children, location } = this.props;
+    const { children } = this.props;
     const { githubInfo } = this.state;
 
     return (
@@ -63,7 +60,8 @@ class Layout extends Component {
             <GlobalStyle />
 
             <div className="container">
-              {location && navLinks && <Nav location={location} navLinks={navLinks} />} <Social />
+              <Nav />
+              <Social />
               <Email />
               {children}
               <Footer githubInfo={githubInfo} />
