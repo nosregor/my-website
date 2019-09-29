@@ -3,13 +3,10 @@ import Helmet from 'react-helmet';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { Link } from 'gatsby';
 import { throttle } from '../utils';
-
 import { navLinks, navHeight } from '../config';
-import resume from '../../static/resume.pdf';
 
 import Menu from './menu';
 import { IconLogoSmall } from './icons';
-
 import styled from 'styled-components';
 import { theme, mixins, media } from '../styles';
 
@@ -173,9 +170,9 @@ const DELTA = 5;
 
 class Nav extends Component {
   state = {
-    lastScrollTop: 0,
-    scrollDirection: 'none',
     menuOpen: false,
+    scrollDirection: 'none',
+    lastScrollTop: 0,
   };
 
   componentDidMount() {
@@ -190,8 +187,10 @@ class Nav extends Component {
     window.removeEventListener('keydown', e => this.handleKeydown(e));
   }
 
+  toggleMenu = () => this.setState({ menuOpen: !this.state.menuOpen });
+
   handleScroll = () => {
-    const { lastScrollTop, menuOpen, scrollDirection } = this.state;
+    const { menuOpen, scrollDirection, lastScrollTop } = this.state;
     const fromTop = window.scrollY;
 
     // Make sure they scroll more than DELTA
@@ -230,13 +229,11 @@ class Nav extends Component {
     }
   };
 
-  toggleMenu = () => this.setState({ menuOpen: !this.state.menuOpen });
-
   render() {
-    const { scrollDirection, menuOpen } = this.state;
+    const { menuOpen, scrollDirection } = this.state;
 
     return (
-      <NavContainer innerRef={el => (this.header = el)} scrollDirection={scrollDirection}>
+      <NavContainer scrollDirection={scrollDirection}>
         <Helmet>
           <body className={menuOpen ? 'blur' : ''} />
         </Helmet>
@@ -262,7 +259,7 @@ class Nav extends Component {
                   </NavListItem>
                 ))}
             </NavList>
-            <ResumeLink href={resume} target="_blank" rel="nofollow noopener noreferrer">
+            <ResumeLink href="/resume.pdf" target="_blank" rel="nofollow noopener noreferrer">
               Resume
             </ResumeLink>
           </NavLinks>
