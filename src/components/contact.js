@@ -60,7 +60,7 @@ class Contact extends Component {
       <ContactContainer id="contact">
         <GreenHeading>What&apos;s Next?</GreenHeading>
         <Title>{title}</Title>
-        <p dangerouslySetInnerHTML={{ __html: html }} />
+        <span dangerouslySetInnerHTML={{ __html: html }} />
         <EmailLink href={`mailto:${email}`} target="_blank" rel="nofollow noopener noreferrer">
           Say Hi
         </EmailLink>
