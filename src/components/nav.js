@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
-import { Link } from 'gatsby';
 import { throttle } from '../utils';
 import { navLinks, navHeight } from '../config';
 
@@ -39,7 +38,7 @@ const NavContainer = styled.header`
 
 const Navbar = styled.nav`
   ${mixins.flexBetween};
-  font-family: ${fonts.AvenirSemiBold};
+  font-family: ${fonts.Avenir};
   width: 100%;
   color: ${colors.black};
   // counter-reset: item 0;
@@ -49,7 +48,8 @@ const Navbar = styled.nav`
 const Logo = styled.div`
   ${mixins.flexCenter};
 `;
-const LogoLink = styled(Link)`
+const LogoLink = styled.a`
+  display: block;
   color: ${colors.green};
   width: 42px;
   height: 42px;
@@ -86,7 +86,7 @@ const HamburgerBox = styled.div`
   height: 24px;
 `;
 const HamburgerInner = styled.div`
-  background-color: ${colors.green};
+  background-color: ${colors.lightBlue};
   position: absolute;
   width: ${theme.hamburgerWidth}px;
   height: 2px;
@@ -105,7 +105,7 @@ const HamburgerInner = styled.div`
   &:after {
     content: '';
     display: block;
-    background-color: ${colors.green};
+    background-color: ${colors.lightBlue};
     position: absolute;
     left: auto;
     right: 0;
@@ -138,15 +138,15 @@ const NavList = styled.ol`
   ${mixins.flexBetween};
 `;
 const NavListItem = styled.li`
-  color: ${colors.grey};
-  margin: 0 10px;
+  color: ${colors.darkNavy};
+  margin: 0 20px;
   position: relative;
   font-size: ${fontSizes.medium};
   // counter-increment: item 1;
   &:before {
     // content: '0' counter(item) '.';
     text-align: right;
-    color: ${colors.green};
+    color: ${colors.lightBlue};
     font-size: ${fontSizes.small};
   }
 `;
@@ -158,7 +158,7 @@ const ResumeLink = styled.a`
   ${mixins.smallButton};
   margin-left: 10px;
   padding: 10px 15px 10px;
-  font-size: ${fontSizes.smallish};
+  font-size: ${fontSizes.medium};
   &:hover,
   &:active,
   &:focus {
@@ -239,7 +239,7 @@ class Nav extends Component {
         </Helmet>
         <Navbar>
           <Logo>
-            <LogoLink to="/" aria-label="Home">
+            <LogoLink href="/" aria-label="home">
               <IconLogoSmall />
             </LogoLink>
           </Logo>

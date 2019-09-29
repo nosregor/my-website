@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { navLinks } from '../config';
-import resume from '../../static/resume.pdf';
 
 import styled from 'styled-components';
 import { theme, mixins, media } from '../styles';
@@ -64,7 +63,7 @@ const NavListItem = styled.li`
   &:before {
     display: block;
     // content: '0' counter(item) '.';
-    color: ${colors.green};
+    color: ${colors.lightBlue};
     font-size: ${fontSizes.small};
     margin-bottom: 5px;
   }
@@ -117,7 +116,7 @@ class Menu extends Component {
                   </NavListItem>
                 ))}
             </NavList>
-            <ResumeLink href={resume} target="_blank" rel="nofollow noopener noreferrer">
+            <ResumeLink href="/resume.pdf" target="_blank" rel="nofollow noopener noreferrer">
               Resume
             </ResumeLink>
           </NavLinks>

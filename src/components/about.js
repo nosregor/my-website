@@ -36,14 +36,14 @@ const Skill = styled.li`
   margin-bottom: 10px;
   padding-left: 20px;
   font-family: ${fonts.Avenir};
-  font-size: ${fontSizes.smallish};
+  font-size: ${fontSizes.small};
   // color: ${colors.slate};
   &:before {
     content: '▹';
     position: absolute;
     left: 0;
-    color: ${colors.green};
-    font-size: ${fontSizes.small};
+    color: ${colors.lightBlue};
+    font-size: ${fontSizes.medium};
     line-height: 12px;
   }
 `;
@@ -53,7 +53,7 @@ const PicContainer = styled.div`
   max-width: 300px;
   margin-left: 60px;
   border-radius: ${theme.borderRadius};
-  background-color: ${colors.green};
+  // background-color: ${colors.green};
 
   ${media.tablet`margin: 60px auto 0;`};
   ${media.phablet`width: 70%;`};

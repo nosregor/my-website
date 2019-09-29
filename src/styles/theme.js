@@ -1,12 +1,12 @@
 const theme = {
   colors: {
-    // dark: '#2d354c',
-    dark: '#000007',
+    dark: '#2d354c',
+    // dark: '#000007',
     darkestNavy: '#01050b',
     darkNavy: '#020c1b',
     navy: '#0a192f',
     lightNavy: '#172a45',
-    darkGrey: '#353535',
+    darkGrey: '#333',
     mediumGrey: '#696767',
     blueGrey: '#293d5a',
     grey: '#949494',
@@ -28,15 +28,16 @@ const theme = {
     // green: '#64ffda',
     // green: '#6CCB93',
     green: '#4AA57F',
-    transLightBlue: 'rgb(0, 180, 254)',
+    transLightBlue: '#00b4fe',
     transGreen: 'rgba(100, 255, 218, 0.1)',
     transNavy: 'rgba(2, 12, 27, 0.5)',
-    shadowNavy: 'rgba(2, 12, 27, 0.9)',
+    shadowNavy: 'rgba(2, 12, 27, 0.7)',
     highlight: 'rgba(41, 61, 90, 0.99)',
   },
 
   fonts: {
     Josefin: 'Josefin Sans, sans-serif',
+    Roboto: 'Roboto, sans-serif',
     Open: 'Open Sans, sans-serif',
     Brandon: 'Brandon Grotesque',
     BrandonBold: 'BrandonBold',
@@ -62,12 +63,13 @@ const theme = {
 
   transition: 'all 0.25s ease-in-out',
 
-  borderRadius: '2px',
+  borderRadius: '3px',
   navHeight: '100px',
   navScrollHeight: '70px',
   margin: '20px',
   tabHeight: 42,
   tabWidth: 120,
+  radius: 3,
 
   gradient: `linear-gradient(0.4turn, #64d6ff, #64ffda)`,
 

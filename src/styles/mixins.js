@@ -35,7 +35,7 @@ const mixins = {
     &:hover,
     &:active,
     &:focus {
-      color: ${colors.green};
+      color: ${colors.lightBlue};
       outline: 0;
     }
   `,
@@ -71,34 +71,12 @@ const mixins = {
   `,
 
   smallButton: css`
-    color: ${colors.green};
+    color: ${colors.lightBlue};
     background-color: transparent;
-    border: 1px solid ${colors.green};
+    border: 1px solid ${colors.lightBlue};
     border-radius: ${theme.borderRadius};
     padding: 12px 17px;
     font-size: ${fontSizes.smallish};
-    font-family: ${fonts.SFMono};
-    line-height: 1;
-    text-decoration: none;
-    cursor: pointer;
-    transition: ${theme.transition};
-    &:hover,
-    &:focus,
-    &:active {
-      background-color: ${colors.transGreen};
-    }
-    &:after {
-      display: none !important;
-    }
-  `,
-
-  bigButton: css`
-    color: ${colors.green};
-    background-color: transparent;
-    border: 1px solid ${colors.green};
-    border-radius: ${theme.borderRadius};
-    padding: 18px 23px;
-    font-size: ${fontSizes.small};
     font-family: ${fonts.Avenir};
     line-height: 1;
     text-decoration: none;
@@ -107,7 +85,31 @@ const mixins = {
     &:hover,
     &:focus,
     &:active {
-      background-color: ${colors.transGreen};
+      color: ${colors.white};
+      background-color: ${colors.lightBlue};
+    }
+    &:after {
+      display: none !important;
+    }
+  `,
+
+  bigButton: css`
+    color: ${colors.white};
+    background-color: ${colors.lightBlue};
+    border: 1px solid ${colors.lightBlue};
+    border-radius: ${theme.borderRadius};
+    padding: 18px 23px;
+    font-size: ${fontSizes.medium};
+    font-family: ${fonts.Avenir};
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    transition: ${theme.transition};
+    &:hover,
+    &:focus,
+    &:active {
+      color: ${colors.white};
+      background-color: ${colors.transLightBlue};
     }
     &:after {
       display: none !important;

@@ -62,7 +62,7 @@ class Contact extends Component {
         <Title>{title}</Title>
         <div dangerouslySetInnerHTML={{ __html: html }} />
         <EmailLink href={`mailto:${email}`} target="_blank" rel="nofollow noopener noreferrer">
-          Say Hi
+          Say Hello
         </EmailLink>
       </ContactContainer>
     );

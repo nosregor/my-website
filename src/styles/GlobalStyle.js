@@ -54,6 +54,9 @@ const GlobalStyle = createGlobalStyle`
     font-display: auto;
   }
 
+
+  @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap|Open+Sans:400,700&display=swap');
+  
   @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Open+Sans:400,700&display=swap');
 
   html {
@@ -75,7 +78,7 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     background-color: ${colors.white};
-    color: ${colors.black};
+    color: ${colors.darkGrey};
     line-height: 1.25;
     font-family: ${fonts.Avenir};
     font-size: ${fontSizes.xlarge};
@@ -131,7 +134,7 @@ const GlobalStyle = createGlobalStyle`
     
     &:hover,
     &:focus {
-      color: ${colors.green};
+      color: ${colors.lightBlue};
       outline: 0;
     }
   }
