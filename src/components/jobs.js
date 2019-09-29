@@ -215,7 +215,7 @@ class Jobs extends Component {
                     <JobDetails>
                       <span>{range}</span>
                     </JobDetails>
-                    <span dangerouslySetInnerHTML={{ __html: html }} />
+                    <div dangerouslySetInnerHTML={{ __html: html }} />
                   </TabContent>
                 );
               })}
