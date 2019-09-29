@@ -174,7 +174,7 @@ const DELTA = 5;
 
 class Header extends Component {
   static propTypes = {
-    location: PropTypes.object,
+    location: PropTypes.object.isRequired,
     navLinks: PropTypes.array.isRequired,
   };
 
@@ -297,13 +297,14 @@ class Header extends Component {
             </ResumeLink>
           </NavLinks>
         </Navbar>
-
-        <Menu
-          isHome={isHome}
-          navLinks={navLinks}
-          menuOpen={menuOpen}
-          handleMenuClick={e => this.handleMenuClick(e)}
-        />
+        {navLinks && (
+          <Menu
+            isHome={isHome}
+            navLinks={navLinks}
+            menuOpen={menuOpen}
+            handleMenuClick={e => this.handleMenuClick(e)}
+          />
+        )}
       </HeaderContainer>
     );
   }

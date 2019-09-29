@@ -15,7 +15,7 @@ import { GlobalStyle } from '../styles';
 class Layout extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
-    location: PropTypes.object,
+    location: PropTypes.object.isRequired,
   };
 
   finishLoading = () => this.setState({ isLoading: false });
@@ -42,8 +42,7 @@ class Layout extends Component {
             <GlobalStyle />
 
             <div className="container">
-              <Header location={location} navLinks={nav} />
-              <Social />
+              {location && nav && <Header location={location} navLinks={nav} />} <Social />
               <Email />
               {children}
               <Footer />
