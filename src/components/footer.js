@@ -30,7 +30,6 @@ const SocialContainer = styled.div`
 const SocialItemList = styled.ul`
   ${mixins.flexBetween};
 `;
-const SocialItem = styled.li``;
 const SocialLink = styled.a`
   padding: 10px;
   svg {
@@ -60,7 +59,7 @@ const Footer = () => (
       <SocialItemList>
         {socialMedia &&
           socialMedia.map((social, i) => (
-            <SocialItem key={i}>
+            <li key={i}>
               <SocialLink
                 href={social.url}
                 target="_blank"
@@ -80,7 +79,7 @@ const Footer = () => (
                   <IconGithub />
                 )}
               </SocialLink>
-            </SocialItem>
+            </li>
           ))}
       </SocialItemList>
     </SocialContainer>

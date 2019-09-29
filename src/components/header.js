@@ -8,7 +8,7 @@ import { throttle } from '../utils';
 import { headerHeight } from '../config';
 import resume from '../../static/resume.pdf';
 
-import Menu from '../components/menu';
+import Menu from './menu';
 import { IconLogoSmall } from './icons';
 
 import styled from 'styled-components';

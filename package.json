@@ -48,8 +48,12 @@
     "develop": "gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "gatsby develop",
-    "precommit": "pretty-quick --staged && lint-staged"
+    "start": "gatsby develop"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && lint-staged"
+    }
   },
   "lint-staged": {
     "*.js": [
