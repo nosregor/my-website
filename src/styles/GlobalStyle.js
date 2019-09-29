@@ -169,7 +169,7 @@ const GlobalStyle = createGlobalStyle`
   }
   
   p {
-    margin: 0 0 10px 0;
+    margin: 0 0 15px 0;
   }
   
   ul, ol {

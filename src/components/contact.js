@@ -12,9 +12,9 @@ const ContactContainer = styled(Section)`
   text-align: center;
   max-width: 600px;
   margin: 0 auto 100px;
-  a {
-    ${mixins.inlineLink};
-  }
+  // a {
+  //   ${mixins.inlineLink};
+  // }
 `;
 const GreenHeading = styled(Heading)`
   display: block;

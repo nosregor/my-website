@@ -57,7 +57,7 @@ const theme = {
     large: '18px',
     xlarge: '20px',
     xxlarge: '22px',
-    h3: '30px',
+    h3: '32px',
   },
 
   transition: 'all 0.25s ease-in-out',

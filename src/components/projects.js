@@ -105,7 +105,7 @@ const TechList = styled.ul`
     // color: ${colors.lightSlate};
     // color: ${colors.lightGrey};
     // color: ${colors.green};
-    line-height: 2;
+    line-height: 1.75;
     margin-right: 15px;
     &:last-of-type {
       margin-right: 0;
