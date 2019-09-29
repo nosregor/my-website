@@ -3,12 +3,12 @@ import { StaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 
 import Head from './head';
-import Header from './header';
+import Nav from './nav';
 import Social from './social';
 import Email from './email';
 import Footer from './footer';
 
-import { nav } from '../config';
+import { navLinks } from '../config';
 
 import { GlobalStyle } from '../styles';
 
@@ -63,7 +63,7 @@ class Layout extends Component {
             <GlobalStyle />
 
             <div className="container">
-              {location && nav && <Header location={location} navLinks={nav} />} <Social />
+              {location && navLinks && <Nav location={location} navLinks={navLinks} />} <Social />
               <Email />
               {children}
               <Footer githubInfo={githubInfo} />

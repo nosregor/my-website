@@ -63,8 +63,8 @@ const theme = {
   transition: 'all 0.25s ease-in-out',
 
   borderRadius: '2px',
-  headerHeight: '100px',
-  headerScrollHeight: '70px',
+  navHeight: '100px',
+  navScrollHeight: '70px',
   margin: '20px',
   tabHeight: 42,
   tabWidth: 120,

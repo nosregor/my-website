@@ -38,7 +38,7 @@ module.exports = {
     },
   ],
 
-  nav: [
+  navLinks: [
     {
       name: 'About',
       url: '#about',
@@ -61,7 +61,7 @@ module.exports = {
   googleAnalyticsID: 'UA-12345689-1',
 
   projectMaxWidth: 1100,
-  headerHeight: 100,
+  navHeight: 100,
 
   navyColor: '#0a192f',
 };
