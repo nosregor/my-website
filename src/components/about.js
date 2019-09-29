@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 
 import styled from 'styled-components';
-import { theme, mixins, media, Section, H3 } from '../styles';
+import { theme, mixins, media, Section, Heading } from '../styles';
 
 const AboutContainer = styled(Section)`
   position: relative;
@@ -78,7 +78,7 @@ class About extends Component {
 
     return (
       <AboutContainer id="about">
-        <H3>{title}</H3>
+        <Heading>{title}</Heading>
         <FlexContainer>
           <ContentContainer>
             <p dangerouslySetInnerHTML={{ __html: html }} />

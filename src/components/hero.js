@@ -75,10 +75,11 @@ class Hero extends Component {
         <Name>{frontmatter.name}.</Name>
         <Subtitle>{frontmatter.subtitle}</Subtitle>
         <Blurb dangerouslySetInnerHTML={{ __html: html }} />
-
-        <EmailLink href={`mailto:${email}`} className="git">
-          Get In Touch
-        </EmailLink>
+        <div>
+          <EmailLink href={`mailto:${email}`} className="git">
+            Get In Touch
+          </EmailLink>
+        </div>
       </HeroContainer>
     );
   }

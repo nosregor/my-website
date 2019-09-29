@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import styled from 'styled-components';
-import { theme, mixins, media, Section, H3 } from '../styles';
+import { theme, mixins, media, Section, Heading } from '../styles';
 
 const JobsContainer = styled(Section)`
   position: relative;
@@ -165,7 +165,7 @@ class Jobs extends Component {
 
     return (
       <JobsContainer id="jobs">
-        <H3>Where I&apos;ve Worked</H3>
+        <Heading>Where I&apos;ve Worked</Heading>
         <TabsContainer>
           <Tabs role="tablist">
             {data &&
