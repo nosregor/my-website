@@ -18,10 +18,31 @@ class Layout extends Component {
     location: PropTypes.object.isRequired,
   };
 
-  finishLoading = () => this.setState({ isLoading: false });
+  state = {
+    isLoading: true,
+    githubInfo: {
+      stars: null,
+      forks: null,
+    },
+  };
+
+  componentDidMount() {
+    fetch('https://api.github.com/repos/nosregor/my-website')
+      .then(response => response.json())
+      .then(json => {
+        const { stargazers_count, forks_count } = json;
+        this.setState({
+          githubInfo: {
+            stars: stargazers_count,
+            forks: forks_count,
+          },
+        });
+      });
+  }
 
   render() {
     const { children, location } = this.props;
+    const { githubInfo } = this.state;
 
     return (
       <StaticQuery
@@ -45,7 +66,7 @@ class Layout extends Component {
               {location && nav && <Header location={location} navLinks={nav} />} <Social />
               <Email />
               {children}
-              <Footer />
+              <Footer githubInfo={githubInfo} />
             </div>
           </div>
         )}
