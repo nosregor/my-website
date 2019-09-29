@@ -5,14 +5,16 @@ import Layout from '../components/layout';
 import styled from 'styled-components';
 import { theme, mixins, media, Main } from '../styles';
 
+const { colors, fonts } = theme;
+
 const MainContainer = styled(Main)`
   ${mixins.flexCenter};
   flex-direction: column;
   height: 100vh !important;
 `;
 const Title = styled.h1`
-  color: ${theme.colors.green};
-  font-family: ${theme.fonts.Avenir};
+  color: ${colors.green};
+  font-family: ${fonts.Avenir};
   font-size: 20vw;
   line-height: 1;
   @media screen and (min-width: 1200px) {

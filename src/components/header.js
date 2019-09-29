@@ -14,12 +14,14 @@ import { IconLogoSmall } from './icons';
 import styled from 'styled-components';
 import { theme, mixins, media, Nav } from '../styles';
 
+const { colors, fontSizes, fonts } = theme;
+
 const HeaderContainer = styled.header`
   ${mixins.flexBetween};
   position: fixed;
   top: 0;
   padding: 0px 50px;
-  background-color: ${theme.colors.white};
+  background-color: ${colors.white};
   transition: ${theme.transition};
   z-index: 11;
 
@@ -31,7 +33,7 @@ const HeaderContainer = styled.header`
   height: ${props =>
     props.scrollDirection === 'none' ? theme.headerHeight : theme.headerScrollHeight};
   box-shadow: ${props =>
-    props.scrollDirection === 'up' ? `0 2px 4px ${theme.colors.shadowNavy}` : 'none'};
+    props.scrollDirection === 'up' ? `0 2px 4px ${colors.shadowNavy}` : 'none'};
   transform: translateY(
     ${props => (props.scrollDirection === 'down' ? `-${theme.headerScrollHeight}` : '0px')}
   );
@@ -42,9 +44,9 @@ const HeaderContainer = styled.header`
 
 const Navbar = styled(Nav)`
   ${mixins.flexBetween};
-  font-family: ${theme.fonts.AvenirSemiBold};
+  font-family: ${fonts.AvenirSemiBold};
   width: 100%;
-  color: ${theme.colors.black};
+  color: ${colors.black};
   // counter-reset: item 0;
   position: relative;
   z-index: 12;
@@ -53,12 +55,12 @@ const Logo = styled.div`
   ${mixins.flexCenter};
 `;
 const LogoLink = styled(Link)`
-  color: ${theme.colors.green};
+  color: ${colors.green};
   width: 42px;
   height: 42px;
   &:hover {
     svg {
-      fill: ${theme.colors.transGreen};
+      fill: ${colors.transGreen};
     }
   }
   svg {
@@ -89,7 +91,7 @@ const HamburgerBox = styled.div`
   height: 24px;
 `;
 const HamburgerInner = styled.div`
-  background-color: ${theme.colors.green};
+  background-color: ${colors.green};
   position: absolute;
   width: ${theme.hamburgerWidth}px;
   height: 2px;
@@ -108,7 +110,7 @@ const HamburgerInner = styled.div`
   &:after {
     content: '';
     display: block;
-    background-color: ${theme.colors.green};
+    background-color: ${colors.green};
     position: absolute;
     left: auto;
     right: 0;
@@ -143,13 +145,13 @@ const NavList = styled.ol`
 const NavListItem = styled.li`
   margin: 0 10px;
   position: relative;
-  font-size: ${theme.fontSizes.smallish};
+  font-size: ${fontSizes.smallish};
   // counter-increment: item 1;
   &:before {
     // content: '0' counter(item) '.';
     text-align: right;
-    color: ${theme.colors.green};
-    font-size: ${theme.fontSizes.xsmall};
+    color: ${colors.green};
+    font-size: ${fontSizes.xsmall};
   }
 `;
 const NavLink = styled(AnchorLink)`
@@ -160,11 +162,11 @@ const ResumeLink = styled.a`
   ${mixins.smallButton};
   margin-left: 10px;
   padding: 10px 15px 10px;
-  font-size: ${theme.fontSizes.smallish};
+  font-size: ${fontSizes.smallish};
   &:hover,
   &:active,
   &:focus {
-    color: ${theme.colors.green};
+    color: ${colors.lightblue};
   }
 `;
 

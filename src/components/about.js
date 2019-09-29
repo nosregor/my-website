@@ -5,6 +5,8 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 import { theme, mixins, media, Section, Heading } from '../styles';
 
+const { colors, fontSizes, fonts } = theme;
+
 const AboutContainer = styled(Section)`
   position: relative;
 `;
@@ -33,15 +35,15 @@ const Skill = styled.li`
   position: relative;
   margin-bottom: 10px;
   padding-left: 20px;
-  font-family: ${theme.fonts.Avenir};
-  font-size: ${theme.fontSizes.smallish};
-  // color: ${theme.colors.slate};
+  font-family: ${fonts.Avenir};
+  font-size: ${fontSizes.smallish};
+  // color: ${colors.slate};
   &:before {
     content: '▹';
     position: absolute;
     left: 0;
-    color: ${theme.colors.green};
-    font-size: ${theme.fontSizes.small};
+    color: ${colors.green};
+    font-size: ${fontSizes.small};
     line-height: 12px;
   }
 `;
@@ -51,7 +53,7 @@ const PicContainer = styled.div`
   max-width: 300px;
   margin-left: 60px;
   border-radius: ${theme.borderRadius};
-  background-color: ${theme.colors.green};
+  background-color: ${colors.green};
 
   ${media.tablet`margin: 60px auto 0;`};
   ${media.phablet`width: 70%;`};

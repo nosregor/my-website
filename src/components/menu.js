@@ -7,6 +7,8 @@ import resume from '../../static/resume.pdf';
 import styled from 'styled-components';
 import { theme, mixins, media, Nav } from '../styles';
 
+const { colors, fontSizes, fonts } = theme;
+
 const MenuContainer = styled.div`
   position: fixed;
   top: 0;
@@ -25,15 +27,15 @@ const MenuContainer = styled.div`
 const Sidebar = styled.div`
   ${mixins.flexCenter};
   flex-direction: column;
-  background-color: ${theme.colors.white};
+  background-color: ${colors.white};
   padding: 50px;
   width: 50vw;
   height: 100%;
   position: relative;
   right: 0;
   margin-left: auto;
-  font-family: ${theme.fonts.Avenir};
-  box-shadow: -2px 0px 4px ${theme.colors.transNavy};
+  font-family: ${fonts.Avenir};
+  box-shadow: -2px 0px 4px ${colors.transNavy};
   ${media.thone`padding: 25px;`};
   ${media.phablet`width: 75vw;`};
   ${media.tiny`padding: 10px;`};
@@ -49,20 +51,20 @@ const NavList = styled.ol`
 const NavListItem = styled.li`
   margin: 0 auto 20px;
   position: relative;
-  font-size: ${theme.fontSizes.large};
+  font-size: ${fontSizes.large};
   // counter-increment: item 1;
   ${media.thone`
   margin: 0 auto 10px;
-  font-size: ${theme.fontSizes.medium};
+  font-size: ${fontSizes.medium};
 `};
   ${media.tiny`
-  font-size: ${theme.fontSizes.smallish};
+  font-size: ${fontSizes.smallish};
 `};
   &:before {
     display: block;
     // content: '0' counter(item) '.';
-    color: ${theme.colors.green};
-    font-size: ${theme.fontSizes.small};
+    color: ${colors.green};
+    font-size: ${fontSizes.small};
     margin-bottom: 5px;
   }
 `;

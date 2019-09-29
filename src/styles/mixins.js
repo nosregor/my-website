@@ -2,6 +2,8 @@ import { css } from 'styled-components';
 import theme from './theme';
 import media from './media';
 
+const { colors, fontSizes, fonts } = theme;
+
 const mixins = {
   flexCenter: css`
     display: flex;
@@ -28,12 +30,12 @@ const mixins = {
     transition: ${theme.transition};
     cursor: pointer;
     &:focus {
-      outline-color: ${theme.colors.blue};
+      outline-color: ${colors.blue};
     }
     &:hover,
     &:active,
     &:focus {
-      color: ${theme.colors.green};
+      color: ${colors.green};
       outline: 0;
     }
   `,
@@ -45,11 +47,11 @@ const mixins = {
     position: relative;
     transition: ${theme.transition};
     cursor: pointer;
-    color: ${theme.colors.green};
+    color: ${colors.green};
     &:hover,
     &:focus,
     &:active {
-      color: ${theme.colors.green};
+      color: ${colors.green};
       outline: 0;
       &:after {
         width: 100%;
@@ -63,19 +65,19 @@ const mixins = {
       position: relative;
       bottom: 0.37em;
       opacity: 0;
-      background-color: ${theme.colors.green};
+      background-color: ${colors.green};
       transition: ${theme.transition};
     }
   `,
 
   smallButton: css`
-    color: ${theme.colors.green};
+    color: ${colors.green};
     background-color: transparent;
-    border: 1px solid ${theme.colors.green};
+    border: 1px solid ${colors.green};
     border-radius: ${theme.borderRadius};
     padding: 12px 17px;
-    font-size: ${theme.fontSizes.smallish};
-    font-family: ${theme.fonts.SFMono};
+    font-size: ${fontSizes.smallish};
+    font-family: ${fonts.SFMono};
     line-height: 1;
     text-decoration: none;
     cursor: pointer;
@@ -83,7 +85,7 @@ const mixins = {
     &:hover,
     &:focus,
     &:active {
-      background-color: ${theme.colors.transGreen};
+      background-color: ${colors.transGreen};
     }
     &:after {
       display: none !important;
@@ -91,13 +93,13 @@ const mixins = {
   `,
 
   bigButton: css`
-    color: ${theme.colors.green};
+    color: ${colors.green};
     background-color: transparent;
-    border: 1px solid ${theme.colors.green};
+    border: 1px solid ${colors.green};
     border-radius: ${theme.borderRadius};
     padding: 18px 23px;
-    font-size: ${theme.fontSizes.small};
-    font-family: ${theme.fonts.Avenir};
+    font-size: ${fontSizes.small};
+    font-family: ${fonts.Avenir};
     line-height: 1;
     text-decoration: none;
     cursor: pointer;
@@ -105,7 +107,7 @@ const mixins = {
     &:hover,
     &:focus,
     &:active {
-      background-color: ${theme.colors.transGreen};
+      background-color: ${colors.transGreen};
     }
     &:after {
       display: none !important;

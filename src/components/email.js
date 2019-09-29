@@ -4,6 +4,8 @@ import { email } from '../config';
 import styled from 'styled-components';
 import { theme, media } from '../styles';
 
+const { colors, fontSizes, fonts } = theme;
+
 const EmailContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -21,13 +23,13 @@ const EmailContainer = styled.div`
     content: '';
     height: 90px;
     width: 1px;
-    background-color: ${theme.colors.lightSlate};
+    background-color: ${colors.lightSlate};
     display: block;
   }
 `;
 const EmailLink = styled.a`
-  font-family: ${theme.fonts.SFMono};
-  font-size: ${theme.fontSizes.xsmall};
+  font-family: ${fonts.SFMono};
+  font-size: ${fontSizes.xsmall};
   letter-spacing: 0.5px;
   writing-mode: vertical-rl;
   margin: 20px auto;

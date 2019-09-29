@@ -1,7 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import theme from './theme';
 import media from './media';
-
 import {
   BrandonWOFF2,
   BrandonBoldWOFF2,
@@ -10,6 +9,8 @@ import {
   AvenirMediumWOFF2,
   AvenirSemiBoldWOFF2,
 } from './fonts';
+
+const { colors, fontSizes, fonts } = theme;
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -73,12 +74,12 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    background-color: ${theme.colors.white};
-    color: ${theme.colors.black};
+    background-color: ${colors.white};
+    color: ${colors.black};
     line-height: 1.25;
-    font-family: ${theme.fonts.Avenir};
-    font-size: ${theme.fontSizes.xlarge};
-    ${media.phablet`font-size: ${theme.fontSizes.large};`}
+    font-family: ${fonts.Avenir};
+    font-size: ${fontSizes.xlarge};
+    ${media.phablet`font-size: ${fontSizes.large};`}
 
     &.blur {
       #root > .container > * {
@@ -92,7 +93,7 @@ const GlobalStyle = createGlobalStyle`
 
 
   ::selection {
-    background-color: ${theme.colors.highlight};
+    background-color: ${colors.highlight};
     // background-color: rgba(76, 87, 114, 0.5);
   }
 
@@ -102,7 +103,7 @@ const GlobalStyle = createGlobalStyle`
   h4,
   h5 {
     font-weight: 600;
-    color: ${theme.colors.dark};
+    color: ${colors.dark};
     margin: 0 0 10px 0;
   }
 
@@ -127,9 +128,10 @@ const GlobalStyle = createGlobalStyle`
     position: relative;
     transition: ${theme.transition};
     cursor: pointer;
+    
     &:hover,
     &:focus {
-      color: ${theme.colors.green};
+      color: ${colors.green};
       outline: 0;
     }
   }
@@ -147,7 +149,7 @@ const GlobalStyle = createGlobalStyle`
     border-radius: 0;
     &:focus,
     &:active {
-      outline-color: ${theme.colors.blue};
+      outline-color: ${colors.blue};
     }
   }
   input, textarea {

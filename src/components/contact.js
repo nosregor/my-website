@@ -6,6 +6,8 @@ import { email } from '../config';
 import styled from 'styled-components';
 import { theme, mixins, media, Section, Heading } from '../styles';
 
+const { colors, fontSizes, fonts } = theme;
+
 const ContactContainer = styled(Section)`
   text-align: center;
   max-width: 600px;
@@ -16,24 +18,24 @@ const ContactContainer = styled(Section)`
 `;
 const GreenHeading = styled(Heading)`
   display: block;
-  color: ${theme.colors.green};
-  font-size: ${theme.fontSizes.medium};
-  font-family: ${theme.fonts.SFMono};
+  color: ${colors.green};
+  font-size: ${fontSizes.medium};
+  font-family: ${fonts.SFMono};
   font-weight: normal;
   margin-bottom: 20px;
   justify-content: center;
-  ${media.desktop`font-size: ${theme.fontSizes.small};`};
+  ${media.desktop`font-size: ${fontSizes.small};`};
   &:before {
     bottom: 0;
-    font-size: ${theme.fontSizes.small};
-    ${media.desktop`font-size: ${theme.fontSizes.smallish};`};
+    font-size: ${fontSizes.small};
+    ${media.desktop`font-size: ${fontSizes.smallish};`};
   }
   &:after {
     display: none;
   }
 `;
 const Title = styled.h4`
-  font-family: ${theme.fonts.AvenirSemiBold};
+  font-family: ${fonts.AvenirSemiBold};
   margin: 0 0 20px;
   font-size: 60px;
   ${media.desktop`font-size: 50px;`};

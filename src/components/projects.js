@@ -6,6 +6,8 @@ import { theme, mixins, media, Section, Button } from '../styles';
 
 import { IconGithub, IconExternal, IconFolder } from './icons';
 
+const { colors, fontSizes, fonts } = theme;
+
 const ProjectsContainer = styled(Section)`
   ${mixins.flexCenter};
   flex-direction: column;
@@ -16,7 +18,7 @@ const ProjectsContainer = styled(Section)`
 `;
 const ProjectsTitle = styled.h4`
   margin: 0 auto 50px;
-  font-size: ${theme.fontSizes.h3};
+  font-size: ${fontSizes.h3};
   ${media.tablet`font-size: 24px;`};
   a {
     display: block;
@@ -34,23 +36,23 @@ const ProjectInner = styled.div`
   flex-direction: column;
   align-items: flex-start;
   position: relative;
-  border: 1px solid ${theme.colors.green};
+  border: 1px solid ${colors.green};
   padding: 25px;
   height: 100%;
   border-radius: ${theme.borderRadius};
   transition: ${theme.transition};
-  // background-color: ${theme.colors.lightNavy};
+  // background-color: ${colors.lightNavy};
 }
 `;
 const Project = styled.div`
   transition: ${theme.transition};
   &:hover,
-  // background-color: ${theme.colors.transGreen};
+  // background-color: ${colors.transGreen};
   &:focus {
     ${ProjectInner} {
       transform: translateY(-5px);
-      box-shadow: 0 2px 4px ${theme.colors.shadowNavy};
-      box-shadow: 0 19px 38px ${theme.colors.darkestNavy} 0 15px 12px ${theme.colors.shadowNavy};
+      box-shadow: 0 2px 4px ${colors.shadowNavy};
+      box-shadow: 0 19px 38px ${colors.darkestNavy} 0 15px 12px ${colors.shadowNavy};
     }
   }
 `;
@@ -61,7 +63,7 @@ const ProjectHeader = styled.div`
   margin-bottom: 30px;
 `;
 const Folder = styled.div`
-  color: ${theme.colors.green};
+  color: ${colors.green};
   margin-bottom: 30px;
   svg {
     width: 40px;
@@ -98,11 +100,11 @@ const TechList = styled.ul`
   flex-wrap: wrap;
   margin-top: 20px;
   li {
-    font-family: ${theme.fonts.SFMono};
-    font-size: ${theme.fontSizes.xsmall};
-    // color: ${theme.colors.lightSlate};
-    // color: ${theme.colors.lightGrey};
-    // color: ${theme.colors.green};
+    font-family: ${fonts.SFMono};
+    font-size: ${fontSizes.xsmall};
+    // color: ${colors.lightSlate};
+    // color: ${colors.lightGrey};
+    // color: ${colors.green};
     line-height: 2;
     margin-right: 15px;
     &:last-of-type {

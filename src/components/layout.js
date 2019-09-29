@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 
-import { nav } from '../config';
-
 import Head from '../components/head';
 import Header from '../components/header';
 import Social from '../components/social';
 import Email from '../components/email';
 import Footer from '../components/footer';
+
+import { nav } from '../config';
 
 import { GlobalStyle } from '../styles';
 

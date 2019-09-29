@@ -1,5 +1,6 @@
 const theme = {
   colors: {
+    // dark: '#2d354c',
     dark: '#000007',
     darkestNavy: '#01050b',
     darkNavy: '#020c1b',
@@ -14,6 +15,7 @@ const theme = {
     slate: '#8898AA',
     lightSlate: '#a8b2d1',
     lightestSlate: '#ccd6f6',
+    lightBlue: '#32c3ff',
     offWhite: '#dce7ff',
     // white: '#e6f1ff',
     pink: '#FF647F',
@@ -26,6 +28,7 @@ const theme = {
     // green: '#64ffda',
     // green: '#6CCB93',
     green: '#4AA57F',
+    transLightBlue: 'rgb(0, 180, 254)',
     transGreen: 'rgba(100, 255, 218, 0.1)',
     transNavy: 'rgba(2, 12, 27, 0.5)',
     shadowNavy: 'rgba(2, 12, 27, 0.9)',
