@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+/* eslint-disable react/prop-types */
+import React from 'react';
 import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 
@@ -68,33 +69,30 @@ const Avatar = styled(Img)`
   // border-radius: ${theme.borderRadius};
   // transition: ${theme.transition};
 `;
-class About extends Component {
-  static propTypes = {
-    data: PropTypes.array.isRequired,
-  };
+const About = ({ data }) => {
+  const { frontmatter, html } = data[0].node;
+  const { title, skills, avatar } = frontmatter;
 
-  render() {
-    const { data } = this.props;
-    const { frontmatter, html } = data[0].node;
-    const { title, skills, avatar } = frontmatter;
+  return (
+    <AboutContainer id="about">
+      <Heading>{title}</Heading>
+      <FlexContainer>
+        <ContentContainer>
+          <div dangerouslySetInnerHTML={{ __html: html }} />
+          <SkillsContainer>
+            {skills && skills.map((skill, i) => <Skill key={i}>{skill}</Skill>)}
+          </SkillsContainer>
+        </ContentContainer>
+        <PicContainer>
+          <Avatar fluid={avatar.childImageSharp.fluid} alt="Avatar" />
+        </PicContainer>
+      </FlexContainer>
+    </AboutContainer>
+  );
+};
 
-    return (
-      <AboutContainer id="about">
-        <Heading>{title}</Heading>
-        <FlexContainer>
-          <ContentContainer>
-            <div dangerouslySetInnerHTML={{ __html: html }} />
-            <SkillsContainer>
-              {skills && skills.map((skill, i) => <Skill key={i}>{skill}</Skill>)}
-            </SkillsContainer>
-          </ContentContainer>
-          <PicContainer>
-            <Avatar fluid={avatar.childImageSharp.fluid} alt="Avatar" />
-          </PicContainer>
-        </FlexContainer>
-      </AboutContainer>
-    );
-  }
-}
+About.propTypes = {
+  data: PropTypes.array.isRequired,
+};
 
 export default About;

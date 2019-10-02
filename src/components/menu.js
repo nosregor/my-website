@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+/* eslint-disable react/prop-types */
+import React from 'react';
 import PropTypes from 'prop-types';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { navLinks } from '../config';
@@ -80,14 +81,8 @@ const ResumeLink = styled.a`
   width: max-content;
 `;
 
-class Menu extends Component {
-  static propTypes = {
-    menuOpen: PropTypes.bool.isRequired,
-    toggleMenu: PropTypes.func.isRequired,
-  };
-
-  handleMenuClick = e => {
-    const { toggleMenu } = this.props;
+const Menu = ({ menuOpen, toggleMenu }) => {
+  const handleMenuClick = e => {
     const target = e.target;
     const isLink = target.hasAttribute('href');
     const isNotMenu = target.classList && target.classList[0].includes('MenuContainer');
@@ -97,33 +92,33 @@ class Menu extends Component {
     }
   };
 
-  render() {
-    const { menuOpen } = this.props;
+  return (
+    <MenuContainer
+      menuOpen={menuOpen}
+      onClick={handleMenuClick}
+      aria-hidden={!menuOpen}
+      tabIndex={menuOpen ? 1 : -1}>
+      <Sidebar>
+        <NavLinks>
+          <NavList>
+            {navLinks &&
+              navLinks.map(({ url, name }, i) => (
+                <NavListItem key={i}>
+                  <NavLink href={url}>{name}</NavLink>
+                </NavListItem>
+              ))}
+          </NavList>
+          <ResumeLink href="/resume.pdf" target="_blank" rel="nofollow noopener noreferrer">
+            Resume
+          </ResumeLink>
+        </NavLinks>
+      </Sidebar>
+    </MenuContainer>
+  );
+};
 
-    return (
-      <MenuContainer
-        menuOpen={menuOpen}
-        onClick={this.handleMenuClick}
-        aria-hidden={!menuOpen}
-        tabIndex={menuOpen ? 1 : -1}>
-        <Sidebar>
-          <NavLinks>
-            <NavList>
-              {navLinks &&
-                navLinks.map((link, i) => (
-                  <NavListItem key={i}>
-                    <NavLink href={link.url}>{link.name}</NavLink>
-                  </NavListItem>
-                ))}
-            </NavList>
-            <ResumeLink href="/resume.pdf" target="_blank" rel="nofollow noopener noreferrer">
-              Resume
-            </ResumeLink>
-          </NavLinks>
-        </Sidebar>
-      </MenuContainer>
-    );
-  }
-}
-
+Menu.protoTypes = {
+  menuOpen: PropTypes.bool.isRequired,
+  toggleMenu: PropTypes.func.isRequired,
+};
 export default Menu;

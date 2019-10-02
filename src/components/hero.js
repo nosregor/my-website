@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+/* eslint-disable react/prop-types */
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { email } from '../config';
@@ -62,29 +63,25 @@ const EmailLink = styled.a`
   margin-top: 50px;
 `;
 
-class Hero extends Component {
-  static propTypes = {
-    data: PropTypes.array.isRequired,
-  };
+const Hero = ({ data }) => {
+  const { frontmatter, html } = data[0].node;
 
-  render() {
-    const { data } = this.props;
-    const { frontmatter, html } = data[0].node;
+  return (
+    <HeroContainer>
+      <Hi>{frontmatter.title}</Hi>
+      <Name>{frontmatter.name}.</Name>
+      <Subtitle>{frontmatter.subtitle}</Subtitle>
+      <Blurb dangerouslySetInnerHTML={{ __html: html }} />
+      <div>
+        <EmailLink href={`mailto:${email}`} className="git">
+          Get In Touch
+        </EmailLink>
+      </div>
+    </HeroContainer>
+  );
+};
 
-    return (
-      <HeroContainer>
-        <Hi>{frontmatter.title}</Hi>
-        <Name>{frontmatter.name}.</Name>
-        <Subtitle>{frontmatter.subtitle}</Subtitle>
-        <Blurb dangerouslySetInnerHTML={{ __html: html }} />
-        <div>
-          <EmailLink href={`mailto:${email}`} className="git">
-            Get In Touch
-          </EmailLink>
-        </div>
-      </HeroContainer>
-    );
-  }
-}
-
+Hero.propTypes = {
+  data: PropTypes.array.isRequired,
+};
 export default Hero;

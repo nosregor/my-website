@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+/* eslint-disable react/prop-types */
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { email } from '../config';
@@ -18,7 +19,7 @@ const ContactContainer = styled(Section)`
 `;
 const GreenHeading = styled(Heading)`
   display: block;
-  color: ${colors.green};
+  color: ${colors.lightBlue};
   font-size: ${fontSizes.medium};
   font-family: ${fonts.SFMono};
   font-weight: normal;
@@ -46,27 +47,23 @@ const EmailLink = styled.a`
   margin-top: 50px;
 `;
 
-class Contact extends Component {
-  static propTypes = {
-    data: PropTypes.array.isRequired,
-  };
+const Contact = ({ data }) => {
+  const { frontmatter, html } = data[0].node;
+  const { title } = frontmatter;
 
-  render() {
-    const { data } = this.props;
-    const { frontmatter, html } = data[0].node;
-    const { title } = frontmatter;
+  return (
+    <ContactContainer id="contact">
+      <GreenHeading>What&apos;s Next?</GreenHeading>
+      <Title>{title}</Title>
+      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <EmailLink href={`mailto:${email}`} target="_blank" rel="nofollow noopener noreferrer">
+        Say Hello
+      </EmailLink>
+    </ContactContainer>
+  );
+};
 
-    return (
-      <ContactContainer id="contact">
-        <GreenHeading>What&apos;s Next?</GreenHeading>
-        <Title>{title}</Title>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
-        <EmailLink href={`mailto:${email}`} target="_blank" rel="nofollow noopener noreferrer">
-          Say Hello
-        </EmailLink>
-      </ContactContainer>
-    );
-  }
-}
-
+Contact.propTypes = {
+  data: PropTypes.array.isRequired,
+};
 export default Contact;

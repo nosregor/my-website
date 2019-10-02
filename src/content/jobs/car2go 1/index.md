@@ -1,7 +1,7 @@
 ---
-date: '2013-12-01'
+date: '2'
 title: 'Data Scientist'
-company: 'car2go 1'
+company: 'car2go 1/2'
 location: 'Berlin'
 range: 'May 2013 - December 2017'
 url: 'https://www.car2go.com/DE/en/'

@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+/* eslint-disable react/prop-types */
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import styled from 'styled-components';
@@ -37,7 +38,7 @@ const ProjectInner = styled.div`
   flex-direction: column;
   align-items: flex-start;
   position: relative;
-  border: 1px solid ${colors.green};
+  border: 1px solid ${colors.lightBlue};
   padding: 25px;
   height: 100%;
   border-radius: ${theme.borderRadius};
@@ -64,7 +65,7 @@ const ProjectHeader = styled.div`
   margin-bottom: 30px;
 `;
 const Folder = styled.div`
-  color: ${colors.green};
+  color: ${colors.lightBlue};
   margin-bottom: 30px;
   svg {
     width: 40px;
@@ -84,7 +85,7 @@ const IconLink = styled.a`
 const ProjectName = styled.h5`
   margin: 0 0 10px;
   font-size: ${theme.fontSizes.xxlarge};
-  color: ${theme.colors.lightestSlate};
+  color: ${theme.colors.darkNavy};
 `;
 const ProjectLink = styled.a``;
 const ProjectDescription = styled.div`
@@ -117,101 +118,92 @@ const ShowMoreButton = styled(Button)`
   margin: 100px auto 0;
 `;
 
-class Projects extends Component {
-  static propTypes = {
-    data: PropTypes.array.isRequired,
-  };
+const Projects = ({ data }) => {
+  const [showMore, setShowMore] = useState(false);
+  const GRID_LIMIT = 3;
+  const projects = data.filter(({ node }) => node.frontmatter.show === 'true');
+  const firstThree = projects.slice(0, GRID_LIMIT);
+  const projectsToShow = showMore ? projects : firstThree;
 
-  state = {
-    showMore: false,
-  };
+  return (
+    <ProjectsContainer>
+      <ProjectsTitle>Other Projects</ProjectsTitle>
 
-  showMoreToggle = () => this.setState({ showMore: !this.state.showMore });
-
-  render() {
-    const GRID_LIMIT = 3;
-    const { showMore } = this.state;
-    const { data } = this.props;
-    const projects = data.filter(({ node }) => node.frontmatter.show === 'true');
-    const firstThree = projects.slice(0, GRID_LIMIT);
-    const projectsToShow = showMore ? projects : firstThree;
-
-    return (
-      <ProjectsContainer>
-        <ProjectsTitle>Other Projects</ProjectsTitle>
-
-        <ProjectsGrid>
-          {projectsToShow &&
-            projectsToShow.map(({ node }, i) => {
-              const { frontmatter, html } = node;
-              const { github, external, title, tech } = frontmatter;
-              return (
-                <Project
-                  key={i}
-                  style={{
-                    transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms`,
-                  }}>
-                  <ProjectInner>
-                    <ProjectTop>
-                      <ProjectHeader>
-                        <Folder>
-                          <IconFolder />
-                        </Folder>
-                        <Links>
-                          {github && (
-                            <IconLink
-                              href={github}
-                              target="_blank"
-                              rel="nofollow noopener noreferrer"
-                              aria-label="Github Link">
-                              <IconGithub />
-                            </IconLink>
-                          )}
-                          {external && (
-                            <IconLink
-                              href={external}
-                              target="_blank"
-                              rel="nofollow noopener noreferrer"
-                              aria-label="External Link">
-                              <IconExternal />
-                            </IconLink>
-                          )}
-                        </Links>
-                      </ProjectHeader>
-                      <ProjectName>
-                        {external ? (
-                          <ProjectLink
+      <ProjectsGrid>
+        {projectsToShow &&
+          projectsToShow.map(({ node }, i) => {
+            const { frontmatter, html } = node;
+            const { github, external, title, tech } = frontmatter;
+            return (
+              <Project
+                key={i}
+                style={{
+                  transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms`,
+                }}>
+                <ProjectInner>
+                  <ProjectTop>
+                    <ProjectHeader>
+                      <Folder>
+                        <IconFolder />
+                      </Folder>
+                      <Links>
+                        {github && (
+                          <IconLink
+                            href={github}
+                            target="_blank"
+                            rel="nofollow noopener noreferrer"
+                            aria-label="Github Link">
+                            <IconGithub />
+                          </IconLink>
+                        )}
+                        {external && (
+                          <IconLink
                             href={external}
                             target="_blank"
                             rel="nofollow noopener noreferrer"
-                            aria-label="Visit Website">
-                            {title}
-                          </ProjectLink>
-                        ) : (
-                          title
+                            aria-label="External Link">
+                            <IconExternal />
+                          </IconLink>
                         )}
-                      </ProjectName>
-                      <ProjectDescription dangerouslySetInnerHTML={{ __html: html }} />
-                    </ProjectTop>
-                    <ProjectBottom>
-                      <TechList>
-                        {tech.map((tech, i) => (
-                          <li key={i}>{tech}</li>
-                        ))}
-                      </TechList>
-                    </ProjectBottom>
-                  </ProjectInner>
-                </Project>
-              );
-            })}
-        </ProjectsGrid>
+                      </Links>
+                    </ProjectHeader>
+                    <ProjectName>
+                      {external ? (
+                        <ProjectLink
+                          href={external}
+                          target="_blank"
+                          rel="nofollow noopener noreferrer"
+                          aria-label="Visit Website">
+                          {title}
+                        </ProjectLink>
+                      ) : (
+                        title
+                      )}
+                    </ProjectName>
+                    <ProjectDescription dangerouslySetInnerHTML={{ __html: html }} />
+                  </ProjectTop>
+                  <ProjectBottom>
+                    <TechList>
+                      {tech.map((tech, i) => (
+                        <li key={i}>{tech}</li>
+                      ))}
+                    </TechList>
+                  </ProjectBottom>
+                </ProjectInner>
+              </Project>
+            );
+          })}
+      </ProjectsGrid>
 
-        <ShowMoreButton onClick={this.showMoreToggle}>
-          {showMore ? 'Fewer' : 'More'} Projects
-        </ShowMoreButton>
-      </ProjectsContainer>
-    );
-  }
-}
+      <ShowMoreButton onClick={() => setShowMore(!showMore)}>
+        {showMore ? 'Fewer' : 'More'} Projects
+      </ShowMoreButton>
+    </ProjectsContainer>
+  );
+};
+
+Projects.propTypes = {
+  data: PropTypes.array.isRequired,
+};
 
 export default Projects;

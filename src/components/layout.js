@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+/* eslint-disable react/prop-types */
+import React, { useState, useEffect } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 
@@ -10,67 +11,57 @@ import Footer from './footer';
 
 import { GlobalStyle } from '../styles';
 
-class Layout extends Component {
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-  };
+const Layout = ({ children }) => {
+  const [githubInfo, setGithubInfo] = useState({
+    stars: null,
+    forks: null,
+  });
 
-  state = {
-    isLoading: true,
-    githubInfo: {
-      stars: null,
-      forks: null,
-    },
-  };
-
-  componentDidMount() {
+  useEffect(() => {
     fetch('https://api.github.com/repos/nosregor/my-website')
       .then(response => response.json())
       .then(json => {
         const { stargazers_count, forks_count } = json;
-        this.setState({
-          githubInfo: {
-            stars: stargazers_count,
-            forks: forks_count,
-          },
+        setGithubInfo({
+          stars: stargazers_count,
+          forks: forks_count,
         });
       });
-  }
+  }, []);
 
-  render() {
-    const { children } = this.props;
-    const { githubInfo } = this.state;
-
-    return (
-      <StaticQuery
-        query={graphql`
-          query LayoutQuery {
-            site {
-              siteMetadata {
-                title
-                siteUrl
-                description
-              }
+  return (
+    <StaticQuery
+      query={graphql`
+        query LayoutQuery {
+          site {
+            siteMetadata {
+              title
+              siteUrl
+              description
             }
           }
-        `}
-        render={({ site }) => (
-          <div id="root">
-            <Head metaData={site.siteMetadata} />
-            <GlobalStyle />
+        }
+      `}
+      render={({ site }) => (
+        <div id="root">
+          <Head metaData={site.siteMetadata} />
+          <GlobalStyle />
 
-            <div className="container">
-              <Nav />
-              <Social />
-              <Email />
-              {children}
-              <Footer githubInfo={githubInfo} />
-            </div>
+          <div className="container">
+            <Nav />
+            <Social />
+            <Email />
+            {children}
+            <Footer githubInfo={githubInfo} />
           </div>
-        )}
-      />
-    );
-  }
-}
+        </div>
+      )}
+    />
+  );
+};
+
+Layout.protoTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default Layout;

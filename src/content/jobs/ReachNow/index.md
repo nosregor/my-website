@@ -1,5 +1,5 @@
 ---
-date: '2019-01-01'
+date: '5'
 title: 'Software Engineer'
 company: 'ReachNow'
 location: 'Berlin'

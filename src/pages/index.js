@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-// import Image from '../components/image';
 import Hero from '../components/hero';
 import About from '../components/about';
 import Jobs from '../components/jobs';
@@ -108,6 +107,7 @@ export const pageQuery = graphql`
             tech
             github
             external
+            show
           }
           html
         }

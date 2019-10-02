@@ -1,5 +1,5 @@
 ---
-date: '2018-10-01'
+date: '4'
 title: 'Web Development Teacher'
 company: 'Ironhack'
 location: 'Berlin'

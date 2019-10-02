@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 
@@ -14,9 +14,6 @@ const FeaturedContainer = styled(Section)`
   flex-direction: column;
   align-items: flex-start;
 `;
-const FeaturedGrid = styled.div`
-  position: relative;
-`;
 const ContentContainer = styled.div`
   position: relative;
   z-index: 2;
@@ -31,7 +28,7 @@ const ContentContainer = styled.div`
 const FeaturedLabel = styled.h4`
   font-size: ${fontSizes.smallish};
   font-weight: normal;
-  color: ${colors.green};
+  color: ${colors.lightBlue};
   font-family: ${fonts.SFMono};
   margin-top: 10px;
   padding-top: 0;
@@ -41,7 +38,7 @@ const ProjectName = styled.h5`
   font-size: 28px;
   font-weight: 600;
   margin: 0 0 20px;
-  color: ${colors.lightestSlate};
+  color: ${colors.darkNavy};
   ${media.tablet`font-size: 24px;`};
   a {
     ${media.tablet`display: block;`};
@@ -119,7 +116,7 @@ const ImgContainer = styled.div`
   position: relative;
   z-index: 1;
   border-radius: ${theme.borderRadius};
-  background-color: ${colors.green};
+  background-color: ${colors.lightBlue};
   border-radius: 2px;
   grid-column: 6 / -1;
   grid-row: 1 / -1;
@@ -196,77 +193,75 @@ const Project = styled.div`
   }
 `;
 
-class Featured extends Component {
-  static propTypes = {
-    data: PropTypes.array.isRequired,
-  };
-
-  render() {
-    const { data } = this.props;
-    return (
-      <FeaturedContainer id="projects">
-        <Heading>Some Things I&apos;ve Built</Heading>
-        <FeaturedGrid>
-          {data &&
-            data.map(({ node }, i) => {
-              const { frontmatter, html } = node;
-              const { external, title, tech, github, cover } = frontmatter;
-              return (
-                <Project key={i}>
-                  <ContentContainer>
-                    <FeaturedLabel>Featured Project</FeaturedLabel>
-                    <ProjectName>
-                      {external ? (
-                        <a
-                          href={external}
-                          target="_blank"
-                          rel="nofollow noopener noreferrer"
-                          aria-label="External Link">
-                          {title}
-                        </a>
-                      ) : (
-                        title
-                      )}
-                    </ProjectName>
-                    <ProjectDescription dangerouslySetInnerHTML={{ __html: html }} />
-                    {tech && (
-                      <TechList>
-                        {tech.map((tech, i) => (
-                          <li key={i}>{tech}</li>
-                        ))}
-                      </TechList>
+const Featured = ({ data }) => {
+  const featureProjects = data.filter(({ node }) => node.frontmatter.show === 'true');
+  return (
+    <FeaturedContainer id="projects">
+      <Heading>Some Things I&apos;ve Built</Heading>
+      <div>
+        {featureProjects &&
+          featureProjects.map(({ node }, i) => {
+            const { frontmatter, html } = node;
+            const { external, title, tech, github, cover } = frontmatter;
+            return (
+              <Project key={i}>
+                <ContentContainer>
+                  <FeaturedLabel>Featured Project</FeaturedLabel>
+                  <ProjectName>
+                    {external ? (
+                      <a
+                        href={external}
+                        target="_blank"
+                        rel="nofollow noopener noreferrer"
+                        aria-label="External Link">
+                        {title}
+                      </a>
+                    ) : (
+                      title
                     )}
-                    <Links>
-                      {github && (
-                        <a
-                          href={github}
-                          target="_blank"
-                          rel="nofollow noopener noreferrer"
-                          aria-label="Github Link">
-                          <IconGithub />
-                        </a>
-                      )}
-                      {external && (
-                        <a
-                          href={external}
-                          target="_blank"
-                          rel="nofollow noopener noreferrer"
-                          aria-label="External Link">
-                          <IconExternal />
-                        </a>
-                      )}
-                    </Links>
-                  </ContentContainer>
-                  <ImgContainer>
-                    <FeaturedImg fluid={cover.childImageSharp.fluid} />
-                  </ImgContainer>
-                </Project>
-              );
-            })}
-        </FeaturedGrid>
-      </FeaturedContainer>
-    );
-  }
-}
+                  </ProjectName>
+                  <ProjectDescription dangerouslySetInnerHTML={{ __html: html }} />
+                  {tech && (
+                    <TechList>
+                      {tech.map((tech, i) => (
+                        <li key={i}>{tech}</li>
+                      ))}
+                    </TechList>
+                  )}
+                  <Links>
+                    {github && (
+                      <a
+                        href={github}
+                        target="_blank"
+                        rel="nofollow noopener noreferrer"
+                        aria-label="Github Link">
+                        <IconGithub />
+                      </a>
+                    )}
+                    {external && (
+                      <a
+                        href={external}
+                        target="_blank"
+                        rel="nofollow noopener noreferrer"
+                        aria-label="External Link">
+                        <IconExternal />
+                      </a>
+                    )}
+                  </Links>
+                </ContentContainer>
+                <ImgContainer>
+                  <FeaturedImg fluid={cover.childImageSharp.fluid} />
+                </ImgContainer>
+              </Project>
+            );
+          })}
+      </div>
+    </FeaturedContainer>
+  );
+};
+
+Featured.propTypes = {
+  data: PropTypes.array.isRequired,
+};
 
 export default Featured;

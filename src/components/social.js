@@ -1,9 +1,6 @@
 import React from 'react';
-
 import { socialMedia } from '../config';
-
-import { IconGithub, IconLinkedin, IconCodepen, IconInstagram, IconTwitter } from './icons';
-
+import { FormattedIcon } from './icons';
 import styled from 'styled-components';
 import { theme, media } from '../styles';
 
@@ -14,7 +11,7 @@ const SocialContainer = styled.div`
   position: fixed;
   bottom: 0;
   left: 40px;
-  color: ${colors.lightSlate};
+  color: ${colors.dark};
   ${media.desktop`left: 25px;`};
   ${media.tablet`display: none;`};
 `;
@@ -39,8 +36,8 @@ const SocialItem = styled.li`
 const SocialLink = styled.a`
   padding: 10px;
   svg {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
   }
 `;
 
@@ -48,26 +45,14 @@ const Social = () => (
   <SocialContainer>
     <SocialItemList>
       {socialMedia &&
-        socialMedia.map((social, i) => (
+        socialMedia.map(({ name, url }, i) => (
           <SocialItem key={i}>
             <SocialLink
-              href={social.url}
+              href={url}
               target="_blank"
               rel="nofollow noopener noreferrer"
-              aria-label={social.name}>
-              {social.name === 'Github' ? (
-                <IconGithub />
-              ) : social.name === 'Linkedin' ? (
-                <IconLinkedin />
-              ) : social.name === 'Codepen' ? (
-                <IconCodepen />
-              ) : social.name === 'Instagram' ? (
-                <IconInstagram />
-              ) : social.name === 'Twitter' ? (
-                <IconTwitter />
-              ) : (
-                <IconGithub />
-              )}
+              aria-label={name}>
+              <FormattedIcon name={name} />
             </SocialLink>
           </SocialItem>
         ))}

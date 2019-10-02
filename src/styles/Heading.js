@@ -36,7 +36,7 @@ const Heading = styled.h3`
     width: 300px;
     background-color: ${colors.mediumGrey};
     position: relative;
-    top: -5px;
+    // top: -5px;
     margin-left: 20px;
 
     ${media.desktop`width: 200px`};

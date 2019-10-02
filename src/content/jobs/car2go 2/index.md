@@ -1,7 +1,7 @@
 ---
-date: '2017-01-01'
+date: '3'
 title: 'Software Engineer'
-company: 'car2go 2'
+company: 'car2go 2/2'
 location: 'Berlin'
 range: 'January 2017 - September 2018'
 url: 'https://www.car2go.com/DE/en/'

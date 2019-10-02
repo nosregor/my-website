@@ -1,5 +1,5 @@
 ---
-date: '2013-10-01'
+date: '1'
 title: 'Research Student'
 company: 'Daimler Mobility'
 location: 'Berlin'
