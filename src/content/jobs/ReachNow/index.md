@@ -3,7 +3,7 @@ date: '6'
 title: 'Software Engineer'
 company: 'ReachNow'
 location: 'Berlin'
-range: 'January 2019 - Present'
+range: 'January - October 2019'
 url: 'https://www.your-now.com/'
 ---
 

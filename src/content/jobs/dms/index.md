@@ -1,7 +1,7 @@
 ---
 date: '1'
 title: 'Research Student'
-company: 'Daimler Mobility'
+company: 'Daimler Mobility Services'
 location: 'Berlin'
 range: 'October 2013 - April 2014'
 url: 'https://www.car2go.com/DE/en/'
