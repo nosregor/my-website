@@ -1,6 +1,6 @@
 ---
-date: '2'
-title: 'Data Scientist & Software Engineer'
+date: '3'
+title: 'Data Scientist | Software Engineer'
 company: 'car2go'
 location: 'Berlin'
 range: 'May 2013 - September 2018'
@@ -15,4 +15,3 @@ url: 'https://www.car2go.com/DE/en/'
 - Implemented core features: stock control and e-commerce platform for order management
 - Improved the front-end ui using ES6 to ensure thoughtful and coherent user experiences
 - Designed and implemented a car2go “luncher” app to support organizational culture of car2go
-
