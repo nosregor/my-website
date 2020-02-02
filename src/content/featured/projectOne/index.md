@@ -1,9 +1,9 @@
 ---
-date: '2017-04-01'
-title: 'OctoSearch'
+date: '2020-01-01 '
+title: 'OctoDashboard'
 cover: './budapest.jpg'
-github: 'https://github.com/nosregor/octosearch'
-external: 'https://octosearch.now'
+github: 'https://github.com/nosregor/octodashboard'
+external: 'https://octodashboard.now'
 tech:
   - Next.js
   - Chart.js
@@ -11,4 +11,4 @@ tech:
 show: 'true'
 ---
 
-Searching for Github users featuring a nicer look at your GitHub profile and repo stats. Includes data visualizations of your top languages, starred repositories, and sort through your top repos by number of stars, forks, and size.
+A nicer look at your GitHub profile and repo stats. Includes data visualizations of your top languages, starred repositories, and sort through your top repos by number of stars, forks, and size.

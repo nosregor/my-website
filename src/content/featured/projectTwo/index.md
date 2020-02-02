@@ -1,5 +1,5 @@
 ---
-date: '2017-06-01'
+date: '2017-04-01'
 title: 'Featured Project Two'
 cover: './budapest.jpg'
 github: 'asdf'
