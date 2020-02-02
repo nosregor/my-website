@@ -3,7 +3,7 @@ date: '2020-01-01 '
 title: 'OctoDashboard'
 cover: './budapest.jpg'
 github: 'https://github.com/nosregor/octodashboard'
-external: 'https://octodashboard.now.sh/'
+external: 'https://octodashboard.now.sh'
 tech:
   - Next.js
   - Chart.js
