@@ -1,14 +1,14 @@
 ---
 date: '2017-04-01'
-title: 'Featured Project One'
+title: 'OctoSearch'
 cover: './budapest.jpg'
-github: 'asdf'
-external: 'asdfg'
+github: 'https://github.com/nosregor/octosearch'
+external: 'https://octosearch.now'
 tech:
-  - React
-  - Webpack
-  - Firebase
+  - Next.js
+  - Chart.js
+  - GitHub API
 show: 'true'
 ---
 
-Gluten-free you probably haven't heard of them jianbing pitchfork pabst. Kombucha occupy iPhone live-edge beard iceland freegan small batch before they sold out DIY marfa chillwave sustainable taiyaki bushwick
+Searching for Github users featuring a nicer look at your GitHub profile and repo stats. Includes data visualizations of your top languages, starred repositories, and sort through your top repos by number of stars, forks, and size.
